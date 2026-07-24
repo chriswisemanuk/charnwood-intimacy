@@ -16,7 +16,7 @@ export const conditions: ConditionPage[] = [
     title: 'Low Desire & Mismatched Libido',
     metaTitle: 'Low Libido & Mismatched Sex Drive Therapy | Charnwood Intimacy',
     metaDescription:
-      "Support for low sexual desire and mismatched libido, individually or as a couple. Confidential therapy in Loughborough and online across the UK.",
+      "Support for low sexual desire and mismatched libido, individually or as a couple. Confidential sex therapy in Loughborough and online across the UK.",
     heroKicker: 'Low Desire & Mismatched Libido',
     heroText:
       "Losing interest in sex, or wanting it far more or less than your partner, is one of the most common reasons people come to psychosexual therapy. It's rarely about one single cause, and it's never a sign that something is wrong with you.",
@@ -76,7 +76,7 @@ export const conditions: ConditionPage[] = [
     title: 'Couples & Intimacy Therapy',
     metaTitle: 'Couples & Intimacy Therapy | Charnwood Intimacy',
     metaDescription:
-      'Rebuild intimacy, communication and connection as a couple. Sex and relationship therapy in Loughborough and online, for all relationship structures.',
+      'Rebuild intimacy, communication and connection together. Sex therapy for couples in Loughborough and online, for all relationship structures.',
     heroKicker: 'Couples & Intimacy Therapy',
     heroText:
       'Sexual and intimacy difficulties rarely exist on their own, they usually sit inside a relationship. Couples and intimacy therapy gives you and your partner a structured, supported space to work through what’s happening together.',

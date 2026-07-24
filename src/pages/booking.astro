@@ -1,0 +1,364 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Squiggle from '../components/Squiggle.astro';
+import WaveDivider from '../components/WaveDivider.astro';
+import { WEB3FORMS_ACCESS_KEY, PHONE, PHONE_HREF, EMAIL, EMAIL_HREF } from '../consts';
+
+const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+const times = ['Morning', 'Afternoon', 'Evening'];
+---
+<BaseLayout
+  title="Book a Session | Charnwood Intimacy"
+  description="Get in touch for a free 30 minute initial assessment with Charnwood Intimacy, in person in Loughborough or online across the UK."
+  path="/booking/"
+>
+  <section class="section booking-hero">
+    <div class="container">
+      <p class="eyebrow">Booking</p>
+      <h1>Get in touch for a free assessment</h1>
+      <Squiggle />
+      <p class="lead">
+        Booking with us is simple. Complete the form below, enter your details and any preferred
+        days or times for your sessions to take place. We'll then be in touch to arrange a free
+        30 minute initial assessment to take place in our space in Loughborough or online.
+      </p>
+      <p class="lead">
+        Alternatively, you can contact us by email at
+        {' '}<a href={EMAIL_HREF}>{EMAIL}</a>, or by text message or WhatsApp on
+        {' '}<a href={PHONE_HREF}>{PHONE}</a>.
+      </p>
+    </div>
+  </section>
+
+  <WaveDivider from="var(--cream)" to="var(--blush)" />
+
+  <section class="section section--blush">
+    <div class="container">
+      <div class="booking-card">
+        <h2>Initial booking form</h2>
+        <p class="form-intro">
+          Please complete the form below, including any preferred days and times for your
+          sessions to take place.
+        </p>
+
+        <form
+          id="booking-form"
+          class="booking-form"
+          action="https://api.web3forms.com/submit"
+          method="POST"
+        >
+          <input type="hidden" name="access_key" value={WEB3FORMS_ACCESS_KEY} />
+          <input type="hidden" name="subject" value="New session booking request from charnwoodintimacy.co.uk" />
+          <input type="hidden" name="from_name" value="Charnwood Intimacy booking form" />
+          <input type="checkbox" name="botcheck" class="visually-hidden" tabindex="-1" autocomplete="off" />
+
+          <fieldset>
+            <legend>Your details</legend>
+            <div class="form-grid">
+              <div class="form-row">
+                <label for="bk-name">Your Name <span aria-hidden="true">*</span></label>
+                <input id="bk-name" type="text" name="name" required autocomplete="name" />
+              </div>
+              <div class="form-row">
+                <label for="bk-email">Your Email <span aria-hidden="true">*</span></label>
+                <input id="bk-email" type="email" name="email" required autocomplete="email" />
+              </div>
+              <div class="form-row">
+                <label for="bk-phone">Your Mobile</label>
+                <input id="bk-phone" type="tel" name="phone" autocomplete="tel" />
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset data-group="session-type" data-error="Please select at least one option for where sessions take place.">
+            <legend>Preferences</legend>
+            <p class="group-label">I would prefer my sessions to take place: <span aria-hidden="true">*</span></p>
+            <div class="pill-group">
+              <label class="pill"><input type="checkbox" name="Sessions to take place" value="In-person" /> <span>In-person</span></label>
+              <label class="pill"><input type="checkbox" name="Sessions to take place" value="Online" /> <span>Online</span></label>
+            </div>
+            <div class="form-row start-row">
+              <label for="bk-start">When would you ideally like to start?</label>
+              <input id="bk-start" type="text" name="Ideal start" placeholder="e.g. as soon as possible, or from September" />
+            </div>
+          </fieldset>
+
+          <fieldset data-group="days" data-error="Please select at least one preferred day.">
+            <legend>Availability</legend>
+            <p class="group-note">
+              Please provide us with your preferred days and time of day for sessions. These will
+              be used as a guide and we will be in contact with you to discuss our specific
+              availability and find a mutually convenient session time.
+            </p>
+            <p class="group-label">What days would you prefer sessions to take place? <span aria-hidden="true">*</span> <small>Select as many as you wish</small></p>
+            <div class="pill-group">
+              {days.map((d) => (
+                <label class="pill"><input type="checkbox" name="Preferred days" value={d} /> <span>{d}</span></label>
+              ))}
+            </div>
+          </fieldset>
+
+          <fieldset data-group="times" data-error="Please select at least one time of day.">
+            <p class="group-label">What time(s) of day are best for you? <span aria-hidden="true">*</span> <small>Select as many as you wish</small></p>
+            <div class="pill-group">
+              {times.map((t) => (
+                <label class="pill"><input type="checkbox" name="Preferred times" value={t} /> <span>{t}</span></label>
+              ))}
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>About you</legend>
+            <p class="group-note">
+              Tell us a little bit about yourself, what brought you here and what it is you're
+              looking for. This step is optional, but will help us ahead of the assessment.
+            </p>
+            <div class="form-row">
+              <label for="bk-about" class="visually-hidden">About you</label>
+              <textarea id="bk-about" name="About you" rows="6"></textarea>
+            </div>
+          </fieldset>
+
+          <p class="form-status form-status--invalid" role="alert" hidden></p>
+
+          <button type="submit" class="btn btn-primary btn-submit">Send your session booking request</button>
+
+          <p class="form-status form-status--success" role="status" hidden>
+            Thank you for your booking request. It has been sent and we will be in contact with
+            you as soon as possible.
+          </p>
+          <p class="form-status form-status--error" role="alert" hidden>
+            There was a problem trying to send your request. Please send your details and
+            availability by email to {EMAIL}, or by text message or WhatsApp on {PHONE}.
+          </p>
+        </form>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .booking-hero {
+    background: var(--cream);
+    padding-bottom: 48px;
+  }
+
+  .lead {
+    max-width: 700px;
+    font-size: 1.1rem;
+    color: var(--text-soft);
+  }
+
+  .lead a {
+    font-weight: 600;
+  }
+
+  .booking-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: clamp(28px, 4vw, 52px);
+    max-width: 880px;
+    box-shadow: 0 16px 40px rgba(15, 68, 74, 0.10);
+  }
+
+  .form-intro {
+    color: var(--text-soft);
+    margin-bottom: 1.5em;
+  }
+
+  fieldset {
+    border: none;
+    margin: 0 0 30px;
+    padding: 0;
+  }
+
+  legend {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--teal-dark);
+    padding: 0;
+    margin-bottom: 0.7em;
+  }
+
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px 24px;
+  }
+
+  .form-grid .form-row:first-child {
+    grid-column: 1 / -1;
+  }
+
+  label {
+    display: block;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    margin-bottom: 0.35em;
+    font-size: 0.95rem;
+  }
+
+  input[type='text'], input[type='email'], input[type='tel'], textarea {
+    width: 100%;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    padding: 0.75em 0.9em;
+    border-radius: var(--radius-sm);
+    border: 1px solid #d7dcd2;
+    background: var(--white);
+    color: var(--text);
+  }
+
+  input:focus, textarea:focus {
+    outline: 2px solid var(--orange);
+    outline-offset: 1px;
+  }
+
+  .group-label {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    margin: 0 0 0.6em;
+  }
+
+  .group-label small {
+    font-weight: 400;
+    color: var(--text-soft);
+  }
+
+  .group-note {
+    color: var(--text-soft);
+    font-size: 0.98rem;
+  }
+
+  .pill-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .pill {
+    margin: 0;
+  }
+
+  .pill input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .pill span {
+    display: inline-block;
+    padding: 0.55em 1.2em;
+    border-radius: 999px;
+    border: 2px solid var(--teal-dark);
+    color: var(--teal-dark);
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background 0.12s ease, color 0.12s ease;
+    user-select: none;
+  }
+
+  .pill input:checked + span {
+    background: var(--teal-dark);
+    color: var(--white);
+  }
+
+  .pill input:focus-visible + span {
+    outline: 2px solid var(--orange);
+    outline-offset: 2px;
+  }
+
+  .start-row {
+    margin-top: 18px;
+    max-width: 420px;
+  }
+
+  .btn-submit {
+    font-size: 1.05rem;
+  }
+
+  .form-status {
+    padding: 0.9em 1.1em;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    margin: 16px 0;
+  }
+
+  .form-status--success {
+    background: rgba(91, 170, 69, 0.15);
+    color: var(--green-dark);
+  }
+
+  .form-status--error, .form-status--invalid {
+    background: rgba(239, 69, 56, 0.12);
+    color: var(--coral-dark);
+  }
+
+  @media (max-width: 640px) {
+    .form-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script>
+  const form = document.getElementById('booking-form') as HTMLFormElement | null;
+  if (form) {
+    const invalidEl = form.querySelector('.form-status--invalid') as HTMLElement | null;
+    const successEl = form.querySelector('.form-status--success') as HTMLElement | null;
+    const errorEl = form.querySelector('.form-status--error') as HTMLElement | null;
+    const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement | null;
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      invalidEl?.setAttribute('hidden', '');
+      successEl?.setAttribute('hidden', '');
+      errorEl?.setAttribute('hidden', '');
+
+      // Require at least one selection in each required checkbox group
+      const groups = form.querySelectorAll('fieldset[data-group]');
+      for (const group of groups) {
+        const anyChecked = group.querySelector('input[type="checkbox"]:checked');
+        if (!anyChecked) {
+          if (invalidEl) {
+            invalidEl.textContent = group.getAttribute('data-error') || 'Please complete the required selections.';
+            invalidEl.removeAttribute('hidden');
+            invalidEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+          return;
+        }
+      }
+
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+      }
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { Accept: 'application/json' },
+        });
+        const result = await response.json();
+        if (result.success) {
+          successEl?.removeAttribute('hidden');
+          successEl?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          form.reset();
+        } else {
+          errorEl?.removeAttribute('hidden');
+        }
+      } catch {
+        errorEl?.removeAttribute('hidden');
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Send your session booking request';
+        }
+      }
+    });
+  }
+</script>

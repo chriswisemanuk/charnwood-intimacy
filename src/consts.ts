@@ -16,9 +16,9 @@ export const ADDRESS_LINES = [
   'LE11 3BJ',
 ];
 
-// Booking link, matches the parent site's booking system. Update if Jo sets
-// up a dedicated booking page/calendar for Charnwood Intimacy.
-export const BOOKING_URL = 'https://charnwoodcounselling.co.uk/booking/';
+// The site's own booking page, recreating the Charnwood Counselling
+// booking experience with a form handled by Web3Forms.
+export const BOOKING_URL = '/booking/';
 
 // Web3Forms (https://web3forms.com) provides working static-site contact
 // forms with no backend server required, which suits a static Astro site
