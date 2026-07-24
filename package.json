@@ -8,12 +8,16 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "deploy": "wrangler deploy"
   },
   "dependencies": {
     "@astrojs/sitemap": "3.6.0",
     "@fontsource/cabin": "^5.1.0",
     "@fontsource/onest": "^5.1.0",
     "astro": "^4.16.0"
+  },
+  "devDependencies": {
+    "wrangler": "^4.114.0"
   }
 }
