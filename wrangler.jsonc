@@ -1,0 +1,10 @@
+{
+  // Change "name" to match your EXISTING Worker's name exactly, so this
+  // deploy updates that Worker instead of creating a new one. You can see
+  // the exact name in the Cloudflare dashboard under Workers & Pages.
+  "name": "charnwood-intimacy",
+  "compatibility_date": "2026-03-02",
+  "assets": {
+    "directory": "./dist"
+  }
+}
