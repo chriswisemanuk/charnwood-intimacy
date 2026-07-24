@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CTAButton from '../components/CTAButton.astro';
-import Squiggle from '../components/Squiggle.astro';
 import ConditionsGrid from '../components/ConditionsGrid.astro';
 import OurSpaceSection from '../components/OurSpaceSection.astro';
 import PricingBookingSection from '../components/PricingBookingSection.astro';
@@ -40,9 +39,16 @@ const howCanHelp = [
   <section class="hero">
     <div class="container hero-grid">
       <div class="hero-copy">
-        <p class="eyebrow">Your body, your space.</p>
-        <h1>Psychosexual &amp; Intimacy Therapy in Loughborough.</h1>
-        <Squiggle />
+        <h1 class="display">
+          Your body,
+          <span class="circled">
+            your space
+            <svg viewBox="0 0 300 100" aria-hidden="true" preserveAspectRatio="none">
+              <path d="M150 8 C 60 4 12 26 14 52 C 16 80 92 97 168 92 C 246 87 291 66 287 41 C 283 15 218 4 138 9" />
+            </svg>
+          </span>.
+        </h1>
+        <p class="hero-sub">Psychosexual &amp; Intimacy Therapy in Loughborough, and online across the UK.</p>
         <p class="hero-lead">
           Sex and intimacy touch almost every part of who we are, yet they're often the hardest
           things to talk about, even with a doctor, a partner, or someone we trust. Charnwood
@@ -62,7 +68,7 @@ const howCanHelp = [
 
   <WaveDivider from="var(--cream)" to="var(--white)" />
 
-  <section class="section section--white section--flat-top">
+  <section class="section section--white">
     <div class="container">
       <h2>Is this for you?</h2>
       <p class="section-intro">
@@ -78,7 +84,7 @@ const howCanHelp = [
 
   <WaveDivider from="var(--white)" to="var(--teal-dark)" flip />
 
-  <section class="section section--dark section--flat-top">
+  <section class="section section--dark">
     <div class="container">
       <p class="eyebrow">How can therapy help?</p>
       <h2>Ways we can work together</h2>
@@ -88,9 +94,54 @@ const howCanHelp = [
     </div>
   </section>
 
-  <WaveDivider from="var(--teal-dark)" to="var(--cream-alt)" />
+  <WaveDivider from="var(--teal-dark)" to="var(--blush)" />
 
-  <section class="section section--alt section--flat-top">
+  <section class="section section--blush">
+    <div class="container">
+      <p class="eyebrow">Why Charnwood Intimacy?</p>
+      <h2>A space made for these conversations</h2>
+      <div class="feature-trio">
+        <div class="feature-card">
+          <div class="feature-icon" style="background: var(--blush-deep);">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="var(--coral)" aria-hidden="true">
+              <path d="M12 21s-7.5-4.7-10-9.3C.4 8.6 2.3 5 5.7 5c2 0 3.4 1.1 4.3 2.6h4c.9-1.5 2.3-2.6 4.3-2.6 3.4 0 5.3 3.6 3.7 6.7C19.5 16.3 12 21 12 21z" transform="scale(0.9) translate(1.3,1.3)"/>
+            </svg>
+          </div>
+          <h3>A specialist space</h3>
+          <p>
+            A dedicated home for psychosexual and intimacy therapy, with room to talk about the
+            things that are often hardest to say anywhere else.
+          </p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon" style="background: var(--cream-alt);">
+            <img src="/images/fox-badge.png" alt="" width="56" height="56" style="border-radius: 50%;" />
+          </div>
+          <h3>Part of Charnwood Counselling</h3>
+          <p>
+            The same warm team and calm, private rooms at The Old Arts College that Charnwood
+            Counselling clients already know.
+          </p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon" style="background: var(--blush-deep);">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--coral)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M3 11l9-8 9 8"/><path d="M5 9.5V20h5v-6h4v6h5V9.5"/>
+            </svg>
+          </div>
+          <h3>In person or online</h3>
+          <p>
+            Sessions in the heart of Loughborough or online anywhere in the UK, with introductory
+            rates while Jo completes her specialist training.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <WaveDivider from="var(--blush)" to="var(--cream-alt)" flip />
+
+  <section class="section section--alt">
     <div class="container">
       <p class="eyebrow">What we help with</p>
       <h2>A short overview, with links to each dedicated page</h2>
@@ -103,7 +154,7 @@ const howCanHelp = [
 
   <WaveDivider from="var(--cream-alt)" to="var(--white)" flip />
 
-  <section class="section section--white section--flat-top">
+  <section class="section section--white">
     <div class="container therapist-grid">
       <div class="therapist-photo framed-photo">
         <img src="/images/jo-wiseman.jpg" alt="Jo Wiseman, Founder & Psychotherapist" width="800" height="1000" loading="lazy" />
@@ -124,19 +175,15 @@ const howCanHelp = [
 
   <WaveDivider from="var(--white)" to="var(--teal-dark)" />
 
-  <div class="section--flat-top">
-    <OurSpaceSection />
-  </div>
+  <OurSpaceSection />
 
   <WaveDivider from="var(--teal-dark)" to="var(--white)" flip />
 
-  <div class="section--flat-top">
-    <PricingBookingSection />
-  </div>
+  <PricingBookingSection />
 
-  <WaveDivider from="var(--white)" to="var(--cream-alt)" />
+  <WaveDivider from="var(--white)" to="var(--blush)" />
 
-  <section class="section section--alt section--flat-top" id="contact">
+  <section class="section section--blush" id="contact">
     <div class="container">
       <ContactForm />
     </div>
@@ -146,7 +193,7 @@ const howCanHelp = [
 <style>
   .hero {
     background: var(--cream);
-    padding: 64px 0 72px;
+    padding: 72px 0 80px;
   }
   .hero-grid {
     display: grid;
@@ -154,8 +201,15 @@ const howCanHelp = [
     gap: 56px;
     align-items: center;
   }
+  .hero-sub {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: var(--teal-dark);
+    margin: 0.4em 0 0.8em;
+  }
   .hero-lead {
-    font-size: 1.15rem;
+    font-size: 1.12rem;
     color: var(--text-soft);
     max-width: 560px;
   }
@@ -167,8 +221,8 @@ const howCanHelp = [
     position: absolute;
     bottom: -26px;
     left: -26px;
-    width: 108px;
-    height: 108px;
+    width: 112px;
+    height: 112px;
     border: 5px solid var(--cream);
     border-radius: 50%;
     box-shadow: 0 10px 24px rgba(15, 68, 74, 0.25);
@@ -192,10 +246,6 @@ const howCanHelp = [
     grid-template-columns: 0.8fr 1.2fr;
     gap: 56px;
     align-items: center;
-  }
-  :global(.section--flat-top .section),
-  .section--flat-top {
-    padding-top: 40px;
   }
   @media (max-width: 860px) {
     .hero-grid, .therapist-grid {

@@ -1,21 +1,23 @@
 ---
 interface Props {
   title: string;
-  variant?: 'white' | 'alt';
+  variant?: 'white' | 'alt' | 'blush';
 }
 const { title, variant = 'alt' } = Astro.props;
 ---
 <section class={`section section--${variant}`}>
-  <div class="container info-section">
-    <h2>{title}</h2>
-    <div class="info-body">
-      <slot />
+  <div class="container">
+    <div class="info-inner">
+      <h2>{title}</h2>
+      <div class="info-body">
+        <slot />
+      </div>
     </div>
   </div>
 </section>
 
 <style>
-  .info-section {
+  .info-inner {
     max-width: 880px;
   }
   .info-body :global(p) {
