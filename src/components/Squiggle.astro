@@ -3,8 +3,8 @@ interface Props {
   color?: string;
   class?: string;
 }
-const { color = 'var(--orange)', class: klass = '' } = Astro.props;
+const { color = 'var(--coral)', class: klass = '' } = Astro.props;
 ---
-<svg class={`underline-swoosh ${klass}`} viewBox="0 0 90 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-  <path d="M2 11C13 2 24 2 34 7C44 12 55 12 65 6C72.5 1.5 80 1.5 88 4" stroke={color} stroke-width="4" stroke-linecap="round"/>
+<svg class={`underline-swoosh ${klass}`} viewBox="0 0 90 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <path d="M3 6C20 -1 40 13 87 6" stroke={color} stroke-width="4" stroke-linecap="round"/>
 </svg>

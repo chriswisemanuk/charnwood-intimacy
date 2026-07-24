@@ -13,7 +13,7 @@ const navLinks = [
 <header class="site-header">
   <div class="container header-inner">
     <a href="/" class="logo-link" aria-label="Charnwood Intimacy home">
-      <img src="/images/logo-intimacy-small.png" alt="Charnwood Intimacy, part of the Charnwood Counselling group" width="220" height="73" />
+      <img src="/images/logo-intimacy-header.png" alt="Charnwood Intimacy, part of the Charnwood Counselling group" width="1200" height="272" />
     </a>
 
     <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="primary-nav">
@@ -65,8 +65,14 @@ const navLinks = [
   }
 
   .logo-link img {
-    height: 46px;
+    height: 62px;
     width: auto;
+  }
+
+  @media (max-width: 480px) {
+    .logo-link img {
+      height: 50px;
+    }
   }
 
   .primary-nav {

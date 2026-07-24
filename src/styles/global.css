@@ -57,6 +57,7 @@ body {
 
 img {
   max-width: 100%;
+  height: auto;
   display: block;
 }
 
@@ -255,7 +256,7 @@ p {
   width: 1.1em;
   height: 1.1em;
   border-radius: 50%;
-  background: var(--green);
+  background: var(--coral);
 }
 
 .check-list li::after {
