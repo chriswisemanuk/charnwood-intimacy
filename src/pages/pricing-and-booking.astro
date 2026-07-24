@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Squiggle from '../components/Squiggle.astro';
+import WaveDivider from '../components/WaveDivider.astro';
 import CTAButton from '../components/CTAButton.astro';
 import { BOOKING_URL } from '../consts';
 ---
@@ -16,6 +17,8 @@ import { BOOKING_URL } from '../consts';
       <Squiggle />
     </div>
   </section>
+
+  <WaveDivider from="var(--white)" to="var(--cream-alt)" />
 
   <section class="section--tight section--alt">
     <div class="container two-col">
@@ -45,6 +48,8 @@ import { BOOKING_URL } from '../consts';
       </div>
     </div>
   </section>
+
+  <WaveDivider from="var(--cream-alt)" to="var(--white)" flip />
 
   <section class="section section--white">
     <div class="container prose">

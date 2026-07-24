@@ -6,6 +6,7 @@ import InfoSection from '../components/InfoSection.astro';
 import HelpList from '../components/HelpList.astro';
 import SafetyNote from '../components/SafetyNote.astro';
 import MiniTeasers from '../components/MiniTeasers.astro';
+import WaveDivider from '../components/WaveDivider.astro';
 ---
 <BaseLayout
   title="Vaginismus & Painful Sex Therapy | Charnwood Intimacy"
@@ -31,6 +32,8 @@ import MiniTeasers from '../components/MiniTeasers.astro';
     ]}
   />
 
+  <WaveDivider from="var(--white)" to="var(--cream-alt)" />
+
   <InfoSection title="What are vaginismus and dyspareunia?">
     <p>
       Vaginismus is the involuntary tightening of the vaginal muscles that makes penetration
@@ -43,6 +46,9 @@ import MiniTeasers from '../components/MiniTeasers.astro';
       the wider clinical term covering both.
     </p>
   </InfoSection>
+
+
+  <WaveDivider from="var(--cream-alt)" to="var(--white)" flip />
 
   <InfoSection title="What can cause painful sex?" variant="white">
     <ul>
@@ -66,6 +72,8 @@ import MiniTeasers from '../components/MiniTeasers.astro';
     ]}
   />
 
+  <WaveDivider from="var(--white)" to="var(--blush)" />
+
   <SafetyNote>
     <p>
       If you haven't already, it's worth seeing your GP or a sexual health clinic to rule out a
@@ -74,6 +82,8 @@ import MiniTeasers from '../components/MiniTeasers.astro';
       think through who else might be useful to involve.
     </p>
   </SafetyNote>
+
+  <WaveDivider from="var(--blush)" to="var(--cream-alt)" flip />
 
   <MiniTeasers />
 </BaseLayout>

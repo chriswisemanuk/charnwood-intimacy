@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Squiggle from '../components/Squiggle.astro';
+import WaveDivider from '../components/WaveDivider.astro';
 import CTAButton from '../components/CTAButton.astro';
 import { PARENT_SITE_URL } from '../consts';
 ---
@@ -25,6 +26,8 @@ import { PARENT_SITE_URL } from '../consts';
       </div>
     </div>
   </section>
+
+  <WaveDivider from="var(--white)" to="var(--cream-alt)" />
 
   <section class="section section--alt">
     <div class="container prose">
@@ -52,6 +55,8 @@ import { PARENT_SITE_URL } from '../consts';
     </div>
   </section>
 
+  <WaveDivider from="var(--cream-alt)" to="var(--white)" flip />
+
   <section class="section section--white">
     <div class="container prose">
       <h2>Training, supervision and honesty about where Jo is at</h2>
@@ -71,6 +76,8 @@ import { PARENT_SITE_URL } from '../consts';
     </div>
   </section>
 
+  <WaveDivider from="var(--white)" to="var(--cream-alt)" />
+
   <section class="section section--alt">
     <div class="container prose">
       <h2>Registrations</h2>
@@ -86,6 +93,8 @@ import { PARENT_SITE_URL } from '../consts';
       </p>
     </div>
   </section>
+
+  <WaveDivider from="var(--cream-alt)" to="var(--teal-dark)" flip />
 
   <section class="section section--dark">
     <div class="container prose">

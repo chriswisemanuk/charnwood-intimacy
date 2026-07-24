@@ -10,7 +10,7 @@ const navLinks = [
 ];
 ---
 <header class="site-header">
-  <div class="container header-inner">
+  <div class="header-inner">
     <a href="/" class="logo-link" aria-label="Charnwood Intimacy home">
       <img src="/images/logo-intimacy-header.png" alt="Charnwood Intimacy, part of the Charnwood Counselling group" width="1023" height="259" />
     </a>
@@ -54,8 +54,7 @@ const navLinks = [
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding: 10px clamp(20px, 3vw, 44px);
     gap: 16px;
     flex-wrap: nowrap;
   }
@@ -66,7 +65,7 @@ const navLinks = [
   }
 
   .logo-link img {
-    height: 72px;
+    height: 84px;
     width: auto;
   }
 
@@ -89,9 +88,10 @@ const navLinks = [
 
   .primary-nav > ul > li > a {
     color: var(--white);
-    font-family: var(--font-heading);
-    font-weight: 600;
-    font-size: 0.94rem;
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 1rem;
+    letter-spacing: 0.01em;
     white-space: nowrap;
   }
 
@@ -160,7 +160,7 @@ const navLinks = [
     border-radius: 2px;
   }
 
-  @media (max-width: 1120px) {
+  @media (max-width: 1200px) {
     .nav-toggle {
       display: flex;
     }
@@ -231,7 +231,7 @@ const navLinks = [
 
   @media (max-width: 480px) {
     .logo-link img {
-      height: 54px;
+      height: 60px;
     }
   }
 </style>
@@ -244,7 +244,7 @@ const navLinks = [
     toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
   });
 
-  if (window.matchMedia('(max-width: 1120px)').matches) {
+  if (window.matchMedia('(max-width: 1200px)').matches) {
     document.querySelectorAll('.has-dropdown > a').forEach((link) => {
       link.addEventListener('click', (e) => {
         const parent = link.parentElement;

@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Squiggle from '../components/Squiggle.astro';
+import WaveDivider from '../components/WaveDivider.astro';
 import ContactForm from '../components/ContactForm.astro';
 import { PHONE, PHONE_HREF, EMAIL, EMAIL_HREF, ADDRESS_LINES } from '../consts';
 ---
@@ -21,7 +22,9 @@ import { PHONE, PHONE_HREF, EMAIL, EMAIL_HREF, ADDRESS_LINES } from '../consts';
     </div>
   </section>
 
-  <section class="section--tight section--alt">
+  <WaveDivider from="var(--white)" to="var(--blush)" />
+
+  <section class="section--tight section--blush">
     <div class="container contact-grid">
       <ContactForm formTitle="" subject="New enquiry from Charnwood Intimacy contact page" />
       <div class="contact-details">

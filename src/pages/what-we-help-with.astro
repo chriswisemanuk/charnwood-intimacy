@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Squiggle from '../components/Squiggle.astro';
+import WaveDivider from '../components/WaveDivider.astro';
 import ConditionsGrid from '../components/ConditionsGrid.astro';
 ---
 <BaseLayout
@@ -27,6 +28,8 @@ import ConditionsGrid from '../components/ConditionsGrid.astro';
       </p>
     </div>
   </section>
+
+  <WaveDivider from="var(--white)" to="var(--blush)" />
 
   <section class="section section--blush">
     <div class="container topic-grid">
@@ -65,6 +68,8 @@ import ConditionsGrid from '../components/ConditionsGrid.astro';
       </div>
     </div>
   </section>
+
+  <WaveDivider from="var(--blush)" to="var(--white)" flip />
 
   <section class="section section--white">
     <div class="container">

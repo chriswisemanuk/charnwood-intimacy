@@ -1,5 +1,6 @@
 ---
 import CTAButton from './CTAButton.astro';
+import PhotoSlider from './PhotoSlider.astro';
 interface Props {
   showLink?: boolean;
 }
@@ -10,47 +11,36 @@ const photos = [
   { src: '/images/our-space-room.jpg', alt: 'The main therapy room with sofas, plants and a large window' },
   { src: '/images/gallery/room-3.jpg', alt: 'A cosy red armchair in the therapy room' },
   { src: '/images/gallery/room-2.jpg', alt: 'A mug of tea beside the fox cushion in the waiting area' },
+  { src: '/images/gallery/room-6.jpg', alt: 'The Charnwood fox sign on the therapy room door' },
+  { src: '/images/gallery/room-4.jpg', alt: 'Hand-made clay houses on a shelf in the therapy room' },
 ];
 ---
 <section class="section section--dark our-space">
   <div class="container">
-    <div class="our-space-grid">
-      <div>
-        <p class="eyebrow">Our space</p>
-        <h2>Charnwood Intimacy at The Old Arts College, Loughborough</h2>
-        <p>
-          Charnwood Intimacy is based in the same warm, private space as Charnwood Counselling: the
-          second floor of The Old Arts College in the heart of Loughborough, above Public and Plants.
-          The room is fully accessible, and there's excellent coffee nearby if you'd like time to
-          reflect after your session. Sessions are also available online for clients anywhere in the
-          UK, which many people find helps them feel more able to open up.
-        </p>
-        {showLink && <CTAButton href="/our-space/" variant="outline">More about our space</CTAButton>}
-      </div>
-      <div class="photo-grid photo-grid--2col">
-        {photos.map((p) => (
-          <div class="photo">
-            <img src={p.src} alt={p.alt} loading="lazy" width="1100" height="733" />
-          </div>
-        ))}
-      </div>
+    <div class="our-space-intro">
+      <p class="eyebrow">Our space</p>
+      <h2>Charnwood Intimacy at The Old Arts College, Loughborough</h2>
+      <p class="intro-copy">
+        Charnwood Intimacy is based in the same warm, private space as Charnwood Counselling: the
+        second floor of The Old Arts College in the heart of Loughborough, above Public and Plants.
+        The room is fully accessible, and there's excellent coffee nearby if you'd like time to
+        reflect after your session. Sessions are also available online for clients anywhere in the
+        UK, which many people find helps them feel more able to open up.
+      </p>
+      {showLink && <CTAButton href="/our-space/" variant="outline">More about our space</CTAButton>}
     </div>
+  </div>
+  <div class="slider-holder">
+    <PhotoSlider photos={photos} onDark />
   </div>
 </section>
 
 <style>
-  .our-space-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 48px;
-    align-items: center;
+  .our-space-intro {
+    max-width: 760px;
+    margin-bottom: 40px;
   }
-  .photo-grid--2col {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  @media (max-width: 860px) {
-    .our-space-grid {
-      grid-template-columns: 1fr;
-    }
+  .intro-copy {
+    color: var(--text-on-dark-soft);
   }
 </style>

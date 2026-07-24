@@ -6,6 +6,7 @@ import InfoSection from '../components/InfoSection.astro';
 import HelpList from '../components/HelpList.astro';
 import SafetyNote from '../components/SafetyNote.astro';
 import MiniTeasers from '../components/MiniTeasers.astro';
+import WaveDivider from '../components/WaveDivider.astro';
 ---
 <BaseLayout
   title="Sexual Trauma Therapy | Charnwood Intimacy"
@@ -31,6 +32,8 @@ import MiniTeasers from '../components/MiniTeasers.astro';
     ]}
   />
 
+  <WaveDivider from="var(--white)" to="var(--cream-alt)" />
+
   <InfoSection title="How therapy approaches this">
     <p>
       This work is trauma-informed, meaning the pace, structure and depth are always led by you.
@@ -44,6 +47,9 @@ import MiniTeasers from '../components/MiniTeasers.astro';
       a single event or something that happened over time, including in childhood.
     </p>
   </InfoSection>
+
+
+  <WaveDivider from="var(--cream-alt)" to="var(--white)" flip />
 
   <InfoSection title="Effects this work can help with" variant="white">
     <ul>
@@ -64,6 +70,8 @@ import MiniTeasers from '../components/MiniTeasers.astro';
     ]}
   />
 
+  <WaveDivider from="var(--white)" to="var(--blush)" />
+
   <SafetyNote>
     <p>
       If you are in immediate danger or at risk of harm, please contact emergency services or a
@@ -72,6 +80,8 @@ import MiniTeasers from '../components/MiniTeasers.astro';
       particularly around safeguarding.
     </p>
   </SafetyNote>
+
+  <WaveDivider from="var(--blush)" to="var(--cream-alt)" flip />
 
   <MiniTeasers />
 </BaseLayout>

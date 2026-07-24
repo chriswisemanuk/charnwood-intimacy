@@ -30,7 +30,7 @@ out below so nothing inaccurate goes live.
      (`src/pages/your-therapist.astro`)
    - The cancellation policy wording (`src/pages/pricing-and-booking.astro`)
    - The contact email address used in `src/consts.ts`
-     (currently `hello@charnwoodintimacy.co.uk`, update if different)
+     (currently `talk@charnwoodintimacy.co.uk`, update if different)
    - Have the Privacy Policy and Cookie Policy checked, they're adapted from
      Charnwood Counselling's existing policies but should be reviewed
      before launch, same as the parent site's policies were.
