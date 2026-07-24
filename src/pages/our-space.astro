@@ -2,14 +2,26 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Squiggle from '../components/Squiggle.astro';
 import CTAButton from '../components/CTAButton.astro';
+import WaveDivider from '../components/WaveDivider.astro';
 import { BOOKING_URL } from '../consts';
+
+const gallery = [
+  { src: '/images/our-space-room.jpg', alt: 'The main therapy room with sofas, plants and a large window' },
+  { src: '/images/gallery/room-1.jpg', alt: 'A therapy room with the Charnwood fox on the door' },
+  { src: '/images/gallery/room-3.jpg', alt: 'A cosy red armchair in the therapy room' },
+  { src: '/images/gallery/room-2.jpg', alt: 'A mug of tea beside the fox cushion in the waiting area' },
+  { src: '/images/gallery/room-6.jpg', alt: 'The Charnwood fox sign on the therapy room door' },
+  { src: '/images/gallery/room-4.jpg', alt: 'Hand-made clay houses on a shelf in the therapy room' },
+  { src: '/images/gallery/room-7.jpg', alt: 'A framed fox photograph on the wall' },
+  { src: '/images/gallery/room-8.jpg', alt: 'The Old Arts College building in central Loughborough' },
+];
 ---
 <BaseLayout
   title="Our Space in Loughborough | Charnwood Intimacy"
   description="Charnwood Intimacy is based at The Old Arts College in central Loughborough, fully accessible, with sessions also available online."
   path="/our-space/"
 >
-  <section class="section section--white hero-grid">
+  <section class="section section--white">
     <div class="container hero-grid-inner">
       <div>
         <p class="eyebrow">Our Space</p>
@@ -23,14 +35,32 @@ import { BOOKING_URL } from '../consts';
         </p>
         <CTAButton href={BOOKING_URL} variant="primary">Book a session</CTAButton>
       </div>
-      <div>
+      <div class="framed-photo">
         <img src="/images/our-space-room.jpg" alt="The therapy room at The Old Arts College, Loughborough" width="1600" height="1200" />
       </div>
     </div>
   </section>
 
-  <section class="section section--alt">
-    <div class="container getting-here">
+  <WaveDivider from="var(--white)" to="var(--cream-alt)" />
+
+  <section class="section section--alt gallery-section">
+    <div class="container">
+      <p class="eyebrow">Take a look around</p>
+      <h2>A warm, private space to talk</h2>
+      <div class="photo-grid">
+        {gallery.map((p) => (
+          <div class="photo">
+            <img src={p.src} alt={p.alt} loading="lazy" width="1100" height="733" />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <WaveDivider from="var(--cream-alt)" to="var(--white)" flip />
+
+  <section class="section section--white getting-here">
+    <div class="container">
       <h2>Getting here</h2>
 
       <div class="getting-here-grid">
@@ -63,11 +93,8 @@ import { BOOKING_URL } from '../consts';
   .hero-grid-inner {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 48px;
+    gap: 56px;
     align-items: center;
-  }
-  .hero-grid-inner img {
-    border-radius: var(--radius);
   }
   .lead {
     font-size: 1.1rem;

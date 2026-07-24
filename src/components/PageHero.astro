@@ -1,6 +1,7 @@
 ---
 import CTAButton from './CTAButton.astro';
 import Squiggle from './Squiggle.astro';
+import WaveDivider from './WaveDivider.astro';
 import { BOOKING_URL } from '../consts';
 
 interface Props {
@@ -37,6 +38,7 @@ const {
     </div>
   </div>
 </section>
+<WaveDivider from="var(--cream)" to="var(--white)" />
 
 <style>
   .page-hero {

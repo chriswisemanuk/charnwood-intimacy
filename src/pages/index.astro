@@ -6,6 +6,7 @@ import ConditionsGrid from '../components/ConditionsGrid.astro';
 import OurSpaceSection from '../components/OurSpaceSection.astro';
 import PricingBookingSection from '../components/PricingBookingSection.astro';
 import ContactForm from '../components/ContactForm.astro';
+import WaveDivider from '../components/WaveDivider.astro';
 import { BOOKING_URL } from '../consts';
 
 const isThisYou = [
@@ -51,12 +52,17 @@ const howCanHelp = [
         <CTAButton href={BOOKING_URL} variant="primary">Book a session</CTAButton>
       </div>
       <div class="hero-image">
-        <img src="/images/logo-intimacy@2x.png" alt="Charnwood Intimacy" width="900" height="300" />
+        <div class="framed-photo">
+          <img src="/images/gallery/room-1.jpg" alt="The Charnwood Intimacy therapy room at The Old Arts College" width="1100" height="733" />
+        </div>
+        <img class="hero-badge" src="/images/fox-badge.png" alt="" aria-hidden="true" width="480" height="480" />
       </div>
     </div>
   </section>
 
-  <section class="section section--white">
+  <WaveDivider from="var(--cream)" to="var(--white)" />
+
+  <section class="section section--white section--flat-top">
     <div class="container">
       <h2>Is this for you?</h2>
       <p class="section-intro">
@@ -70,7 +76,9 @@ const howCanHelp = [
     </div>
   </section>
 
-  <section class="section section--dark">
+  <WaveDivider from="var(--white)" to="var(--teal-dark)" flip />
+
+  <section class="section section--dark section--flat-top">
     <div class="container">
       <p class="eyebrow">How can therapy help?</p>
       <h2>Ways we can work together</h2>
@@ -80,7 +88,9 @@ const howCanHelp = [
     </div>
   </section>
 
-  <section class="section section--alt">
+  <WaveDivider from="var(--teal-dark)" to="var(--cream-alt)" />
+
+  <section class="section section--alt section--flat-top">
     <div class="container">
       <p class="eyebrow">What we help with</p>
       <h2>A short overview, with links to each dedicated page</h2>
@@ -91,9 +101,11 @@ const howCanHelp = [
     </div>
   </section>
 
-  <section class="section section--white">
+  <WaveDivider from="var(--cream-alt)" to="var(--white)" flip />
+
+  <section class="section section--white section--flat-top">
     <div class="container therapist-grid">
-      <div class="therapist-photo">
+      <div class="therapist-photo framed-photo">
         <img src="/images/jo-wiseman.jpg" alt="Jo Wiseman, Founder & Psychotherapist" width="800" height="1000" loading="lazy" />
       </div>
       <div>
@@ -110,11 +122,21 @@ const howCanHelp = [
     </div>
   </section>
 
-  <OurSpaceSection />
+  <WaveDivider from="var(--white)" to="var(--teal-dark)" />
 
-  <PricingBookingSection />
+  <div class="section--flat-top">
+    <OurSpaceSection />
+  </div>
 
-  <section class="section section--alt" id="contact">
+  <WaveDivider from="var(--teal-dark)" to="var(--white)" flip />
+
+  <div class="section--flat-top">
+    <PricingBookingSection />
+  </div>
+
+  <WaveDivider from="var(--white)" to="var(--cream-alt)" />
+
+  <section class="section section--alt section--flat-top" id="contact">
     <div class="container">
       <ContactForm />
     </div>
@@ -124,12 +146,12 @@ const howCanHelp = [
 <style>
   .hero {
     background: var(--cream);
-    padding: 56px 0 64px;
+    padding: 64px 0 72px;
   }
   .hero-grid {
     display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 48px;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 56px;
     align-items: center;
   }
   .hero-lead {
@@ -137,8 +159,19 @@ const howCanHelp = [
     color: var(--text-soft);
     max-width: 560px;
   }
-  .hero-image img {
-    border-radius: var(--radius);
+  .hero-image {
+    position: relative;
+    padding: 0 18px 18px 0;
+  }
+  .hero-badge {
+    position: absolute;
+    bottom: -26px;
+    left: -26px;
+    width: 108px;
+    height: 108px;
+    border: 5px solid var(--cream);
+    border-radius: 50%;
+    box-shadow: 0 10px 24px rgba(15, 68, 74, 0.25);
   }
   .section-intro {
     max-width: 700px;
@@ -157,11 +190,12 @@ const howCanHelp = [
   .therapist-grid {
     display: grid;
     grid-template-columns: 0.8fr 1.2fr;
-    gap: 48px;
+    gap: 56px;
     align-items: center;
   }
-  .therapist-photo img {
-    border-radius: var(--radius);
+  :global(.section--flat-top .section),
+  .section--flat-top {
+    padding-top: 40px;
   }
   @media (max-width: 860px) {
     .hero-grid, .therapist-grid {
@@ -172,6 +206,12 @@ const howCanHelp = [
     }
     .is-this-you-grid, .help-grid {
       grid-template-columns: 1fr;
+    }
+    .hero-badge {
+      width: 84px;
+      height: 84px;
+      bottom: -18px;
+      left: -12px;
     }
   }
 </style>

@@ -1,0 +1,38 @@
+---
+/*
+  Organic curved divide between two sections, matching the sweeping
+  shapes used on charnwoodcounselling.co.uk. `from` is the colour of the
+  section above, `to` is the colour of the section below. `flip` mirrors
+  the curve horizontally for variety.
+*/
+interface Props {
+  from?: string;
+  to?: string;
+  flip?: boolean;
+}
+const { from = 'var(--cream)', to = 'var(--white)', flip = false } = Astro.props;
+---
+<div class="wave-divider" style={`background:${from};`} aria-hidden="true">
+  <svg
+    viewBox="0 0 1440 100"
+    preserveAspectRatio="none"
+    style={flip ? 'transform: scaleX(-1);' : ''}
+  >
+    <path
+      d="M0,70 C220,110 460,10 760,34 C1020,55 1260,90 1440,42 L1440,100 L0,100 Z"
+      fill={to}
+    />
+  </svg>
+</div>
+
+<style>
+  .wave-divider {
+    line-height: 0;
+    margin-top: -1px;
+  }
+  .wave-divider svg {
+    display: block;
+    width: 100%;
+    height: clamp(40px, 7vw, 100px);
+  }
+</style>
