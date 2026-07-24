@@ -11,6 +11,8 @@ interface Props {
   ctaHref?: string;
   secondaryLabel?: string;
   secondaryHref?: string;
+  image?: string;
+  imageAlt?: string;
 }
 
 const {
@@ -20,22 +22,31 @@ const {
   ctaHref = BOOKING_URL,
   secondaryLabel,
   secondaryHref,
+  image,
+  imageAlt = '',
 } = Astro.props;
 ---
 <section class="page-hero">
-  <div class="container">
-    {kicker && <p class="eyebrow">{kicker}</p>}
-    <h1>{title}</h1>
-    <Squiggle />
-    <div class="page-hero-body">
-      <slot />
+  <div class:list={['container', { 'hero-with-image': !!image }]}>
+    <div class="page-hero-copy">
+      {kicker && <p class="eyebrow">{kicker}</p>}
+      <h1>{title}</h1>
+      <Squiggle />
+      <div class="page-hero-body">
+        <slot />
+      </div>
+      <div class="page-hero-actions">
+        <CTAButton href={ctaHref} variant="primary">{ctaLabel}</CTAButton>
+        {secondaryLabel && secondaryHref && (
+          <CTAButton href={secondaryHref} variant="link">{secondaryLabel}</CTAButton>
+        )}
+      </div>
     </div>
-    <div class="page-hero-actions">
-      <CTAButton href={ctaHref} variant="primary">{ctaLabel}</CTAButton>
-      {secondaryLabel && secondaryHref && (
-        <CTAButton href={secondaryHref} variant="link">{secondaryLabel}</CTAButton>
-      )}
-    </div>
+    {image && (
+      <div class="page-hero-image framed-photo">
+        <img src={image} alt={imageAlt} width="1100" height="733" />
+      </div>
+    )}
   </div>
 </section>
 <WaveDivider from="var(--cream)" to="var(--white)" />
@@ -43,7 +54,14 @@ const {
 <style>
   .page-hero {
     background: var(--cream);
-    padding: 64px 0 56px;
+    padding: 64px 0 60px;
+  }
+
+  .hero-with-image {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 56px;
+    align-items: center;
   }
 
   .page-hero h1 {
@@ -62,5 +80,18 @@ const {
     gap: 24px;
     margin-top: 8px;
     flex-wrap: wrap;
+  }
+
+  .page-hero-image img {
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    width: 100%;
+  }
+
+  @media (max-width: 860px) {
+    .hero-with-image {
+      grid-template-columns: 1fr;
+      gap: 36px;
+    }
   }
 </style>

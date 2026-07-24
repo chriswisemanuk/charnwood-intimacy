@@ -1,0 +1,80 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import IsThisYou from '../components/IsThisYou.astro';
+import InfoSection from '../components/InfoSection.astro';
+import HelpList from '../components/HelpList.astro';
+import WaveDivider from '../components/WaveDivider.astro';
+import MiniTeasers from '../components/MiniTeasers.astro';
+---
+<BaseLayout
+  title="Online Psychosexual Therapy UK | Charnwood Intimacy"
+  description="Online psychosexual and intimacy therapy for clients anywhere in the UK. The same warm, confidential support as in person, from your own space."
+  path="/online-therapy/"
+>
+  <PageHero
+    kicker="Online Therapy"
+    title="Online Psychosexual Therapy"
+    image="/images/gallery/room-6.jpg"
+    imageAlt="The Charnwood fox sign on the therapy room door"
+  >
+    <p>
+      Everything we offer in Loughborough is also available online, anywhere in the UK. Many
+      people find that talking about sex and intimacy feels easier from their own space, and the
+      therapy itself is exactly the same: a private, unhurried conversation with Jo.
+    </p>
+  </PageHero>
+
+  <IsThisYou
+    items={[
+      "I'd feel more comfortable talking about this from my own home",
+      "There isn't a psychosexual therapist near me",
+      'My work, childcare or health make travelling to appointments difficult',
+      "I live outside Loughborough and want a therapist I've chosen, not just the nearest one",
+      'I want sessions that can move with me, wherever life takes me',
+      "I'm not sure whether online or in person is right for me, and I'd like to talk it through",
+    ]}
+  />
+
+  <WaveDivider from="var(--white)" to="var(--cream-alt)" />
+
+  <InfoSection title="How online sessions work">
+    <p>
+      Online sessions take place by video call and last 50 minutes, exactly like sessions in
+      Loughborough. Jo will confirm the practical details with you when you book, and there's
+      nothing technical to set up beyond a device with a camera and a reliable connection.
+    </p>
+    <p>
+      Everything that's true of psychosexual therapy in person is true online. It's entirely a
+      talking therapy, there is never any physical examination or contact of any kind, and the
+      same confidentiality applies. You can also move between online and in-person sessions if
+      your circumstances change, it doesn't have to be one or the other.
+    </p>
+  </InfoSection>
+
+  <WaveDivider from="var(--cream-alt)" to="var(--white)" flip />
+
+  <InfoSection title="Making the most of an online session" variant="white">
+    <ul>
+      <li>Find a private space where you won't be overheard or interrupted for the hour</li>
+      <li>Headphones can help sessions feel more private and contained</li>
+      <li>Give yourself a few minutes either side, rather than rushing straight in or out</li>
+      <li>A cup of tea and a comfortable chair go a long way</li>
+      <li>If you share your home, some people find a parked car, a quiet office or a booked room works well</li>
+    </ul>
+  </InfoSection>
+
+  <HelpList
+    title="Why people choose online therapy"
+    items={[
+      'Open up from a space that already feels safe and familiar',
+      'Access specialist psychosexual therapy without travelling',
+      'Keep sessions consistent around work, family and health',
+      'Continue therapy uninterrupted if you move or travel',
+    ]}
+  />
+
+  <WaveDivider from="var(--white)" to="var(--cream-alt)" />
+
+  <MiniTeasers />
+</BaseLayout>
