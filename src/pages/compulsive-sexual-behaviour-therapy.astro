@@ -1,0 +1,66 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import IsThisYou from '../components/IsThisYou.astro';
+import InfoSection from '../components/InfoSection.astro';
+import HelpList from '../components/HelpList.astro';
+import MiniTeasers from '../components/MiniTeasers.astro';
+---
+<BaseLayout
+  title="Compulsive Sexual Behaviour & Porn Use Therapy | Charnwood Intimacy"
+  description="Non-judgemental therapy for compulsive sexual behaviour and concerns about porn use. Understand what's happening and find a way forward."
+  path="/compulsive-sexual-behaviour-therapy/"
+>
+  <PageHero kicker="Compulsive Sexual Behaviour & Porn Use" title="Compulsive Sexual Behaviour & Porn Use">
+    <p>
+      If your sexual thoughts, urges or behaviour feel out of your control, or your relationship
+      with pornography is causing you distress, this is a space to understand what's going on
+      without shame or judgement.
+    </p>
+  </PageHero>
+
+  <IsThisYou
+    items={[
+      'I feel my sexual behaviour is out of my control',
+      "I've tried to stop or cut down and haven't been able to",
+      'My use of pornography feels compulsive, or is affecting my relationship',
+      'I feel shame or secrecy around my sexual thoughts or behaviour',
+      'This is affecting my relationship, work or sense of self',
+      "I'm not sure if what I'm experiencing counts as a 'problem', I just know it's affecting me",
+    ]}
+  />
+
+  <InfoSection title="Understanding compulsive sexual behaviour">
+    <p>
+      Compulsive sexual behaviour describes patterns of sexual thought or activity that feel
+      difficult to control and that are causing distress or harm in your life. It isn't about
+      judging any particular sexual interest, fantasy or preference as wrong. What matters
+      clinically is whether the behaviour feels out of your control and whether it's causing you
+      distress, not what the behaviour itself is.
+    </p>
+    <p>
+      This work is approached without shame, and without treating any particular sexual interest,
+      including kink, as inherently a problem.
+    </p>
+  </InfoSection>
+
+  <InfoSection title="What can contribute to this" variant="white">
+    <ul>
+      <li>Using sex or pornography as a way of managing stress, anxiety or difficult emotions</li>
+      <li>Patterns that developed early and have become harder to shift over time</li>
+      <li>Underlying anxiety, low mood or past experiences that haven't been addressed</li>
+      <li>Shame itself, which can often make the behaviour harder to change, not easier</li>
+    </ul>
+  </InfoSection>
+
+  <HelpList
+    items={[
+      'Understand what the behaviour is doing for you emotionally',
+      'Reduce shame, which often reduces the grip of the behaviour itself',
+      'Build alternative ways of managing difficult feelings',
+      'Repair trust and communication with a partner, where relevant',
+    ]}
+  />
+
+  <MiniTeasers />
+</BaseLayout>

@@ -1,0 +1,48 @@
+---
+import CTAButton from './CTAButton.astro';
+import { BOOKING_URL } from '../consts';
+---
+<section class="section section--white">
+  <div class="container pricing-grid">
+    <div>
+      <p class="eyebrow">Pricing and session details</p>
+      <h2>Pricing and how to book</h2>
+      <p>
+        Sessions last 50 minutes. As Jo is currently completing her specialist training,
+        introductory session rates apply during this period, in person in Loughborough or online.
+      </p>
+    </div>
+    <div>
+      <p class="eyebrow">How to book</p>
+      <h2>Ready when you are</h2>
+      <p>
+        Booking is simple: choose a time that works for you, or get in touch to talk it through
+        first if you're not sure where to start.
+      </p>
+      <div class="pricing-actions">
+        <CTAButton href={BOOKING_URL} variant="teal">Book a session</CTAButton>
+        <CTAButton href="/contact/" variant="link">Get in touch first</CTAButton>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+  }
+  .pricing-actions {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+  }
+  @media (max-width: 860px) {
+    .pricing-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

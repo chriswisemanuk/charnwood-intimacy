@@ -1,0 +1,89 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Squiggle from '../components/Squiggle.astro';
+import CTAButton from '../components/CTAButton.astro';
+import { BOOKING_URL } from '../consts';
+---
+<BaseLayout
+  title="Pricing & Booking | Charnwood Intimacy"
+  description="Session fees and how to book psychosexual therapy in Loughborough or online, with introductory rates available."
+  path="/pricing-and-booking/"
+>
+  <section class="section section--white">
+    <div class="container">
+      <p class="eyebrow">Pricing & Booking</p>
+      <h1>Pricing and how to book</h1>
+      <Squiggle />
+    </div>
+  </section>
+
+  <section class="section--tight section--alt">
+    <div class="container two-col">
+      <div>
+        <h2>Pricing and session details</h2>
+        <p>
+          Each session lasts 50 minutes. As Jo is currently completing her specialist training,
+          introductory session rates apply during this period. Sessions can be booked
+          face-to-face in Loughborough or online from anywhere in the UK.
+        </p>
+        <p class="note">
+          Exact current fees are confirmed when you get in touch or book, and are kept under
+          review as Jo's training progresses.
+        </p>
+      </div>
+      <div>
+        <h2>How to book</h2>
+        <p>
+          Booking is simple: click the link below, enter your details and any preferred days or
+          times, and we'll confirm your first session. If you'd rather talk it through first,
+          you're welcome to call or use the contact form and we'll do our best to help.
+        </p>
+        <div class="actions">
+          <CTAButton href={BOOKING_URL} variant="primary">Book a session</CTAButton>
+          <CTAButton href="/contact/" variant="link">Get in touch first</CTAButton>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--white">
+    <div class="container prose">
+      <h2>Cancellations</h2>
+      <p>
+        Our cancellation policy mirrors Charnwood Counselling's existing policy, for consistency
+        across the group. Please get in touch if you need to change or cancel a session, and
+        we'll let you know how much notice we ask for.
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+  .two-col p, .prose p {
+    color: var(--text-soft);
+  }
+  .note {
+    font-size: 0.95rem;
+    font-style: italic;
+  }
+  .actions {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+  }
+  .prose {
+    max-width: 780px;
+  }
+  @media (max-width: 860px) {
+    .two-col {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,70 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Squiggle from '../components/Squiggle.astro';
+import ContactForm from '../components/ContactForm.astro';
+import { PHONE, PHONE_HREF, EMAIL, EMAIL_HREF, ADDRESS_LINES } from '../consts';
+---
+<BaseLayout
+  title="Contact Us | Charnwood Intimacy"
+  description="Get in touch with Charnwood Intimacy to ask a question or start psychosexual therapy in Loughborough or online."
+  path="/contact/"
+>
+  <section class="section section--white">
+    <div class="container">
+      <p class="eyebrow">Contact</p>
+      <h1>Get in touch</h1>
+      <Squiggle />
+      <p class="lead">
+        If you have a question before booking, or you'd simply like to talk something through
+        first, get in touch below. There's no pressure and no commitment.
+      </p>
+    </div>
+  </section>
+
+  <section class="section--tight section--alt">
+    <div class="container contact-grid">
+      <ContactForm formTitle="" subject="New enquiry from Charnwood Intimacy contact page" />
+      <div class="contact-details">
+        <h2>Other ways to reach us</h2>
+        <p>
+          <strong>Phone</strong><br />
+          <a href={PHONE_HREF}>{PHONE}</a>
+        </p>
+        <p>
+          <strong>Email</strong><br />
+          <a href={EMAIL_HREF}>{EMAIL}</a>
+        </p>
+        <p>
+          <strong>Address</strong><br />
+          {ADDRESS_LINES.map((line) => <>{line}<br /></>)}
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .lead {
+    font-size: 1.1rem;
+    color: var(--text-soft);
+    max-width: 620px;
+  }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 48px;
+  }
+  .contact-details p {
+    color: var(--text-soft);
+    margin-bottom: 1.3em;
+  }
+  .contact-details a {
+    color: var(--orange);
+    font-weight: 600;
+  }
+  @media (max-width: 860px) {
+    .contact-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

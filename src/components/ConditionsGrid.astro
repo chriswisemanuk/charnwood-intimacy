@@ -1,0 +1,81 @@
+---
+import { conditions } from '../data/conditions';
+interface Props {
+  variant?: 'cards' | 'list';
+}
+const { variant = 'cards' } = Astro.props;
+---
+{variant === 'cards' ? (
+  <div class="conditions-grid">
+    {conditions.map((c) => (
+      <a class="condition-card" href={`/${c.slug}/`}>
+        <h3>{c.navLabel}</h3>
+        <p>{c.cardBlurb}</p>
+        <span class="condition-link">Read more &rarr;</span>
+      </a>
+    ))}
+  </div>
+) : (
+  <ul class="conditions-list">
+    {conditions.map((c) => (
+      <li><a href={`/${c.slug}/`}>{c.navLabel}</a></li>
+    ))}
+  </ul>
+)}
+
+<style>
+  .conditions-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .condition-card {
+    display: block;
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 28px;
+    color: var(--text);
+    border-top: 4px solid var(--orange);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .condition-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 30px rgba(15,68,74,0.12);
+    color: var(--text);
+  }
+  .condition-card h3 {
+    font-size: 1.15rem;
+    margin-bottom: 0.5em;
+  }
+  .condition-card p {
+    color: var(--text-soft);
+    font-size: 0.98rem;
+    margin-bottom: 1em;
+  }
+  .condition-link {
+    color: var(--orange);
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 0.92rem;
+  }
+  .conditions-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.8em;
+    font-size: 1.05rem;
+    font-family: var(--font-heading);
+    font-weight: 600;
+  }
+  @media (max-width: 860px) {
+    .conditions-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  @media (max-width: 560px) {
+    .conditions-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

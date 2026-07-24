@@ -1,0 +1,79 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import IsThisYou from '../components/IsThisYou.astro';
+import InfoSection from '../components/InfoSection.astro';
+import HelpList from '../components/HelpList.astro';
+import SafetyNote from '../components/SafetyNote.astro';
+import MiniTeasers from '../components/MiniTeasers.astro';
+---
+<BaseLayout
+  title="Vaginismus & Painful Sex Therapy | Charnwood Intimacy"
+  description="Therapy for vaginismus, dyspareunia and painful sex. A calm, private space to work through penetration and pain-related difficulties."
+  path="/painful-sex-and-vaginismus-therapy/"
+>
+  <PageHero kicker="Painful Sex & Vaginismus" title="Painful Sex & Vaginismus">
+    <p>
+      Pain during sex, or being unable to have penetrative sex at all, is more common than most
+      people realise, and is rarely something you have to simply live with. Psychosexual therapy
+      can help alongside your GP or a pelvic health physiotherapist.
+    </p>
+  </PageHero>
+
+  <IsThisYou
+    items={[
+      "I experience pain during sex and I've been told nothing is physically wrong",
+      'I find penetration difficult or impossible, no matter how much I want it to work',
+      'My body tenses up automatically when penetration is attempted',
+      "I've started avoiding sex, or intimacy generally, because of the pain",
+      'I feel embarrassed, broken or alone in this',
+      "I've had painful sex for so long I've stopped mentioning it",
+    ]}
+  />
+
+  <InfoSection title="What are vaginismus and dyspareunia?">
+    <p>
+      Vaginismus is the involuntary tightening of the vaginal muscles that makes penetration
+      painful or impossible. It's a physical response, not something anyone chooses or imagines,
+      and it often develops as a protective reflex, sometimes without an obvious cause.
+    </p>
+    <p>
+      Dyspareunia is the medical term for persistent pain during or after sex, which can have
+      physical, psychological or combined causes. Genito-pelvic pain and penetration disorder is
+      the wider clinical term covering both.
+    </p>
+  </InfoSection>
+
+  <InfoSection title="What can cause painful sex?" variant="white">
+    <ul>
+      <li>A learned protective response, sometimes with no clear starting point</li>
+      <li>Anxiety or fear about pain, which can itself increase muscle tension</li>
+      <li>
+        Underlying physical causes, including skin conditions, infections or hormonal changes,
+        which is why a GP check is always a sensible first step
+      </li>
+      <li>Past experiences of pain, trauma or difficult medical procedures</li>
+      <li>Limited or unclear sex education around what to expect from penetration</li>
+    </ul>
+  </InfoSection>
+
+  <HelpList
+    items={[
+      'Understand the pattern behind the pain, physical and psychological together',
+      'Reduce fear and anticipatory anxiety that can make tensing worse',
+      'Work gradually and gently, always at a pace you control',
+      'Build confidence and comfort with your own body, with or without a partner involved',
+    ]}
+  />
+
+  <SafetyNote>
+    <p>
+      If you haven't already, it's worth seeing your GP or a sexual health clinic to rule out a
+      physical cause before or alongside starting therapy. Psychosexual therapy works well
+      alongside medical care and pelvic health physiotherapy, and your therapist can help you
+      think through who else might be useful to involve.
+    </p>
+  </SafetyNote>
+
+  <MiniTeasers />
+</BaseLayout>

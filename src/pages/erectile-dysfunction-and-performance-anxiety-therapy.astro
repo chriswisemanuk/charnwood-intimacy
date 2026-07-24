@@ -1,0 +1,79 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import IsThisYou from '../components/IsThisYou.astro';
+import InfoSection from '../components/InfoSection.astro';
+import HelpList from '../components/HelpList.astro';
+import SafetyNote from '../components/SafetyNote.astro';
+import MiniTeasers from '../components/MiniTeasers.astro';
+---
+<BaseLayout
+  title="Erectile Dysfunction & Performance Anxiety Therapy | Charnwood Intimacy"
+  description="Talking therapy for erectile dysfunction, performance anxiety, and premature or delayed ejaculation. Confidential support in Loughborough and online."
+  path="/erectile-dysfunction-and-performance-anxiety-therapy/"
+>
+  <PageHero kicker="Erectile Dysfunction & Performance Anxiety" title="Erectile Dysfunction & Performance Anxiety">
+    <p>
+      Erections and ejaculation not working the way you'd like is one of the most common, and
+      most quietly distressing, things people bring to therapy. It's rarely just physical, and
+      it's almost never permanent.
+    </p>
+  </PageHero>
+
+  <IsThisYou
+    items={[
+      'I struggle to get or keep an erection, even though I want to',
+      'I feel intense pressure to perform, which seems to make things worse',
+      'I ejaculate sooner than I or my partner would like',
+      'I find it difficult, or take a very long time, to ejaculate',
+      "I've started avoiding sex to avoid the anxiety around it",
+      "I've had this checked medically and been told there's no physical cause",
+    ]}
+  />
+
+  <InfoSection title="What's happening here?">
+    <p>
+      Erectile dysfunction is difficulty getting or maintaining an erection sufficient for sex.
+      Performance anxiety, worry about how your body will respond, is one of the most common
+      contributing factors, and can create a self-reinforcing cycle: anxiety affects the body's
+      response, which increases anxiety next time.
+    </p>
+    <p>
+      Premature ejaculation and delayed (or retarded) ejaculation are also common, and both
+      respond well to a combination of practical technique and working through the emotional
+      side.
+    </p>
+  </InfoSection>
+
+  <InfoSection title="What can contribute to these difficulties?" variant="white">
+    <ul>
+      <li>Anxiety, whether about sex specifically or more generally</li>
+      <li>Relationship stress or a fear of disappointing a partner</li>
+      <li>
+        Physical factors, including health conditions, medication and alcohol, which is why a GP
+        check is a sensible starting point
+      </li>
+      <li>A single difficult experience that has become a source of ongoing worry</li>
+      <li>Unrealistic expectations, often shaped by pornography, about what sex 'should' look like</li>
+    </ul>
+  </InfoSection>
+
+  <HelpList
+    items={[
+      "Break the cycle of anxiety and physical response feeding each other",
+      'Rebuild confidence gradually, without pressure to perform',
+      'Learn practical techniques alongside the emotional work',
+      'Talk openly with a partner about what’s happening, without shame',
+    ]}
+  />
+
+  <SafetyNote>
+    <p>
+      It's worth ruling out physical causes with your GP first, particularly if the difficulty
+      has come on suddenly or is linked to a health condition or medication. Therapy is often
+      most effective alongside this, not instead of it.
+    </p>
+  </SafetyNote>
+
+  <MiniTeasers />
+</BaseLayout>

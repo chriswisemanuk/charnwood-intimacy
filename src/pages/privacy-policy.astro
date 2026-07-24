@@ -1,0 +1,140 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { EMAIL, EMAIL_HREF } from '../consts';
+---
+<BaseLayout
+  title="Privacy Policy | Charnwood Intimacy"
+  description="How Charnwood Intimacy collects, uses and protects your personal information."
+  path="/privacy-policy/"
+>
+  <section class="section section--white">
+    <div class="container prose">
+      <p class="eyebrow">Legal</p>
+      <h1>Privacy Policy</h1>
+      <p class="updated">
+        Last updated 20 July 2026. This policy is adapted from Charnwood Counselling's existing
+        privacy policy for this sibling site, and should be reviewed by Jo before the site goes
+        live to confirm it reflects exactly what Charnwood Intimacy collects and uses.
+      </p>
+
+      <p>
+        This Privacy Notice for Charnwood Intimacy ("we", "us" or "our") describes how and why we
+        might access, collect, store, use and/or share ("process") your personal information when
+        you use our services ("Services"), including when you visit our website at
+        charnwoodintimacy.co.uk, or engage with us in other related ways, including bookings,
+        enquiries or contact forms.
+      </p>
+
+      <p>
+        Questions or concerns? Reading this Privacy Notice will help you understand your privacy
+        rights and choices. We are responsible for making decisions about how your personal
+        information is processed. If you do not agree with our policies and practices, please do
+        not use our Services. If you still have any questions or concerns, please contact us at{' '}
+        <a href={EMAIL_HREF}>{EMAIL}</a>.
+      </p>
+
+      <h2>What information do we collect?</h2>
+      <p>
+        We collect personal information that you voluntarily provide to us, for example through
+        our contact and booking forms. This may include your name, email address, phone number
+        and any message or additional information you choose to share with us.
+      </p>
+      <p>
+        Because of the nature of psychosexual therapy, some of the information you choose to
+        share with us in a message, or in the course of therapy itself, may be considered
+        sensitive personal information under data protection law, for example details relating to
+        your health, sex life or sexual orientation. We only process this information with your
+        consent, and it is treated with the same confidentiality that applies to all of Jo's
+        clinical work.
+      </p>
+      <p>
+        We also automatically collect some technical information when you visit our website, such
+        as your approximate location, browser type, and how you interact with our pages. This
+        helps us keep the site secure and understand how it's being used. See our{' '}
+        <a href="/cookie-policy/">Cookie Policy</a> for details of the specific cookies and
+        technologies currently in use.
+      </p>
+
+      <h2>How do we use your information?</h2>
+      <ul>
+        <li>To respond to your enquiry or booking request</li>
+        <li>To provide, manage and improve our therapy services</li>
+        <li>To meet our legal, clinical and safeguarding obligations</li>
+        <li>To keep a record of correspondence in line with good clinical practice</li>
+      </ul>
+
+      <h2>What are our legal bases for processing?</h2>
+      <p>
+        We rely on your consent (for example, when you submit a contact form), on the performance
+        of a contract (when arranging or providing therapy), and on our legitimate interests and
+        legal obligations as a therapy practice, including safeguarding responsibilities.
+      </p>
+
+      <h2>Who do we share your information with?</h2>
+      <p>
+        We do not sell or rent your personal information. We may share limited information with
+        trusted third-party service providers who help us run this website and process enquiries,
+        such as our contact form provider, and, where clinically or legally necessary, with
+        relevant professional bodies, supervisors or authorities.
+      </p>
+
+      <h2>How long do we keep your information?</h2>
+      <p>
+        We keep personal information only for as long as necessary for the purposes set out in
+        this notice, or as required by our professional and legal obligations as a therapy
+        practice.
+      </p>
+
+      <h2>How do we keep your information safe?</h2>
+      <p>
+        We use reasonable technical and organisational measures to protect your personal
+        information. However, no method of transmission over the internet is completely secure,
+        and we cannot guarantee absolute security.
+      </p>
+
+      <h2>Do we collect information from minors?</h2>
+      <p>
+        Our Services are not directed at, and we do not knowingly collect information from,
+        anyone under 18 years of age.
+      </p>
+
+      <h2>What are your privacy rights?</h2>
+      <p>
+        Under UK data protection law, you have rights including access to your personal
+        information, correction of inaccurate data, erasure in certain circumstances, and the
+        right to object to or restrict certain processing. To exercise any of these rights,
+        please contact us using the details below. You also have the right to raise concerns with
+        the{' '}
+        <a href="https://ico.org.uk/make-a-complaint/" target="_blank" rel="noopener">
+          Information Commissioner's Office (ICO)
+        </a>.
+      </p>
+
+      <h2>Contact us</h2>
+      <p>
+        If you have questions or concerns about this notice, please contact us at{' '}
+        <a href={EMAIL_HREF}>{EMAIL}</a>, or by post at Charnwood Intimacy, Floor 2, The Old Arts
+        College, 12 Frederick Street, Loughborough, LE11 3BJ.
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .prose {
+    max-width: 800px;
+  }
+  .prose p, .prose li {
+    color: var(--text-soft);
+  }
+  .prose ul {
+    display: grid;
+    gap: 0.6em;
+  }
+  .updated {
+    font-style: italic;
+    font-size: 0.95rem;
+    border-left: 4px solid var(--coral);
+    padding-left: 16px;
+  }
+</style>

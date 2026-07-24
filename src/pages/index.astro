@@ -1,50 +1,177 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
----
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTAButton from '../components/CTAButton.astro';
+import Squiggle from '../components/Squiggle.astro';
+import ConditionsGrid from '../components/ConditionsGrid.astro';
+import OurSpaceSection from '../components/OurSpaceSection.astro';
+import PricingBookingSection from '../components/PricingBookingSection.astro';
+import ContactForm from '../components/ContactForm.astro';
+import { BOOKING_URL } from '../consts';
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to <a href="https://docs.astro.build/"
-					>read the docs
-				</a> or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out <a
-					href="https://github.com/Charca/astro-blog-template"
-					>astro-blog-template
-				</a> by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
-		</main>
-		<Footer />
-	</body>
-</html>
+const isThisYou = [
+  "I experience pain during sex and I've been told nothing is physically wrong",
+  "I've lost interest in sex and I don't know why",
+  "I feel so anxious about sex that I avoid it altogether",
+  'My relationship is suffering because of a sexual difficulty',
+  "I've never really enjoyed sex and I'm starting to wonder if something is wrong",
+  'Sex has changed since I had a baby, went through menopause, or became unwell',
+  "I want to talk about something that happened to me and how it's affecting me now",
+  "I feel ashamed of my desires and don't know who to talk to",
+  "My partner and I want to work through this together but don't know where to start",
+  'I just want to feel normal again',
+];
+
+const howCanHelp = [
+  'Understand the physical, emotional and relational factors behind your difficulties',
+  'Reduce anxiety and self-consciousness around sex and intimacy',
+  'Process past experiences at a pace that feels safe',
+  'Reconnect with your body and your own desires',
+  'Communicate more openly with a partner about needs, boundaries and concerns',
+  'Develop a more accepting, compassionate relationship with your sexuality',
+  'Feel less alone with experiences that are rarely spoken about',
+];
+---
+<BaseLayout
+  title="Psychosexual & Intimacy Therapy in Loughborough | Charnwood Intimacy"
+  description="Confidential psychosexual and intimacy therapy in Loughborough and online across the UK. Support for low desire, painful sex, sexual trauma and more."
+  path="/"
+>
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">Your body, your space.</p>
+        <h1>Psychosexual &amp; Intimacy Therapy in Loughborough.</h1>
+        <Squiggle />
+        <p class="hero-lead">
+          Sex and intimacy touch almost every part of who we are, yet they're often the hardest
+          things to talk about, even with a doctor, a partner, or someone we trust. Charnwood
+          Intimacy offers a private, non-judgemental space to work through the sexual and
+          relational difficulties that are affecting your life.
+        </p>
+        <CTAButton href={BOOKING_URL} variant="primary">Book a session</CTAButton>
+      </div>
+      <div class="hero-image">
+        <img src="/images/logo-intimacy@2x.png" alt="Charnwood Intimacy" width="900" height="300" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--white">
+    <div class="container">
+      <h2>Is this for you?</h2>
+      <p class="section-intro">
+        People come to psychosexual therapy for all sorts of reasons. Sometimes there's a clear
+        issue, and other times it's just a sense that something isn't quite right. Here are some
+        of the things we often hear:
+      </p>
+      <ul class="check-list is-this-you-grid">
+        {isThisYou.map((item) => <li>{item}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section--dark">
+    <div class="container">
+      <p class="eyebrow">How can therapy help?</p>
+      <h2>Ways we can work together</h2>
+      <ul class="check-list help-grid">
+        {howCanHelp.map((item) => <li>{item}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <p class="eyebrow">What we help with</p>
+      <h2>A short overview, with links to each dedicated page</h2>
+      <ConditionsGrid />
+      <div class="see-all">
+        <CTAButton href="/what-we-help-with/" variant="link">See everything we help with &rarr;</CTAButton>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--white">
+    <div class="container therapist-grid">
+      <div class="therapist-photo">
+        <img src="/images/jo-wiseman.jpg" alt="Jo Wiseman, Founder & Psychotherapist" width="800" height="1000" loading="lazy" />
+      </div>
+      <div>
+        <p class="eyebrow">Meet your therapist</p>
+        <h2>Jo Wiseman</h2>
+        <p>
+          Jo Wiseman is a warm, down-to-earth psychotherapist and the founder of Charnwood
+          Counselling. She's currently completing her specialist training in psychosexual and
+          relationship therapy, and brings the same grounded, non-judgemental presence to this
+          work that she brings to everything else.
+        </p>
+        <CTAButton href="/your-therapist/" variant="link">More about your therapist &rarr;</CTAButton>
+      </div>
+    </div>
+  </section>
+
+  <OurSpaceSection />
+
+  <PricingBookingSection />
+
+  <section class="section section--alt" id="contact">
+    <div class="container">
+      <ContactForm />
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    background: var(--cream);
+    padding: 56px 0 64px;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 48px;
+    align-items: center;
+  }
+  .hero-lead {
+    font-size: 1.15rem;
+    color: var(--text-soft);
+    max-width: 560px;
+  }
+  .hero-image img {
+    border-radius: var(--radius);
+  }
+  .section-intro {
+    max-width: 700px;
+    font-size: 1.08rem;
+    color: var(--text-soft);
+  }
+  .is-this-you-grid, .help-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.9em 32px;
+    max-width: 960px;
+  }
+  .see-all {
+    margin-top: 32px;
+  }
+  .therapist-grid {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 48px;
+    align-items: center;
+  }
+  .therapist-photo img {
+    border-radius: var(--radius);
+  }
+  @media (max-width: 860px) {
+    .hero-grid, .therapist-grid {
+      grid-template-columns: 1fr;
+    }
+    .therapist-photo {
+      max-width: 320px;
+    }
+    .is-this-you-grid, .help-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

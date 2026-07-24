@@ -1,0 +1,83 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="Cookie Policy | Charnwood Intimacy"
+  description="How Charnwood Intimacy uses cookies and similar technologies on this website."
+  path="/cookie-policy/"
+>
+  <section class="section section--white">
+    <div class="container prose">
+      <p class="eyebrow">Legal</p>
+      <h1>Cookie Policy</h1>
+      <p class="updated">
+        Last updated 20 July 2026. This site is built to keep cookies to a minimum. If Jo adds
+        analytics, booking, or advertising tools in future, this page should be updated to list
+        them, in the same way Charnwood Counselling's cookie policy lists its own.
+      </p>
+
+      <p>
+        This Cookie Policy explains how Charnwood Intimacy ("we", "us", "our") uses cookies and
+        similar technologies on this website (charnwoodintimacy.co.uk).
+      </p>
+
+      <h2>What are cookies?</h2>
+      <p>
+        Cookies are small data files placed on your device when you visit a website. They're used
+        to make websites work, work more efficiently, or to provide reporting information to the
+        site owner.
+      </p>
+
+      <h2>What cookies does this site use?</h2>
+      <p>
+        This website is built as a simple, static site with no advertising or tracking cookies by
+        default. The contact and enquiry forms are handled by a third-party form service
+        (Web3Forms), which processes your submission in order to deliver it by email, but does not
+        set tracking cookies in your browser as part of that process.
+      </p>
+      <p>
+        If Jo later adds tools such as website analytics (for example Google Analytics), a live
+        booking calendar, or embedded video, those tools may set their own cookies. This page will
+        be updated to describe them, along with how to opt out, at that point.
+      </p>
+
+      <h2>How can I control cookies?</h2>
+      <p>
+        You can control and delete cookies through your browser settings at any time. Blocking all
+        cookies may affect the functionality of some websites, though this site is designed to
+        work without relying on non-essential cookies.
+      </p>
+      <ul>
+        <li><a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener">Chrome</a></li>
+        <li><a href="https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop" target="_blank" rel="noopener">Firefox</a></li>
+        <li><a href="https://support.apple.com/en-ie/guide/safari/sfri11471/mac" target="_blank" rel="noopener">Safari</a></li>
+        <li><a href="https://support.microsoft.com/en-us/windows/microsoft-edge-browsing-data-and-privacy-bb8174ba-9d73-dcf2-9b4a-c582b4e640dd" target="_blank" rel="noopener">Edge</a></li>
+      </ul>
+
+      <h2>Questions</h2>
+      <p>
+        If you have any questions about this Cookie Policy, please contact us via our{' '}
+        <a href="/contact/">contact page</a>.
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .prose {
+    max-width: 800px;
+  }
+  .prose p, .prose li {
+    color: var(--text-soft);
+  }
+  .prose ul {
+    display: grid;
+    gap: 0.5em;
+  }
+  .updated {
+    font-style: italic;
+    font-size: 0.95rem;
+    border-left: 4px solid var(--coral);
+    padding-left: 16px;
+  }
+</style>

@@ -1,0 +1,170 @@
+---
+import { WEB3FORMS_ACCESS_KEY, EMAIL } from '../consts';
+
+interface Props {
+  formTitle?: string;
+  subject?: string;
+  compact?: boolean;
+}
+
+const {
+  formTitle = 'Get in touch',
+  subject = 'New enquiry from Charnwood Intimacy website',
+  compact = false,
+} = Astro.props;
+
+const formId = `form-${Math.random().toString(36).slice(2, 9)}`;
+---
+<div class:list={['contact-form-wrap', { compact }]}>
+  {formTitle && <h2>{formTitle}</h2>}
+  <form
+    id={formId}
+    class="contact-form"
+    action="https://api.web3forms.com/submit"
+    method="POST"
+  >
+    <input type="hidden" name="access_key" value={WEB3FORMS_ACCESS_KEY} />
+    <input type="hidden" name="subject" value={subject} />
+    <input type="hidden" name="from_name" value="Charnwood Intimacy website" />
+    {/* Honeypot field, keeps simple bots from submitting the form */}
+    <input type="checkbox" name="botcheck" class="visually-hidden" tabindex="-1" autocomplete="off" />
+
+    <div class="form-row">
+      <label for={`${formId}-name`}>Your Name <span aria-hidden="true">*</span></label>
+      <input id={`${formId}-name`} type="text" name="name" required />
+    </div>
+
+    <div class="form-row">
+      <label for={`${formId}-email`}>Your Email Address <span aria-hidden="true">*</span></label>
+      <input id={`${formId}-email`} type="email" name="email" required />
+    </div>
+
+    <div class="form-row">
+      <label for={`${formId}-phone`}>Mobile Number</label>
+      <input id={`${formId}-phone`} type="tel" name="phone" />
+    </div>
+
+    <div class="form-row form-row--full">
+      <label for={`${formId}-message`}>Your Message</label>
+      <textarea id={`${formId}-message`} name="message" rows="5"></textarea>
+    </div>
+
+    <div class="form-row form-row--full">
+      <button type="submit" class="btn btn-primary">Send your message</button>
+    </div>
+
+    <p class="form-status form-status--success" role="status" hidden>
+      Thank you for your message. It has been sent.
+    </p>
+    <p class="form-status form-status--error" role="alert" hidden>
+      There was an error sending your message. Please try again, or call us directly.
+    </p>
+  </form>
+</div>
+
+<style>
+  .contact-form-wrap h2 {
+    margin-bottom: 0.7em;
+  }
+
+  .contact-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 24px;
+    max-width: 760px;
+  }
+
+  .form-row--full {
+    grid-column: 1 / -1;
+  }
+
+  label {
+    display: block;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    margin-bottom: 0.4em;
+    font-size: 0.95rem;
+  }
+
+  input, textarea {
+    width: 100%;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    padding: 0.75em 0.9em;
+    border-radius: var(--radius-sm);
+    border: 1px solid #d7dcd2;
+    background: var(--white);
+    color: var(--text);
+  }
+
+  input:focus, textarea:focus {
+    outline: 2px solid var(--orange);
+    outline-offset: 1px;
+  }
+
+  .form-status {
+    grid-column: 1 / -1;
+    padding: 0.9em 1.1em;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+  }
+
+  .form-status--success {
+    background: rgba(91,170,69,0.15);
+    color: var(--green-dark);
+  }
+
+  .form-status--error {
+    background: rgba(239,69,56,0.12);
+    color: var(--coral-dark);
+  }
+
+  @media (max-width: 640px) {
+    .contact-form {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script>
+  document.querySelectorAll('form.contact-form').forEach((form) => {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const formEl = form as HTMLFormElement;
+      const successEl = formEl.querySelector('.form-status--success') as HTMLElement | null;
+      const errorEl = formEl.querySelector('.form-status--error') as HTMLElement | null;
+      const submitBtn = formEl.querySelector('button[type="submit"]') as HTMLButtonElement | null;
+
+      successEl?.setAttribute('hidden', '');
+      errorEl?.setAttribute('hidden', '');
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+      }
+
+      try {
+        const formData = new FormData(formEl);
+        const response = await fetch(formEl.action, {
+          method: 'POST',
+          body: formData,
+          headers: { Accept: 'application/json' },
+        });
+        const result = await response.json();
+
+        if (result.success) {
+          successEl?.removeAttribute('hidden');
+          formEl.reset();
+        } else {
+          errorEl?.removeAttribute('hidden');
+        }
+      } catch (err) {
+        errorEl?.removeAttribute('hidden');
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Send your message';
+        }
+      }
+    });
+  });
+</script>

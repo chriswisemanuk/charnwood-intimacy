@@ -1,0 +1,148 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Squiggle from '../components/Squiggle.astro';
+import CTAButton from '../components/CTAButton.astro';
+import { PARENT_SITE_URL } from '../consts';
+---
+<BaseLayout
+  title="Meet Your Therapist, Jo Wiseman | Charnwood Intimacy"
+  description="Jo Wiseman is a BACP-registered psychotherapist training in psychosexual and relationship therapy with CICS, accredited by COSRT."
+  path="/your-therapist/"
+>
+  <section class="section section--white hero-section">
+    <div class="container hero-grid">
+      <div class="hero-photo">
+        <img src="/images/jo-wiseman.jpg" alt="Jo Wiseman, Founder & Psychotherapist" width="800" height="1000" />
+      </div>
+      <div>
+        <p class="eyebrow">Your Therapist</p>
+        <h1>Jo Wiseman, Founder &amp; Psychotherapist</h1>
+        <Squiggle />
+        <p class="lead">
+          Jo is a warm, curious and down-to-earth therapist offering a safe, non-judgemental
+          space to explore whatever brings you here.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>About Jo</h2>
+      <p>
+        Jo Wiseman is the founder of Charnwood Counselling, a BACP-registered psychotherapist,
+        and the therapist behind Charnwood Intimacy. She's currently completing the CICS Diploma
+        in Psychosexual and Relationship Therapy, a two-year, COSRT and NCPS accredited programme
+        delivered by the Contemporary Institute of Clinical Sexology (CICS), and is working
+        towards full COSRT registration as a psychosexual and relationship therapist.
+      </p>
+      <p>
+        Jo's approach is pluralistic and integrative: rather than fitting every client into one
+        model, she draws on a range of therapeutic approaches to suit what each person needs,
+        while keeping the client and the relationship at the centre of the work. Her training
+        places a strong emphasis on gender, sexual, relationship and cultural diversity (GSRD),
+        which means Charnwood Intimacy is a genuinely inclusive space for people of any gender,
+        sexuality, relationship structure, culture or background.
+      </p>
+      <p>
+        Jo understands that bringing sexual concerns to therapy takes real courage, and she
+        brings the same warmth and respect to this work that clients already know from Charnwood
+        Counselling.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--white">
+    <div class="container prose">
+      <h2>Training, supervision and honesty about where Jo is at</h2>
+      <p>
+        As part of her CICS Diploma, Jo is required to complete a minimum of 150 hours of
+        supervised clinical practice, working with the full range of sexual and relationship
+        presentations, alongside her own 50 hours of personal therapy over the course of the
+        two-year programme. In practice, this means every piece of work Jo does is closely
+        supervised by an experienced psychosexual therapist, and it's part of why introductory
+        rates apply during this period (see <a href="/pricing-and-booking/">Pricing &amp; Booking</a>).
+      </p>
+      <p>
+        This will be explained clearly to every new client before their first session, so there
+        are no surprises, and so you can make an informed choice about starting therapy with Jo
+        at this stage of her training.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>Registrations</h2>
+      <ul class="reg-list">
+        <li>MBACP, British Association for Counselling and Psychotherapy</li>
+        <li>Student member, College of Sexual and Relationship Therapists (COSRT)</li>
+        <li>Studying towards the CICS Diploma in Psychosexual and Relationship Therapy</li>
+      </ul>
+      <p class="note">
+        Registration status is reviewed regularly as Jo's training progresses. If you have any
+        questions about her current status, she's very happy to talk it through with you before
+        your first session.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--dark">
+    <div class="container prose">
+      <h2>Part of the Charnwood Counselling group</h2>
+      <p>
+        Charnwood Intimacy is part of the Charnwood Counselling group, based at The Old Arts
+        College in Loughborough. If you're looking for general counselling, bereavement support
+        or relationship counselling that isn't specifically sexual, visit
+        {' '}
+        <a href={PARENT_SITE_URL} target="_blank" rel="noopener">charnwoodcounselling.co.uk</a>.
+      </p>
+      <CTAButton href="/pricing-and-booking/" variant="outline">Pricing &amp; Booking</CTAButton>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 48px;
+    align-items: center;
+  }
+  .hero-photo img {
+    border-radius: var(--radius);
+  }
+  .lead {
+    font-size: 1.1rem;
+    color: var(--text-soft);
+    max-width: 560px;
+  }
+  .prose {
+    max-width: 800px;
+  }
+  .prose p {
+    font-size: 1.05rem;
+    color: var(--text-soft);
+  }
+  .section--dark .prose p {
+    color: var(--text-on-dark-soft);
+  }
+  .reg-list {
+    font-size: 1.05rem;
+    color: var(--text-soft);
+    display: grid;
+    gap: 0.6em;
+  }
+  .note {
+    font-size: 0.95rem;
+    font-style: italic;
+  }
+  @media (max-width: 860px) {
+    .hero-grid {
+      grid-template-columns: 1fr;
+    }
+    .hero-photo {
+      max-width: 280px;
+    }
+  }
+</style>

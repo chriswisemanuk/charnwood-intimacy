@@ -1,0 +1,77 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import IsThisYou from '../components/IsThisYou.astro';
+import InfoSection from '../components/InfoSection.astro';
+import HelpList from '../components/HelpList.astro';
+import SafetyNote from '../components/SafetyNote.astro';
+import MiniTeasers from '../components/MiniTeasers.astro';
+---
+<BaseLayout
+  title="Sexual Trauma Therapy | Charnwood Intimacy"
+  description="Trauma-informed therapy for the impact of sexual abuse, assault or coercion on your sex life, relationships and sense of self. Loughborough and online."
+  path="/sexual-trauma-therapy/"
+>
+  <PageHero kicker="Sexual Trauma" title="Sexual Trauma">
+    <p>
+      Past experiences of sexual abuse, assault or coercion can affect how safe sex and intimacy
+      feel, sometimes for years afterwards. This is a trauma-informed space to work through what
+      happened, at whatever pace feels right for you.
+    </p>
+  </PageHero>
+
+  <IsThisYou
+    items={[
+      'I want to talk about something that happened to me and how it’s affecting me now',
+      'I avoid sex or physical intimacy because of something in my past',
+      'I feel disconnected, or like I leave my body, during sex',
+      'I struggle to trust partners, even in a relationship where I feel loved',
+      'I feel shame, guilt or confusion about what happened, even though I know it wasn’t my fault',
+      "I'm not ready to talk about details, but I know it's affecting my life",
+    ]}
+  />
+
+  <InfoSection title="How therapy approaches this">
+    <p>
+      This work is trauma-informed, meaning the pace, structure and depth are always led by you.
+      You are never asked to share more than you're ready to, and there is no expectation to
+      relive or describe events in detail before you feel able to. The aim is to help you
+      understand the impact of what happened, and to find a way of relating to your body, your
+      sexuality and your relationships that feels less controlled by the past.
+    </p>
+    <p>
+      This applies whether the experience happened recently or many years ago, and whether it was
+      a single event or something that happened over time, including in childhood.
+    </p>
+  </InfoSection>
+
+  <InfoSection title="Effects this work can help with" variant="white">
+    <ul>
+      <li>Avoidance of sex or physical closeness</li>
+      <li>Flashbacks, dissociation or feeling 'not present' during intimacy</li>
+      <li>Difficulty feeling safe with a partner, even a trusted one</li>
+      <li>Complicated feelings about your own sexuality since the experience</li>
+      <li>Shame or self-blame that logically you know isn't fair, but still feels real</li>
+    </ul>
+  </InfoSection>
+
+  <HelpList
+    items={[
+      'A safe, paced space with no pressure to disclose more than feels right',
+      'Understanding the lasting effects of trauma on the body and on intimacy',
+      'Rebuilding a sense of safety and choice, in your body and in relationships',
+      'Support alongside other help you may already be receiving',
+    ]}
+  />
+
+  <SafetyNote>
+    <p>
+      If you are in immediate danger or at risk of harm, please contact emergency services or a
+      specialist helpline rather than waiting for a therapy appointment. Your therapist will also
+      explain the limits of confidentiality clearly at the start of any work together,
+      particularly around safeguarding.
+    </p>
+  </SafetyNote>
+
+  <MiniTeasers />
+</BaseLayout>

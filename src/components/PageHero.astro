@@ -1,0 +1,64 @@
+---
+import CTAButton from './CTAButton.astro';
+import Squiggle from './Squiggle.astro';
+import { BOOKING_URL } from '../consts';
+
+interface Props {
+  kicker?: string;
+  title: string;
+  ctaLabel?: string;
+  ctaHref?: string;
+  secondaryLabel?: string;
+  secondaryHref?: string;
+}
+
+const {
+  kicker,
+  title,
+  ctaLabel = 'Book a session',
+  ctaHref = BOOKING_URL,
+  secondaryLabel,
+  secondaryHref,
+} = Astro.props;
+---
+<section class="page-hero">
+  <div class="container">
+    {kicker && <p class="eyebrow">{kicker}</p>}
+    <h1>{title}</h1>
+    <Squiggle />
+    <div class="page-hero-body">
+      <slot />
+    </div>
+    <div class="page-hero-actions">
+      <CTAButton href={ctaHref} variant="primary">{ctaLabel}</CTAButton>
+      {secondaryLabel && secondaryHref && (
+        <CTAButton href={secondaryHref} variant="link">{secondaryLabel}</CTAButton>
+      )}
+    </div>
+  </div>
+</section>
+
+<style>
+  .page-hero {
+    background: var(--cream);
+    padding: 64px 0 56px;
+  }
+
+  .page-hero h1 {
+    max-width: 780px;
+  }
+
+  .page-hero-body {
+    max-width: 720px;
+    font-size: 1.15rem;
+    color: var(--text-soft);
+  }
+
+  .page-hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-top: 8px;
+    flex-wrap: wrap;
+  }
+</style>

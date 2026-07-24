@@ -1,0 +1,44 @@
+---
+import CTAButton from './CTAButton.astro';
+---
+<section class="section section--alt">
+  <div class="container teaser-grid">
+    <div>
+      <h3>Our space</h3>
+      <p>
+        Charnwood Intimacy is based in the same warm, private space as Charnwood Counselling: the
+        second floor of The Old Arts College in the heart of Loughborough, above Public and
+        Plants. The room is fully accessible, and there's excellent coffee nearby if you'd like
+        time to reflect after your session. Sessions are also available online for clients
+        anywhere in the UK, which many people find helps them feel more able to open up.
+      </p>
+      <CTAButton href="/our-space/" variant="link">More about our space &rarr;</CTAButton>
+    </div>
+    <div>
+      <h3>Pricing and how to book</h3>
+      <p>
+        Sessions last 50 minutes. As Jo is currently completing her specialist training,
+        introductory session rates apply during this period, in person in Loughborough or online.
+        Booking is simple: choose a time that works for you, or get in touch to talk it through
+        first if you're not sure where to start.
+      </p>
+      <CTAButton href="/pricing-and-booking/" variant="link">Pricing &amp; booking &rarr;</CTAButton>
+    </div>
+  </div>
+</section>
+
+<style>
+  .teaser-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+  .teaser-grid p {
+    color: var(--text-soft);
+  }
+  @media (max-width: 860px) {
+    .teaser-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import IsThisYou from '../components/IsThisYou.astro';
+import InfoSection from '../components/InfoSection.astro';
+import HelpList from '../components/HelpList.astro';
+import MiniTeasers from '../components/MiniTeasers.astro';
+---
+<BaseLayout
+  title="Couples & Intimacy Therapy | Charnwood Intimacy"
+  description="Rebuild intimacy, communication and connection as a couple. Sex and relationship therapy in Loughborough and online, for all relationship structures."
+  path="/couples-and-intimacy-therapy/"
+>
+  <PageHero kicker="Couples & Intimacy Therapy" title="Couples & Intimacy Therapy">
+    <p>
+      Sexual and intimacy difficulties rarely exist on their own, they usually sit inside a
+      relationship. Couples and intimacy therapy gives you and your partner a structured,
+      supported space to work through what's happening together.
+    </p>
+  </PageHero>
+
+  <IsThisYou
+    items={[
+      'We want to work through this together but don’t know where to start',
+      'We’ve drifted apart physically and emotionally',
+      'One of us wants sex far more, or less, than the other',
+      'We’re trying to rebuild trust and intimacy after an affair',
+      'Sex has changed since a baby, illness, menopause or another big life event',
+      'We communicate badly about sex and it’s affecting everything else',
+      'We’re not sure our relationship "looks normal" and want a space that won’t judge that',
+    ]}
+  />
+
+  <HelpList
+    title="How therapy can help"
+    items={[
+      'Build a shared language for talking about sex, needs and boundaries',
+      'Work through conflict, rupture and repair without it causing lasting damage',
+      'Rebuild intimacy and trust after infidelity or a breach of trust',
+      'Understand each other’s experience of desire, rather than assuming the worst',
+      'Find an approach that fits your relationship, including non-traditional structures and LGBTQ+ relationships',
+    ]}
+  />
+
+  <InfoSection title="Who this is for" variant="white">
+    <p>
+      Couples and intimacy therapy is open to any two (or more, in the case of consensually
+      non-monogamous relationships) people wanting to work on their relationship, regardless of
+      gender, sexuality or relationship structure. You don't need to attend every session
+      together, some couples choose a mix of joint and individual sessions.
+    </p>
+  </InfoSection>
+
+  <MiniTeasers />
+</BaseLayout>

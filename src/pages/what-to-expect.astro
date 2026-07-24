@@ -1,0 +1,79 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Squiggle from '../components/Squiggle.astro';
+
+const faqs = [
+  {
+    q: 'What happens in a first session?',
+    a: "Your first session is a chance to talk through what's brought you here, in as much or as little detail as feels comfortable, and to ask any questions you have. There's no set script and nothing you're expected to have prepared. It's simply a conversation.",
+  },
+  {
+    q: 'Will there be any physical examination or contact?',
+    a: 'No. Psychosexual therapy is entirely a talking therapy. There is never any physical examination, undressing or physical contact of any kind, in person or online.',
+  },
+  {
+    q: 'Do I need to come with a partner?',
+    a: 'No. Many people attend individually, even for difficulties that affect a relationship. Others choose to bring a partner to some or all sessions. What works best depends on your situation, and you can discuss this with Jo.',
+  },
+  {
+    q: 'Is it confidential?',
+    a: "Yes, with the same limits that apply to all therapy: if there's a risk of serious harm to you or someone else, your therapist may need to break confidentiality, and this will always be explained clearly before you start.",
+  },
+  {
+    q: 'What does it mean that my therapist is still training?',
+    a: "Jo is a fully qualified BACP-registered psychotherapist who is completing additional specialist training in psychosexual and relationship therapy. All of her work in this area is closely supervised. This is explained in full on the Your Therapist page, and is reflected in the introductory rates during this period.",
+  },
+  {
+    q: 'Online or in person?',
+    a: 'Both are available. In-person sessions take place at The Old Arts College in Loughborough. Online sessions are available to clients anywhere in the UK, and many people find they feel more able to open up from home.',
+  },
+  {
+    q: 'How many sessions will I need?',
+    a: "This varies enormously depending on what you're working through. Some people find a handful of sessions helpful, others prefer ongoing, longer-term work. There's no fixed programme, and you're free to review this together as you go.",
+  },
+  {
+    q: 'Should I see my GP first?',
+    a: "For some difficulties, particularly pain during sex or erectile difficulties, it's worth ruling out a physical cause with your GP or a sexual health clinic first, or alongside starting therapy. This is noted on the relevant condition pages, and Jo can help you think through who else might be useful to involve.",
+  },
+];
+---
+<BaseLayout
+  title="What to Expect from Psychosexual Therapy | Charnwood Intimacy"
+  description="What happens in your first session, how confidentiality works, and answers to common questions about starting psychosexual therapy."
+  path="/what-to-expect/"
+>
+  <section class="section section--white">
+    <div class="container">
+      <p class="eyebrow">What to Expect</p>
+      <h1>Common questions, answered plainly</h1>
+      <Squiggle />
+    </div>
+  </section>
+
+  <section class="section--tight section--alt">
+    <div class="container faq-list">
+      {faqs.map((faq) => (
+        <div class="faq-item">
+          <h2>{faq.q}</h2>
+          <p>{faq.a}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .faq-list {
+    max-width: 820px;
+    display: grid;
+    gap: 36px;
+  }
+  .faq-item h2 {
+    font-size: 1.25rem;
+    margin-bottom: 0.4em;
+  }
+  .faq-item p {
+    color: var(--text-soft);
+    margin: 0;
+  }
+</style>

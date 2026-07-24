@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Squiggle from '../components/Squiggle.astro';
+
+const plannedTitles = [
+  'Understanding vaginismus: what it is and how therapy can help',
+  'Menopause and your sex life: what changes and what helps',
+  'How to talk to your partner about mismatched libido',
+  'Is porn use a problem? Understanding compulsive sexual behaviour',
+  'Rebuilding intimacy after an affair',
+  "Sex after having a baby: what's normal and when to get support",
+  'Performance anxiety: why it happens and how to break the cycle',
+  'What actually happens in a first psychosexual therapy session',
+];
+---
+<BaseLayout
+  title="Resources | Charnwood Intimacy"
+  description="Articles and resources on sex, intimacy and relationships from Charnwood Intimacy."
+  path="/resources/"
+>
+  <section class="section section--white">
+    <div class="container">
+      <p class="eyebrow">Resources</p>
+      <h1>Articles, coming soon</h1>
+      <Squiggle />
+      <p class="lead">
+        We're building a library of articles on sex, intimacy and relationships to sit alongside
+        the therapy pages on this site. Here's what's planned first. Check back soon, or{' '}
+        <a href="/contact/">get in touch</a> if there's something specific you'd like us to write
+        about.
+      </p>
+      <ul class="planned-list">
+        {plannedTitles.map((title) => <li>{title}</li>)}
+      </ul>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .lead {
+    max-width: 720px;
+    font-size: 1.08rem;
+    color: var(--text-soft);
+  }
+  .planned-list {
+    max-width: 720px;
+    display: grid;
+    gap: 0.7em;
+    color: var(--text-soft);
+    font-size: 1.02rem;
+    margin-top: 24px;
+  }
+</style>

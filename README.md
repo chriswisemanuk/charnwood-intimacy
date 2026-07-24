@@ -1,64 +1,92 @@
-# Astro Starter Kit: Blog
+# Charnwood Intimacy website
 
-[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/cloudflare/templates/tree/main/astro-blog-starter-template)
+A static Astro site for charnwoodintimacy.co.uk, built to sit alongside
+charnwoodcounselling.co.uk: same colour palette (teal, orange, green, cream),
+same fonts (Cabin for headings, Onest for body text), with a touch of the
+coral red from the Charnwood Intimacy logo used for small accents.
 
-![Astro Template Preview](https://github.com/withastro/astro/assets/2244813/ff10799f-a816-4703-b967-c78997e8323d)
+All copy comes from `Charnwood_Intimacy_Website_Plan.docx` in the parent
+"Intimacy Website" folder. Anything the plan flagged as unconfirmed (exact
+session fees, Jo's exact COSRT/CICS registration wording, the cancellation
+policy) has been left general on the site rather than guessed, and is called
+out below so nothing inaccurate goes live.
 
-<!-- dash-content-start -->
+## Before this goes live
 
-Create a blog with Astro and deploy it on Cloudflare Workers as a [static website](https://developers.cloudflare.com/workers/static-assets/).
+1. **Get a Web3Forms access key** so the contact form actually delivers
+   emails. This is free and takes about a minute:
+   - Go to https://web3forms.com and enter the email address you want
+     enquiries sent to (e.g. Jo's inbox).
+   - You'll receive an access key by email. Copy it.
+   - Open `src/consts.ts` and replace `REPLACE_WITH_YOUR_WEB3FORMS_ACCESS_KEY`
+     with that key.
+   - That's it, no other backend setup is needed. The form works from a
+     plain static site with no server.
 
-Features:
+2. **Confirm with Jo before publishing:**
+   - Exact session fees (`src/pages/pricing-and-booking.astro` and the
+     homepage currently describe "introductory rates" without a number)
+   - Her exact current COSRT/CICS registration wording
+     (`src/pages/your-therapist.astro`)
+   - The cancellation policy wording (`src/pages/pricing-and-booking.astro`)
+   - The contact email address used in `src/consts.ts`
+     (currently `hello@charnwoodintimacy.co.uk`, update if different)
+   - Have the Privacy Policy and Cookie Policy checked, they're adapted from
+     Charnwood Counselling's existing policies but should be reviewed
+     before launch, same as the parent site's policies were.
+   - Have a solicitor/COSRT-aware review of the clinical accuracy of the
+     condition pages, as the source plan document itself recommends.
 
-- ✅ Minimal styling (make it your own!)
-- ✅ 100/100 Lighthouse performance
-- ✅ SEO-friendly with canonical URLs and OpenGraph data
-- ✅ Sitemap support
-- ✅ RSS Feed support
-- ✅ Markdown & MDX support
-- ✅ Built-in Observability logging
+3. Testimonials, blog posts, and phased condition-page rollout are left as
+   described in the plan document, easy to add later since every page is
+   just an Astro file in `src/pages/`.
 
-<!-- dash-content-end -->
-
-## Getting Started
-
-Outside of this repo, you can start a new project with this template using [C3](https://developers.cloudflare.com/pages/get-started/c3/) (the `create-cloudflare` CLI):
+## Running it locally
 
 ```bash
-npm create cloudflare@latest -- --template=cloudflare/templates/astro-blog-starter-template
+npm install
+npm run dev
 ```
 
-A live public deployment of this template is available at [https://astro-blog-starter-template.templates.workers.dev](https://astro-blog-starter-template.templates.workers.dev)
+Then open the local address it prints (usually http://localhost:4321).
 
-## 🚀 Project Structure
+## Building
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+```bash
+npm run build
+```
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+Outputs a fully static site to `dist/`. Nothing server-side is required, it's
+plain HTML/CSS/JS and can be hosted anywhere, including Cloudflare Pages.
 
-The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
+## Deploying to Cloudflare Pages
 
-Any static assets, like images, can be placed in the `public/` directory.
+1. Push this folder to a GitHub or GitLab repository (or use Cloudflare's
+   "Deploy without Git" upload option if you'd rather not use Git).
+2. In the Cloudflare dashboard, go to **Workers & Pages > Create > Pages**
+   and connect the repository.
+3. Build settings:
+   - Framework preset: **Astro**
+   - Build command: `npm run build`
+   - Build output directory: `dist`
+4. Deploy. Cloudflare will give you a `*.pages.dev` address immediately.
+5. Once you're happy, add `charnwoodintimacy.co.uk` as a custom domain in
+   the Pages project's settings and update the domain's DNS (Cloudflare will
+   walk you through this if the domain is on Cloudflare, otherwise it gives
+   you the CNAME/records to add wherever the domain is registered).
+6. No environment variables or server functions are needed for this site.
+   The only thing that must be set before launch is the Web3Forms key
+   above.
 
-## 🧞 Commands
+## Project structure
 
-All commands are run from the root of the project, from a terminal:
-
-| Command                           | Action                                           |
-| :-------------------------------- | :----------------------------------------------- |
-| `npm install`                     | Installs dependencies                            |
-| `npm run dev`                     | Starts local dev server at `localhost:4321`      |
-| `npm run build`                   | Build your production site to `./dist/`          |
-| `npm run preview`                 | Preview your build locally, before deploying     |
-| `npm run astro ...`               | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help`         | Get help using the Astro CLI                     |
-| `npm run build && npm run deploy` | Deploy your production site to Cloudflare        |
-| `npm wrangler tail`               | View real-time logs for all Workers              |
-
-## 👀 Want to learn more?
-
-Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
-
-## Credit
-
-This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
+- `src/pages/` – one file per page, matches the sitemap in the plan document
+- `src/components/` – shared building blocks (hero, forms, cards, nav, etc.)
+- `src/data/conditions.ts` – the six "what we help with" condition pages,
+  used to build the nav dropdown and the grids on the home/pillar pages
+- `src/consts.ts` – site-wide settings: contact details, booking link,
+  Web3Forms key
+- `src/styles/global.css` – colour and font variables, shared across every
+  page
+- `public/images/` – logo, favicon, therapist photo and space photo, pulled
+  from the Charnwood Counselling brand assets

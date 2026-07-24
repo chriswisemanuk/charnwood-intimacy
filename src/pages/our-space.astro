@@ -1,0 +1,91 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Squiggle from '../components/Squiggle.astro';
+import CTAButton from '../components/CTAButton.astro';
+import { BOOKING_URL } from '../consts';
+---
+<BaseLayout
+  title="Our Space in Loughborough | Charnwood Intimacy"
+  description="Charnwood Intimacy is based at The Old Arts College in central Loughborough, fully accessible, with sessions also available online."
+  path="/our-space/"
+>
+  <section class="section section--white hero-grid">
+    <div class="container hero-grid-inner">
+      <div>
+        <p class="eyebrow">Our Space</p>
+        <h1>Charnwood Intimacy at The Old Arts College, Loughborough</h1>
+        <Squiggle />
+        <p class="lead">
+          We're located in the heart of Loughborough on the second floor of The Old Arts College,
+          above Public and Plants. The room is cosy, private and fully accessible, in one of the
+          town's most iconic buildings. There's excellent coffee nearby if you'd like time
+          afterwards to sit with how the session felt.
+        </p>
+        <CTAButton href={BOOKING_URL} variant="primary">Book a session</CTAButton>
+      </div>
+      <div>
+        <img src="/images/our-space-room.jpg" alt="The therapy room at The Old Arts College, Loughborough" width="1600" height="1200" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container getting-here">
+      <h2>Getting here</h2>
+
+      <div class="getting-here-grid">
+        <div>
+          <h3>Visiting us by public transport</h3>
+          <p>
+            We're easily reachable by bus. Bus stop AA (Ashby Square) is right outside with
+            regular buses from Leicester, Shepshed, Birstall, Rothley, Mountsorrel, Quorn and
+            Ashby-de-la-Zouch. This stop is also served by local KinchBus services, including
+            buses every 10 minutes from Loughborough Railway Station and Loughborough University.
+            Skylink Derby/Leicester and buses to Nottingham also stop less than 5 minutes walk
+            away on Derby Road and Baxter Gate.
+          </p>
+        </div>
+        <div>
+          <h3>Visiting us by car</h3>
+          <p>
+            There are a number of car parks within a couple of minutes walk. Sainsbury's on Ashby
+            Road offers up to 2 hours free parking, as does Regents Place Retail Park. Paid
+            parking is also available at Packe Street and Granby Street car parks, whilst
+            on-street parking is available in the surrounding area after 6pm.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero-grid-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+  .hero-grid-inner img {
+    border-radius: var(--radius);
+  }
+  .lead {
+    font-size: 1.1rem;
+    color: var(--text-soft);
+    max-width: 560px;
+  }
+  .getting-here-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 24px;
+  }
+  .getting-here-grid p {
+    color: var(--text-soft);
+  }
+  @media (max-width: 860px) {
+    .hero-grid-inner, .getting-here-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

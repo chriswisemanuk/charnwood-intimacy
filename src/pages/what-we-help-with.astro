@@ -1,0 +1,96 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Squiggle from '../components/Squiggle.astro';
+import ConditionsGrid from '../components/ConditionsGrid.astro';
+---
+<BaseLayout
+  title="What Psychosexual Therapy Can Help With | Charnwood Intimacy"
+  description="From low desire and painful sex to sexual trauma and intimacy problems, see how psychosexual therapy in Loughborough and online can help."
+  path="/what-we-help-with/"
+>
+  <section class="section section--white intro-section">
+    <div class="container">
+      <p class="eyebrow">What We Help With</p>
+      <h1>What psychosexual therapy can help with</h1>
+      <Squiggle />
+      <p class="lead">
+        Psychosexual therapy is a specialist form of talking therapy focused on sexual health,
+        intimacy and the relational side of sexual experience. It draws on how our thoughts,
+        feelings, history, relationships and physical experience all interact, and addresses
+        difficulties in a holistic, compassionate and evidence-based way.
+      </p>
+      <p class="lead">
+        It is not sex education, and it never involves any physical examination or contact.
+        Sessions take place in exactly the same way as any other talking therapy: a private
+        conversation, in a calm room or online, between you and your therapist. It's suitable
+        for individuals and couples, of any gender, sexuality or relationship structure.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container topic-grid">
+      <div class="topic">
+        <h2>Sexual function</h2>
+        <p>
+          Difficulties with desire, arousal, orgasm or erection are common, and can affect anyone
+          at any stage of life. See our dedicated pages on low desire and mismatched libido,
+          painful sex and vaginismus, and erectile dysfunction and performance anxiety.
+        </p>
+      </div>
+      <div class="topic">
+        <h2>Sexual trauma and its effects</h2>
+        <p>
+          Past experiences of sexual abuse, assault or coercion can shape how we feel about sex,
+          intimacy and our own bodies long afterwards. See our dedicated page on sexual trauma.
+        </p>
+      </div>
+      <div class="topic">
+        <h2>Intimacy and relationships</h2>
+        <p>
+          Sexual difficulties rarely exist in isolation from a relationship. See our dedicated
+          page on couples and intimacy therapy, covering mismatched libido, loss of connection,
+          and rebuilding intimacy after infidelity, illness or a major life change.
+        </p>
+      </div>
+      <div class="topic">
+        <h2>Identity, behaviour and self-worth</h2>
+        <p>
+          Our sense of ourselves as sexual beings is closely tied to confidence, identity and
+          self-worth. See our dedicated page on compulsive sexual behaviour and porn use, and
+          speak to us about any other concern relating to sexual identity, shame or
+          self-consciousness that isn't listed here. If it's affecting you, it's worth talking
+          about.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--white">
+    <div class="container">
+      <h2>Explore each area</h2>
+      <ConditionsGrid />
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .intro-section .lead {
+    max-width: 780px;
+    font-size: 1.1rem;
+    color: var(--text-soft);
+  }
+  .topic-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+  .topic p {
+    color: var(--text-soft);
+  }
+  @media (max-width: 860px) {
+    .topic-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
