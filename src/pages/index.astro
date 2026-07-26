@@ -58,8 +58,11 @@ const howCanHelp = [
         <CTAButton href={BOOKING_URL} variant="primary">Book a session</CTAButton>
       </div>
       <div class="hero-image">
-        <div class="framed-photo">
-          <img src="/images/our-space-room.jpg" alt="The Charnwood Intimacy therapy room at The Old Arts College" width="1600" height="1200" />
+        <div class="framed-photo hero-illustration">
+          <picture>
+            <source srcset="/images/illustrations/static/therapy-room.svg" media="(prefers-reduced-motion: reduce)" />
+            <img src="/images/illustrations/therapy-room.svg" alt="" width="680" height="460" />
+          </picture>
         </div>
         <img class="hero-badge" src="/images/fox-badge.png" alt="" aria-hidden="true" width="480" height="480" />
       </div>
@@ -220,6 +223,12 @@ const howCanHelp = [
   .hero-image {
     position: relative;
     padding: 0 18px 18px 0;
+  }
+  .hero-illustration img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius);
+    box-shadow: 0 18px 44px rgba(15, 68, 74, 0.22);
   }
   .hero-badge {
     position: absolute;
