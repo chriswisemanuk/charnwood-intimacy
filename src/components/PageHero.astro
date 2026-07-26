@@ -13,6 +13,10 @@ interface Props {
   secondaryHref?: string;
   image?: string;
   imageAlt?: string;
+  /* Animated SVG illustration with a static version served when the
+     visitor prefers reduced motion */
+  illustration?: string;
+  illustrationStatic?: string;
 }
 
 const {
@@ -24,10 +28,14 @@ const {
   secondaryHref,
   image,
   imageAlt = '',
+  illustration,
+  illustrationStatic,
 } = Astro.props;
+
+const hasVisual = !!(image || illustration);
 ---
 <section class="page-hero">
-  <div class:list={['container', { 'hero-with-image': !!image }]}>
+  <div class:list={['container', { 'hero-with-image': hasVisual }]}>
     <div class="page-hero-copy">
       {kicker && <p class="eyebrow">{kicker}</p>}
       <h1>{title}</h1>
@@ -42,11 +50,20 @@ const {
         )}
       </div>
     </div>
-    {image && (
+    {illustration ? (
+      <div class="page-hero-image page-hero-illustration framed-photo">
+        <picture>
+          {illustrationStatic && (
+            <source srcset={illustrationStatic} media="(prefers-reduced-motion: reduce)" />
+          )}
+          <img src={illustration} alt="" width="680" height="500" loading="lazy" />
+        </picture>
+      </div>
+    ) : image ? (
       <div class="page-hero-image framed-photo">
         <img src={image} alt={imageAlt} width="1100" height="733" />
       </div>
-    )}
+    ) : null}
   </div>
 </section>
 <WaveDivider from="var(--cream)" to="var(--white)" />
@@ -86,6 +103,12 @@ const {
     aspect-ratio: 4 / 3;
     object-fit: cover;
     width: 100%;
+  }
+
+  .page-hero-illustration img {
+    aspect-ratio: 680 / 500;
+    object-fit: contain;
+    background: var(--white);
   }
 
   @media (max-width: 860px) {

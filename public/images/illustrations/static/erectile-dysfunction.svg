@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="500" viewBox="0 0 680 500" role="img" aria-labelledby="ttl desc">
+<title id="ttl">Erectile dysfunction and performance anxiety</title>
+<desc id="desc">Seen from the side, a person sits on the edge of a bed at night with their elbows resting on their knees and their head held in their hands. Small circles drift slowly around their head suggesting circling anxious thoughts, with a bedside clock and lamp nearby.</desc>
+<rect x="0" y="0" width="680" height="500" rx="16" fill="#fae7e2"/>
+<ellipse cx="340" cy="456" rx="250" ry="15" fill="#1d2327" opacity="0.05"/>
+<rect x="46" y="342" width="80" height="10" rx="3" fill="#0f444a"/>
+<rect x="56" y="352" width="10" height="88" fill="#0f444a"/>
+<rect x="106" y="352" width="10" height="88" fill="#0f444a"/>
+<ellipse cx="86" cy="310" rx="42" ry="26" fill="#e56423" opacity="0.14"/>
+<rect x="79" y="312" width="13" height="30" fill="#1d2327"/>
+<path d="M62 314 L110 314 L100 284 L72 284 Z" fill="#e56423"/>
+<rect x="40" y="318" width="30" height="24" rx="5" fill="#0f444a"/>
+<circle cx="55" cy="330" r="8" fill="#f5f7f2"/>
+<path d="M55 330 L55 325" stroke="#0f444a" stroke-width="1.6" stroke-linecap="round"/>
+<path d="M55 330 L59 332" stroke="#0f444a" stroke-width="1.6" stroke-linecap="round"/>
+<path d="M604 388 C584 366 582 338 590 322 C602 336 608 362 606 386 Z" fill="#468236"/>
+<path d="M608 386 C622 358 646 348 660 350 C652 374 630 388 610 390 Z" fill="#5baa45"/>
+<path d="M604 390 C594 370 572 358 558 360 C568 380 586 392 604 392 Z" fill="#b0d137"/>
+<path d="M582 392 L632 392 L625 444 L589 444 Z" fill="#c2531b"/>
+<rect x="578" y="386" width="58" height="12" rx="3" fill="#e56423"/>
+<rect x="150" y="238" width="22" height="118" rx="7" fill="#0f444a"/>
+<rect x="186" y="402" width="14" height="38" rx="3" fill="#0f444a"/>
+<rect x="500" y="402" width="14" height="38" rx="3" fill="#0f444a"/>
+<rect x="172" y="390" width="356" height="12" rx="4" fill="#0f444a"/>
+<rect x="166" y="344" width="368" height="28" rx="9" fill="#f5f7f2"/>
+<rect x="166" y="368" width="368" height="22" rx="5" fill="#f5d5cd"/>
+<rect x="180" y="312" width="66" height="32" rx="14" fill="#f5f7f2"/>
+<rect x="222" y="316" width="60" height="28" rx="13" fill="#fae7e2"/>
+<g opacity="0.6">
+<circle cx="418" cy="186" r="8" fill="#00a8a8"/>
+<circle cx="320" cy="146" r="6" fill="#00a8a8"/>
+<circle cx="300" cy="214" r="7" fill="#00a8a8"/>
+<circle cx="386" cy="132" r="5" fill="#00a8a8"/>
+</g>
+<g opacity="0.42">
+<circle cx="428" cy="152" r="6" fill="#e56423"/>
+<circle cx="278" cy="180" r="7" fill="#e56423"/>
+<circle cx="352" cy="112" r="5" fill="#e56423"/>
+</g>
+<path d="M292 352 L362 350" stroke="#0b363b" stroke-width="28" fill="none" stroke-linecap="round"/>
+<path d="M362 350 L366 424" stroke="#0b363b" stroke-width="24" fill="none" stroke-linecap="round"/>
+<ellipse cx="374" cy="432" rx="18" ry="8" fill="#0b363b"/>
+<path d="M300 350 L378 348" stroke="#0f444a" stroke-width="31" fill="none" stroke-linecap="round"/>
+<path d="M378 348 L384 426" stroke="#0f444a" stroke-width="27" fill="none" stroke-linecap="round"/>
+<ellipse cx="393" cy="434" rx="19" ry="9" fill="#0f444a"/>
+<g transform="rotate(20 306 354)">
+<rect x="311" y="242" width="20" height="18" fill="#e0a87e"/>
+<path d="M286 280 C286 265 297 258 311 257 L331 257 C345 258 356 265 356 280 L360 356 L282 356 Z" fill="#ef4538"/>
+<path d="M305 258 C308 270 314 275 321 275 C328 275 334 270 337 258 C332 256 326 255 321 255 C316 255 310 256 305 258 Z" fill="#cf372b"/>
+<path d="M314 288 L348 340" stroke="#cf372b" stroke-width="20" fill="none" stroke-linecap="round"/>
+<path d="M348 340 L332 276" stroke="#cf372b" stroke-width="19" fill="none" stroke-linecap="round"/>
+<ellipse cx="330" cy="270" rx="11" ry="10" fill="#c07f52"/>
+<path d="M332 286 L364 338" stroke="#ef4538" stroke-width="21" fill="none" stroke-linecap="round"/>
+<path d="M364 338 L348 272" stroke="#ef4538" stroke-width="20" fill="none" stroke-linecap="round"/>
+<ellipse cx="346" cy="266" rx="11" ry="10" fill="#e0a87e"/>
+<circle cx="321" cy="222" r="31" fill="#e0a87e"/>
+<ellipse cx="350" cy="226" rx="5" ry="7" fill="#e0a87e"/>
+<path d="M290 221 C288 188 302 175 321 175 C340 175 354 188 352 219 C344 208 334 203 321 203 C308 203 298 208 290 221 Z" fill="#1d2327"/>
+<path d="M321 175 C340 175 354 188 352 213 C344 196 334 190 321 190 C308 190 298 196 290 213 C288 188 302 175 321 175 Z" fill="#3d4548"/>
+</g>
+</svg>

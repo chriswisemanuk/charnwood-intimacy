@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="500" viewBox="0 0 680 500" role="img" aria-labelledby="ttl desc">
+<title id="ttl">Painful sex and vaginismus</title>
+<desc id="desc">A person with long hair sits on a bed with both knees drawn up and arms wrapped around their shins, head resting forward. A small exclamation mark rises above them as a thought, and a soft warm glow around the lower body slowly expands and eases.</desc>
+<rect x="0" y="0" width="680" height="500" rx="16" fill="#fae7e2"/>
+<ellipse cx="340" cy="452" rx="250" ry="15" fill="#1d2327" opacity="0.05"/>
+<rect x="46" y="336" width="80" height="10" rx="3" fill="#0f444a"/>
+<rect x="56" y="346" width="10" height="90" fill="#0f444a"/>
+<rect x="106" y="346" width="10" height="90" fill="#0f444a"/>
+<ellipse cx="86" cy="304" rx="42" ry="26" fill="#e56423" opacity="0.14"/>
+<rect x="79" y="306" width="13" height="30" fill="#1d2327"/>
+<path d="M62 308 L110 308 L100 278 L72 278 Z" fill="#e56423"/>
+<rect x="44" y="320" width="20" height="16" rx="3" fill="#f5f7f2"/>
+<path d="M64 324 q9 0 9 6 q0 6 -9 6" fill="none" stroke="#f5f7f2" stroke-width="3"/>
+<path d="M608 386 C588 364 586 336 594 320 C606 334 612 360 610 384 Z" fill="#468236"/>
+<path d="M612 384 C626 356 650 346 664 348 C656 372 634 386 614 388 Z" fill="#5baa45"/>
+<path d="M608 388 C598 368 576 356 562 358 C572 378 590 390 608 390 Z" fill="#b0d137"/>
+<path d="M586 390 L636 390 L629 442 L593 442 Z" fill="#c2531b"/>
+<rect x="582" y="384" width="58" height="12" rx="3" fill="#e56423"/>
+<rect x="150" y="236" width="22" height="118" rx="7" fill="#0f444a"/>
+<rect x="186" y="402" width="14" height="36" rx="3" fill="#0f444a"/>
+<rect x="512" y="402" width="14" height="36" rx="3" fill="#0f444a"/>
+<rect x="172" y="388" width="368" height="14" rx="4" fill="#0f444a"/>
+<rect x="166" y="342" width="380" height="30" rx="9" fill="#f5f7f2"/>
+<rect x="166" y="368" width="380" height="20" rx="5" fill="#f5d5cd"/>
+<rect x="180" y="310" width="66" height="32" rx="14" fill="#f5f7f2"/>
+<rect x="222" y="314" width="60" height="28" rx="13" fill="#fae7e2"/>
+<g>
+<circle cx="316" cy="186" r="4" fill="#ef4538"/>
+<circle cx="326" cy="169" r="5.5" fill="#ef4538"/>
+<rect x="337" y="120" width="8" height="22" rx="4" fill="#ef4538"/>
+<circle cx="341" cy="150" r="4.4" fill="#ef4538"/>
+</g>
+<g>
+<ellipse cx="356" cy="326" rx="40" ry="32" fill="#e56423"/>
+</g>
+<path d="M312 346 L380 314" stroke="#a8461c" stroke-width="28" fill="none" stroke-linecap="round"/>
+<path d="M380 314 L376 352" stroke="#a8461c" stroke-width="25" fill="none" stroke-linecap="round"/>
+<ellipse cx="370" cy="358" rx="16" ry="8" fill="#0b363b"/>
+<path d="M322 344 L400 308" stroke="#c2531b" stroke-width="31" fill="none" stroke-linecap="round"/>
+<path d="M400 308 L396 350" stroke="#c2531b" stroke-width="27" fill="none" stroke-linecap="round"/>
+<ellipse cx="394" cy="356" rx="17" ry="8" fill="#0f444a"/>
+<g transform="rotate(11 326 352)">
+<path d="M296 274 C296 259 307 252 321 251 L339 251 C353 252 364 259 364 274 L368 356 L292 356 Z" fill="#e56423"/>
+<path d="M314 252 C317 264 323 269 330 269 C337 269 343 264 346 252 C341 250 335 249 330 249 C325 249 319 250 314 252 Z" fill="#c2531b"/>
+<rect x="320" y="238" width="20" height="18" fill="#e0a87e"/>
+<path d="M300 200 C286 236 280 288 291 320 C300 338 326 334 331 314 C317 280 310 240 316 196 Z" fill="#0f444a"/>
+<circle cx="330" cy="218" r="31" fill="#e0a87e"/>
+<ellipse cx="359" cy="222" rx="5" ry="7" fill="#e0a87e"/>
+<path d="M299 219 C297 184 311 171 330 171 C349 171 363 184 361 215 C353 204 343 199 330 199 C317 199 307 204 299 219 Z" fill="#0f444a"/>
+<path d="M330 171 C349 171 363 184 361 209 C353 192 343 186 330 186 C317 186 307 192 299 209 C297 184 311 171 330 171 Z" fill="#153f46"/>
+<path d="M304 282 Q334 308 376 330" stroke="#c2531b" stroke-width="20" fill="none" stroke-linecap="round"/>
+<ellipse cx="380" cy="332" rx="11" ry="10" fill="#c07f52"/>
+<path d="M338 280 Q368 300 386 320" stroke="#e56423" stroke-width="21" fill="none" stroke-linecap="round"/>
+<ellipse cx="390" cy="324" rx="11" ry="10" fill="#e0a87e"/>
+</g>
+</svg>

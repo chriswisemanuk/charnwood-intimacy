@@ -5,7 +5,10 @@ const year = new Date().getFullYear();
 <footer class="site-footer">
   <div class="container footer-inner">
     <div class="footer-brand">
-      <img src="/images/logo-intimacy-small.png" alt="Charnwood Intimacy" width="200" height="66" />
+      <a href={PARENT_SITE_URL} target="_blank" rel="noopener">
+        <img src="/images/logo-counselling.png" alt="Charnwood Counselling" width="852" height="202" class="footer-logo" />
+      </a>
+      <p class="footer-group-line">Part of the Charnwood Counselling Group</p>
       <p class="footer-tagline">Psychosexual &amp; Intimacy Therapy in Loughborough, and online across the UK.</p>
       <p class="footer-contact">
         <a href={PHONE_HREF}>{PHONE}</a><br />
@@ -59,7 +62,19 @@ const year = new Date().getFullYear();
     border-bottom: 1px solid rgba(255,255,255,0.12);
   }
 
-  .footer-brand img {
+  .footer-brand .footer-logo {
+    width: 220px;
+    height: auto;
+    margin-bottom: 12px;
+  }
+
+  .footer-group-line {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-size: 0.78rem;
+    color: var(--lime);
     margin-bottom: 14px;
   }
 
