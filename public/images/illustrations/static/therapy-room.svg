@@ -117,10 +117,10 @@
 <path d="M517 172 L502 177 L507 197 L517 190 Z" fill="#cf372b"/>
 <g>
 
-<path d="M502 188 Q484 196 470 208" stroke="#ef4538" stroke-width="16" fill="none" stroke-linecap="round"/>
+<path d="M502 188 Q490 190 480 176" stroke="#ef4538" stroke-width="16" fill="none" stroke-linecap="round"/>
 <g>
 
-<ellipse cx="466" cy="211" rx="10" ry="8" fill="#c68a5e"/>
+<ellipse cx="476" cy="171" rx="10.5" ry="8" fill="#c68a5e" transform="rotate(-52 476 171)"/>
 </g>
 </g>
 <circle cx="519" cy="144" r="25" fill="#c68a5e"/>

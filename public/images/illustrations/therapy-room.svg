@@ -116,11 +116,11 @@
 <path d="M541 192 C541 179 533 172 521 171 L508 171 C498 172 493 180 493 192 L490 254 L544 254 Z" fill="#ef4538"/>
 <path d="M517 172 L502 177 L507 197 L517 190 Z" fill="#cf372b"/>
 <g>
-<animateTransform attributeName="transform" type="rotate" values="0 502 188;16 502 188;3 502 188;-12 502 188;9 502 188;-6 502 188;2 502 188;0 502 188" keyTimes="0;0.13;0.26;0.4;0.54;0.68;0.84;1" dur="6.5s" repeatCount="indefinite"/>
-<path d="M502 188 Q484 196 470 208" stroke="#ef4538" stroke-width="16" fill="none" stroke-linecap="round"/>
+<animateTransform attributeName="transform" type="rotate" values="0 502 188;-7 502 188;-2 502 188;-9 502 188;0 502 188;0 502 188" keyTimes="0;0.18;0.34;0.52;0.7;1" dur="9s" repeatCount="indefinite"/>
+<path d="M502 188 Q490 190 480 176" stroke="#ef4538" stroke-width="16" fill="none" stroke-linecap="round"/>
 <g>
-<animateTransform attributeName="transform" type="rotate" values="-30 466 211;-8 466 211;-40 466 211;-15 466 211;-30 466 211" dur="6.5s" repeatCount="indefinite"/>
-<ellipse cx="466" cy="211" rx="10" ry="8" fill="#c68a5e"/>
+<animateTransform attributeName="transform" type="rotate" values="0 476 171;-12 476 171;-4 476 171;-14 476 171;0 476 171;0 476 171" keyTimes="0;0.18;0.34;0.52;0.7;1" dur="9s" repeatCount="indefinite"/>
+<ellipse cx="476" cy="171" rx="10.5" ry="8" fill="#c68a5e" transform="rotate(-52 476 171)"/>
 </g>
 </g>
 <circle cx="519" cy="144" r="25" fill="#c68a5e"/>
