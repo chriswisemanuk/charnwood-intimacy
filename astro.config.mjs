@@ -5,7 +5,12 @@ export default defineConfig({
   site: 'https://charnwoodintimacy.co.uk',
   output: 'static',
   trailingSlash: 'always',
-  integrations: [sitemap()],
+  integrations: [
+    sitemap({
+      // Thank-you pages are noindex, so keep them out of the sitemap too
+      filter: (page) => !page.includes('thank-you'),
+    }),
+  ],
   build: {
     format: 'directory',
   },

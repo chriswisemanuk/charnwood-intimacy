@@ -23,3 +23,10 @@ export const BOOKING_URL = '/booking/';
 // Form processing is handled by the Cloudflare Worker (worker/index.js),
 // which sends email through the practice's Brevo account. See README.md
 // for the one-off setup steps (API key secret and sender verification).
+
+// Cloudflare Turnstile protects both forms from bots. The SITE key is public
+// and belongs here; the SECRET key is set on the Worker (see README).
+// Create a widget at Cloudflare dashboard > Turnstile, then paste its site
+// key below. While this is left as the placeholder the widget is not shown
+// and the Worker skips verification, so the forms keep working.
+export const TURNSTILE_SITE_KEY = 'REPLACE_WITH_YOUR_TURNSTILE_SITE_KEY';

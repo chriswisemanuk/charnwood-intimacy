@@ -35,7 +35,25 @@ out below so nothing inaccurate goes live.
    - After a successful submission, visitors land on /booking-thank-you/ or
      /contact-thank-you/, mirroring the parent site's confirmation page.
 
-2. **Confirm with Jo before publishing:**
+2. **Set up Cloudflare Turnstile** so the forms are protected from bots. This
+   matters more than usual here: the booking form sends a confirmation email
+   to whatever address is entered, so an unprotected form could be abused to
+   send mail from your Brevo account, which would damage your sending
+   reputation and make real confirmations land in spam.
+   - In the Cloudflare dashboard go to **Turnstile** and create a widget for
+     charnwoodintimacy.co.uk. You will get a SITE key and a SECRET key.
+   - Paste the SITE key into `TURNSTILE_SITE_KEY` in `src/consts.ts`. Site
+     keys are public by design, so this one is safe in the repo.
+   - Add the SECRET key to the Worker as a secret named
+     `TURNSTILE_SECRET_KEY`, the same way as the Brevo key above. Never put
+     the secret key in the repo.
+   - Until the site key is filled in, the widget is not shown, and until the
+     secret is set the Worker skips verification, so the forms keep working
+     throughout. Do both and the protection switches on.
+   - Optional backstop: add a Cloudflare rate limiting rule on `/api/*`
+     (dashboard only, no code) to cap submissions per IP.
+
+3. **Confirm with Jo before publishing:**
    - Exact session fees (`src/pages/pricing-and-booking.astro` and the
      homepage currently describe "introductory rates" without a number)
    - Her exact current COSRT/CICS registration wording
@@ -49,7 +67,7 @@ out below so nothing inaccurate goes live.
    - Have a solicitor/COSRT-aware review of the clinical accuracy of the
      condition pages, as the source plan document itself recommends.
 
-3. Testimonials, blog posts, and phased condition-page rollout are left as
+4. Testimonials, blog posts, and phased condition-page rollout are left as
    described in the plan document, easy to add later since every page is
    just an Astro file in `src/pages/`.
 
@@ -86,9 +104,8 @@ plain HTML/CSS/JS and can be hosted anywhere, including Cloudflare Pages.
    the Pages project's settings and update the domain's DNS (Cloudflare will
    walk you through this if the domain is on Cloudflare, otherwise it gives
    you the CNAME/records to add wherever the domain is registered).
-6. No environment variables or server functions are needed for this site.
-   The only thing that must be set before launch is the Web3Forms key
-   above.
+6. The Worker secrets (BREVO_API_KEY and TURNSTILE_SECRET_KEY) must be set
+   before the forms will work, as described above.
 
 ## Deploying to an existing Cloudflare Worker
 
@@ -145,7 +162,9 @@ button to publish them.
 - `src/data/conditions.ts` – the six "what we help with" condition pages,
   used to build the nav dropdown and the grids on the home/pillar pages
 - `src/consts.ts` – site-wide settings: contact details, booking link,
-  Web3Forms key
+  Turnstile site key
+- `worker/index.js` – Cloudflare Worker: serves the site and processes both
+  forms (Turnstile verification, then Brevo transactional email)
 - `src/styles/global.css` – colour and font variables, shared across every
   page
 - `public/images/` – logo, favicon, therapist photo and space photo, pulled

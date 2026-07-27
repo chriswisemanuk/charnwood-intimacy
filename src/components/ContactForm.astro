@@ -1,5 +1,5 @@
 ---
-import { EMAIL } from '../consts';
+import { EMAIL, TURNSTILE_SITE_KEY } from '../consts';
 
 interface Props {
   formTitle?: string;
@@ -14,6 +14,7 @@ const {
 } = Astro.props;
 
 const formId = `form-${Math.random().toString(36).slice(2, 9)}`;
+const turnstileEnabled = TURNSTILE_SITE_KEY !== 'REPLACE_WITH_YOUR_TURNSTILE_SITE_KEY';
 ---
 <div class:list={['contact-form-wrap', { compact }]}>
   {formTitle && <h2>{formTitle}</h2>}
@@ -45,6 +46,12 @@ const formId = `form-${Math.random().toString(36).slice(2, 9)}`;
       <label for={`${formId}-message`}>Your Message</label>
       <textarea id={`${formId}-message`} name="message" rows="5"></textarea>
     </div>
+
+    {turnstileEnabled && (
+      <div class="form-row form-row--full">
+        <div class="cf-turnstile" data-sitekey={TURNSTILE_SITE_KEY} data-action="contact" data-theme="light"></div>
+      </div>
+    )}
 
     <div class="form-row form-row--full">
       <button type="submit" class="btn btn-primary">Send your message</button>
@@ -123,6 +130,10 @@ const formId = `form-${Math.random().toString(36).slice(2, 9)}`;
   }
 </style>
 
+{turnstileEnabled && (
+  <script is:inline async defer src="https://challenges.cloudflare.com/turnstile/v0/api.js"></script>
+)}
+
 <script>
   document.querySelectorAll('form.contact-form').forEach((form) => {
     form.addEventListener('submit', async (e) => {
@@ -153,8 +164,10 @@ const formId = `form-${Math.random().toString(36).slice(2, 9)}`;
           return;
         }
         errorEl?.removeAttribute('hidden');
+        (window as any).turnstile?.reset();
       } catch (err) {
         errorEl?.removeAttribute('hidden');
+        (window as any).turnstile?.reset();
       } finally {
         if (submitBtn) {
           submitBtn.disabled = false;

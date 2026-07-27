@@ -2,10 +2,11 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Squiggle from '../components/Squiggle.astro';
 import WaveDivider from '../components/WaveDivider.astro';
-import { PHONE, PHONE_HREF, EMAIL, EMAIL_HREF } from '../consts';
+import { PHONE, PHONE_HREF, EMAIL, EMAIL_HREF, TURNSTILE_SITE_KEY } from '../consts';
 
 const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 const times = ['Morning', 'Afternoon', 'Evening'];
+const turnstileEnabled = TURNSTILE_SITE_KEY !== 'REPLACE_WITH_YOUR_TURNSTILE_SITE_KEY';
 ---
 <BaseLayout
   title="Book a Session | Charnwood Intimacy"
@@ -116,6 +117,12 @@ const times = ['Morning', 'Afternoon', 'Evening'];
             </div>
           </fieldset>
 
+          {turnstileEnabled && (
+            <div class="turnstile-row">
+              <div class="cf-turnstile" data-sitekey={TURNSTILE_SITE_KEY} data-action="booking" data-theme="light"></div>
+            </div>
+          )}
+
           <p class="form-status form-status--invalid" role="alert" hidden></p>
 
           <button type="submit" class="btn btn-primary btn-submit">Send your session booking request</button>
@@ -132,6 +139,9 @@ const times = ['Morning', 'Afternoon', 'Evening'];
       </div>
     </div>
   </section>
+  {turnstileEnabled && (
+    <script is:inline async defer src="https://challenges.cloudflare.com/turnstile/v0/api.js"></script>
+  )}
 </BaseLayout>
 
 <style>
@@ -273,6 +283,10 @@ const times = ['Morning', 'Afternoon', 'Evening'];
     max-width: 420px;
   }
 
+  .turnstile-row {
+    margin-bottom: 22px;
+  }
+
   .btn-submit {
     font-size: 1.05rem;
   }
@@ -346,8 +360,10 @@ const times = ['Morning', 'Afternoon', 'Evening'];
           return;
         }
         errorEl?.removeAttribute('hidden');
+        (window as any).turnstile?.reset();
       } catch {
         errorEl?.removeAttribute('hidden');
+        (window as any).turnstile?.reset();
       } finally {
         if (submitBtn) {
           submitBtn.disabled = false;

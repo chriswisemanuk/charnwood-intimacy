@@ -30,10 +30,19 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
       <h2>What cookies does this site use?</h2>
       <p>
-        This website is built as a simple, static site with no advertising or tracking cookies by
-        default. The contact and enquiry forms are handled by a third-party form service
-        (Web3Forms), which processes your submission in order to deliver it by email, but does not
-        set tracking cookies in your browser as part of that process.
+        This website is built as a simple, static site with no advertising or tracking cookies.
+        The contact and booking forms are processed on our own server and delivered to us by
+        email through Brevo, our email provider. That process does not set tracking cookies in
+        your browser.
+      </p>
+      <h3>Cloudflare Turnstile</h3>
+      <p>
+        Our forms are protected by Cloudflare Turnstile, which checks that a form is being
+        submitted by a person rather than an automated bot. This is a security measure that
+        protects the forms from spam and misuse, and it may store information in your browser
+        for that purpose. It does not track you across other websites and is not used for
+        advertising or analytics. You can read more in
+        {' '}<a href="https://www.cloudflare.com/turnstile-privacy-policy/" target="_blank" rel="noopener">Cloudflare's Turnstile privacy policy</a>.
       </p>
       <p>
         If Jo later adds tools such as website analytics (for example Google Analytics), a live

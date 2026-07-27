@@ -10,9 +10,15 @@
     - Var     SENDER_EMAIL    verified Brevo sender (e.g. talk@charnwoodintimacy.co.uk)
     - Var     SENDER_NAME     e.g. "Charnwood Intimacy"
     - Var     NOTIFY_EMAIL    where form submissions are delivered (e.g. talk@charnwoodintimacy.co.uk)
+    - Secret  TURNSTILE_SECRET_KEY  the SECRET key for the Turnstile widget
+                              (the site key is public and lives in src/consts.ts).
+                              If this secret is not set, Turnstile verification is
+                              skipped so the forms keep working, and a warning is
+                              logged. Set it as soon as the widget is created.
 */
 
 const BREVO_ENDPOINT = 'https://api.brevo.com/v3/smtp/email';
+const TURNSTILE_ENDPOINT = 'https://challenges.cloudflare.com/turnstile/v0/siteverify';
 
 const FORMS = {
   '/api/booking': {
@@ -59,6 +65,48 @@ function esc(s) {
     .replaceAll('>', '&gt;');
 }
 
+/*
+  Verify the Turnstile token server-side. The widget on its own proves nothing:
+  a bot can post any string to this endpoint, so the token must be checked
+  against Cloudflare. Tokens are single use and expire after five minutes.
+*/
+async function verifyTurnstile(request, env, token) {
+  if (!env.TURNSTILE_SECRET_KEY) {
+    console.log('TURNSTILE_SECRET_KEY not set, skipping verification');
+    return { ok: true, skipped: true };
+  }
+  if (!token) {
+    return { ok: false, reason: 'missing-token' };
+  }
+
+  const body = new FormData();
+  body.append('secret', env.TURNSTILE_SECRET_KEY);
+  body.append('response', token);
+  const ip = request.headers.get('CF-Connecting-IP');
+  if (ip) body.append('remoteip', ip);
+
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 10000);
+  try {
+    const res = await fetch(TURNSTILE_ENDPOINT, {
+      method: 'POST',
+      body,
+      signal: controller.signal,
+    });
+    const result = await res.json();
+    if (!result.success) {
+      console.log('Turnstile rejected:', (result['error-codes'] || []).join(', '));
+      return { ok: false, reason: 'failed' };
+    }
+    return { ok: true };
+  } catch (e) {
+    console.log('Turnstile verification error:', e.message);
+    return { ok: false, reason: 'error' };
+  } finally {
+    clearTimeout(timeout);
+  }
+}
+
 async function sendBrevo(env, payload) {
   const res = await fetch(BREVO_ENDPOINT, {
     method: 'POST',
@@ -78,9 +126,15 @@ async function sendBrevo(env, payload) {
 async function handleForm(request, env, config, origin) {
   const data = await request.formData();
 
-  // Honeypot: pretend success so bots learn nothing
+  // Honeypot first: it costs nothing and stops naive bots before we spend a
+  // Turnstile verification on them. Pretend success so they learn nothing.
   if (data.get('botcheck')) {
     return { ok: true };
+  }
+
+  const turnstile = await verifyTurnstile(request, env, data.get('cf-turnstile-response'));
+  if (!turnstile.ok) {
+    return { ok: false, error: 'Verification failed. Please try again.' };
   }
 
   const clientEmail = (data.get('email') || '').toString().trim();
