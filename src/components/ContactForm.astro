@@ -49,8 +49,9 @@ const turnstileEnabled = TURNSTILE_SITE_KEY !== 'REPLACE_WITH_YOUR_TURNSTILE_SIT
     </div>
 
     {turnstileEnabled && (
-      <div class="form-row form-row--full">
-        <div class="cf-turnstile" data-sitekey={TURNSTILE_SITE_KEY} data-action="contact" data-theme="light"></div>
+      <div class="form-row form-row--full form-row--turnstile">
+        <div class="cf-turnstile" data-sitekey={TURNSTILE_SITE_KEY} data-action="contact"
+             data-theme="light" data-size="flexible" data-appearance="interaction-only"></div>
       </div>
     )}
 
@@ -81,6 +82,12 @@ const turnstileEnabled = TURNSTILE_SITE_KEY !== 'REPLACE_WITH_YOUR_TURNSTILE_SIT
 
   .form-row--full {
     grid-column: 1 / -1;
+  }
+
+  /* The Turnstile widget only appears when a challenge is required, so this
+     row should not create a gap in the grid the rest of the time. */
+  .form-row--turnstile:not(:has(iframe)) {
+    display: none;
   }
 
   label {
