@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Squiggle from '../components/Squiggle.astro';
 import Picture from '../components/Picture.astro';
+import { therapist, breadcrumb } from '../data/schema';
 import WaveDivider from '../components/WaveDivider.astro';
 import CTAButton from '../components/CTAButton.astro';
 import { PARENT_SITE_URL } from '../consts';
@@ -10,6 +11,10 @@ import { PARENT_SITE_URL } from '../consts';
   title="Meet Your Therapist, Jo Wiseman | Charnwood Intimacy"
   description="Jo Wiseman is a BACP-registered psychotherapist training in psychosexual and relationship therapy with CICS, accredited by COSRT."
   path="/your-therapist/"
+  schema={[therapist, breadcrumb([
+    { name: 'Home', path: '/' },
+    { name: 'Your Therapist', path: '/your-therapist/' },
+  ])]}
 >
   <section class="section section--white hero-section">
     <div class="container hero-grid">

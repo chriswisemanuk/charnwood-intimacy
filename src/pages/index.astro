@@ -8,6 +8,7 @@ import ContactForm from '../components/ContactForm.astro';
 import Picture from '../components/Picture.astro';
 import WaveDivider from '../components/WaveDivider.astro';
 import { BOOKING_URL } from '../consts';
+import { localBusiness } from '../data/schema';
 
 const isThisYou = [
   "I experience pain during sex and I've been told nothing is physically wrong",
@@ -36,6 +37,7 @@ const howCanHelp = [
   title="Sex Therapy & Psychosexual Therapy in Loughborough | Charnwood Intimacy"
   description="Confidential sex therapy and psychosexual therapy in Loughborough and online across the UK. Support for low desire, painful sex, sexual trauma and more."
   path="/"
+  schema={[localBusiness]}
 >
   <section class="hero">
     <div class="container hero-grid">

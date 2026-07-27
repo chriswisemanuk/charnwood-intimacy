@@ -6,11 +6,24 @@ import InfoSection from '../components/InfoSection.astro';
 import HelpList from '../components/HelpList.astro';
 import MiniTeasers from '../components/MiniTeasers.astro';
 import WaveDivider from '../components/WaveDivider.astro';
+import { service, breadcrumb } from '../data/schema';
 ---
 <BaseLayout
   title="Couples & Intimacy Therapy | Charnwood Intimacy"
   description="Rebuild intimacy, communication and connection together. Sex therapy for couples in Loughborough and online, for all relationship structures."
   path="/couples-and-intimacy-therapy/"
+  schema={[
+    service({
+      name: "Couples & Intimacy Therapy",
+      description: "Rebuild intimacy, communication and connection together. Sex therapy for couples in Loughborough and online, for all relationship structures.",
+      slug: "couples-and-intimacy-therapy",
+    }),
+    breadcrumb([
+      { name: 'Home', path: '/' },
+      { name: 'What We Help With', path: '/what-we-help-with/' },
+      { name: "Couples & Intimacy Therapy", path: "/couples-and-intimacy-therapy/" },
+    ]),
+  ]}
 >
   <PageHero kicker="Couples & Intimacy Therapy" title="Couples & Intimacy Therapy" illustration="/images/illustrations/couples-intimacy.svg" illustrationStatic="/images/illustrations/static/couples-intimacy.svg">
     <p>

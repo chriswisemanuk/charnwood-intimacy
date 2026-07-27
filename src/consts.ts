@@ -20,6 +20,16 @@ export const ADDRESS_LINES = [
 // booking experience with a form handled by Web3Forms.
 export const BOOKING_URL = '/booking/';
 
+// Used in the structured data (see src/data/schema.ts). Keep these in step
+// with what the site actually says, or Google will treat the markup as
+// misleading.
+export const OPENING_HOURS = {
+  days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+  opens: '08:00',
+  closes: '19:00',
+};
+export const PRICE_RANGE = 'From £60';
+
 // Form processing is handled by the Cloudflare Worker (worker/index.js),
 // which sends email through the practice's Brevo account. See README.md
 // for the one-off setup steps (API key secret and sender verification).

@@ -7,11 +7,24 @@ import HelpList from '../components/HelpList.astro';
 import SafetyNote from '../components/SafetyNote.astro';
 import MiniTeasers from '../components/MiniTeasers.astro';
 import WaveDivider from '../components/WaveDivider.astro';
+import { service, breadcrumb } from '../data/schema';
 ---
 <BaseLayout
   title="Vaginismus & Painful Sex Therapy | Charnwood Intimacy"
   description="Therapy for vaginismus, dyspareunia and painful sex. A calm, private space to work through penetration and pain-related difficulties."
   path="/painful-sex-and-vaginismus-therapy/"
+  schema={[
+    service({
+      name: "Painful Sex & Vaginismus Therapy",
+      description: "Therapy for vaginismus, dyspareunia and painful sex. A calm, private space to work through penetration and pain-related difficulties.",
+      slug: "painful-sex-and-vaginismus-therapy",
+    }),
+    breadcrumb([
+      { name: 'Home', path: '/' },
+      { name: 'What We Help With', path: '/what-we-help-with/' },
+      { name: "Painful Sex & Vaginismus", path: "/painful-sex-and-vaginismus-therapy/" },
+    ]),
+  ]}
 >
   <PageHero kicker="Painful Sex & Vaginismus" title="Painful Sex & Vaginismus" illustration="/images/illustrations/painful-sex-vaginismus.svg" illustrationStatic="/images/illustrations/static/painful-sex-vaginismus.svg">
     <p>

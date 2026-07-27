@@ -8,9 +8,11 @@ interface Props {
   title: string;
   description: string;
   path?: string;
+  /* JSON-LD objects, see src/data/schema.ts */
+  schema?: Record<string, unknown>[];
 }
 
-const { title, description, path = '/' } = Astro.props;
+const { title, description, path = '/', schema = [] } = Astro.props;
 const canonical = new URL(path, SITE_URL).toString();
 const ogImage = new URL('/images/og-image.jpg', SITE_URL).toString();
 ---
@@ -38,6 +40,14 @@ const ogImage = new URL('/images/og-image.jpg', SITE_URL).toString();
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png" />
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <meta name="theme-color" content="#0f444a" />
+
+    {schema.length > 0 && (
+      <script
+        type="application/ld+json"
+        set:html={JSON.stringify(schema.length === 1 ? schema[0] : schema).replace(/</g, '\\u003c')}
+      />
+    )}
+
     <slot name="head" />
   </head>
   <body>

@@ -7,11 +7,24 @@ import HelpList from '../components/HelpList.astro';
 import SafetyNote from '../components/SafetyNote.astro';
 import MiniTeasers from '../components/MiniTeasers.astro';
 import WaveDivider from '../components/WaveDivider.astro';
+import { service, breadcrumb } from '../data/schema';
 ---
 <BaseLayout
   title="Erectile Dysfunction & Performance Anxiety Therapy | Charnwood Intimacy"
   description="Talking therapy for erectile dysfunction, performance anxiety, and premature or delayed ejaculation. Confidential support in Loughborough and online."
   path="/erectile-dysfunction-and-performance-anxiety-therapy/"
+  schema={[
+    service({
+      name: "Erectile Dysfunction & Performance Anxiety Therapy",
+      description: "Talking therapy for erectile dysfunction, performance anxiety, and premature or delayed ejaculation. Confidential support in Loughborough and online.",
+      slug: "erectile-dysfunction-and-performance-anxiety-therapy",
+    }),
+    breadcrumb([
+      { name: 'Home', path: '/' },
+      { name: 'What We Help With', path: '/what-we-help-with/' },
+      { name: "Erectile Dysfunction & Performance Anxiety", path: "/erectile-dysfunction-and-performance-anxiety-therapy/" },
+    ]),
+  ]}
 >
   <PageHero kicker="Erectile Dysfunction & Performance Anxiety" title="Erectile Dysfunction & Performance Anxiety" illustration="/images/illustrations/erectile-dysfunction.svg" illustrationStatic="/images/illustrations/static/erectile-dysfunction.svg">
     <p>

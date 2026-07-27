@@ -5,11 +5,23 @@ import IsThisYou from '../components/IsThisYou.astro';
 import InfoSection from '../components/InfoSection.astro';
 import HelpList from '../components/HelpList.astro';
 import WaveDivider from '../components/WaveDivider.astro';
+import { service, breadcrumb } from '../data/schema';
 import MiniTeasers from '../components/MiniTeasers.astro';
 ---
 <BaseLayout
   title="Online Sex Therapy & Psychosexual Therapy UK | Charnwood Intimacy"
   description="Online sex therapy and psychosexual therapy for clients anywhere in the UK. The same warm, confidential support as in person, from your own space."
+  schema={[
+    service({
+      name: "Online Sex Therapy & Psychosexual Therapy",
+      description: "Online sex therapy and psychosexual therapy for clients anywhere in the UK. The same warm, confidential support as in person, from your own space.",
+      slug: "online-therapy",
+    }),
+    breadcrumb([
+      { name: 'Home', path: '/' },
+      { name: 'Online Therapy', path: '/online-therapy/' },
+    ]),
+  ]}
   path="/online-therapy/"
 >
   <PageHero

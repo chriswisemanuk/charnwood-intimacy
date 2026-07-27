@@ -6,11 +6,24 @@ import InfoSection from '../components/InfoSection.astro';
 import HelpList from '../components/HelpList.astro';
 import MiniTeasers from '../components/MiniTeasers.astro';
 import WaveDivider from '../components/WaveDivider.astro';
+import { service, breadcrumb } from '../data/schema';
 ---
 <BaseLayout
   title="Compulsive Sexual Behaviour & Porn Use Therapy | Charnwood Intimacy"
   description="Non-judgemental therapy for compulsive sexual behaviour and concerns about porn use. Understand what's happening and find a way forward."
   path="/compulsive-sexual-behaviour-therapy/"
+  schema={[
+    service({
+      name: "Compulsive Sexual Behaviour & Porn Use Therapy",
+      description: "Non-judgemental therapy for compulsive sexual behaviour and concerns about porn use. Understand what's happening and find a way forward.",
+      slug: "compulsive-sexual-behaviour-therapy",
+    }),
+    breadcrumb([
+      { name: 'Home', path: '/' },
+      { name: 'What We Help With', path: '/what-we-help-with/' },
+      { name: "Compulsive Sexual Behaviour & Porn Use", path: "/compulsive-sexual-behaviour-therapy/" },
+    ]),
+  ]}
 >
   <PageHero kicker="Compulsive Sexual Behaviour & Porn Use" title="Compulsive Sexual Behaviour & Porn Use" illustration="/images/illustrations/compulsive-behaviour.svg" illustrationStatic="/images/illustrations/static/compulsive-behaviour.svg">
     <p>

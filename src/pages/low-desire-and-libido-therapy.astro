@@ -6,11 +6,24 @@ import InfoSection from '../components/InfoSection.astro';
 import HelpList from '../components/HelpList.astro';
 import MiniTeasers from '../components/MiniTeasers.astro';
 import WaveDivider from '../components/WaveDivider.astro';
+import { service, breadcrumb } from '../data/schema';
 ---
 <BaseLayout
   title="Low Libido & Mismatched Sex Drive Therapy | Charnwood Intimacy"
   description="Support for low sexual desire and mismatched libido, individually or as a couple. Confidential therapy in Loughborough and online across the UK."
   path="/low-desire-and-libido-therapy/"
+  schema={[
+    service({
+      name: "Low Desire & Mismatched Libido Therapy",
+      description: "Support for low sexual desire and mismatched libido, individually or as a couple. Confidential therapy in Loughborough and online across the UK.",
+      slug: "low-desire-and-libido-therapy",
+    }),
+    breadcrumb([
+      { name: 'Home', path: '/' },
+      { name: 'What We Help With', path: '/what-we-help-with/' },
+      { name: "Low Desire & Mismatched Libido", path: "/low-desire-and-libido-therapy/" },
+    ]),
+  ]}
 >
   <PageHero kicker="Low Desire & Mismatched Libido" title="Low Desire & Mismatched Libido" illustration="/images/illustrations/low-desire.svg" illustrationStatic="/images/illustrations/static/low-desire.svg">
     <p>
