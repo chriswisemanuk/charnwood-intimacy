@@ -1,5 +1,5 @@
 export const SITE_NAME = 'Charnwood Intimacy';
-export const SITE_URL = 'https://charnwoodintimacy.co.uk';
+export const SITE_URL = 'https://www.charnwoodintimacy.co.uk';
 export const PARENT_SITE_URL = 'https://charnwoodcounselling.co.uk';
 export const PARENT_SITE_NAME = 'Charnwood Counselling';
 

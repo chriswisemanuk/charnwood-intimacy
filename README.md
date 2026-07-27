@@ -131,8 +131,34 @@ framework code is needed for a static Astro site like this one.
    this is Cloudflare's own login, not something to hand credentials to
    anyone else for. Once deployed, the Worker serves the contents of `dist/`
    directly.
-4. Custom domain and DNS are set up the same way as with Pages, from the
-   Worker's **Settings > Domains & Routes** in the dashboard.
+4. Custom domains are added from the Worker's **Settings > Domains & Routes**
+   in the dashboard. Cloudflare creates the DNS records for you.
+
+## Domains
+
+The site is served from ONE canonical hostname:
+
+    www.charnwoodintimacy.co.uk
+
+Attach all four hostnames as custom domains on the Worker:
+
+  - www.charnwoodintimacy.co.uk  (canonical, serves the site)
+  - charnwoodintimacy.co.uk
+  - www.charnwoodintimacy.com
+  - charnwoodintimacy.com
+
+The Worker permanently redirects (301) the other three to the canonical one,
+keeping the path and query string intact. Serving the same pages on four
+addresses would split the site's search signals, which is what this avoids.
+
+The canonical hostname is set in `wrangler.jsonc` as `CANONICAL_HOST`, and must
+match `site` in `astro.config.mjs` and `SITE_URL` in `src/consts.ts`. If you ever
+change it, change it in all three places and rebuild, otherwise the canonical
+tags and sitemap will point at the wrong host.
+
+Both domains need to be added to your Cloudflare account as zones first. This
+is also a prerequisite for Turnstile (which will not run on a workers.dev
+hostname) and for Zaraz analytics.
 
 ## Uploading to GitHub manually, without Git or a terminal
 

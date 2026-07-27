@@ -10,6 +10,10 @@
     - Var     SENDER_EMAIL    verified Brevo sender (e.g. talk@charnwoodintimacy.co.uk)
     - Var     SENDER_NAME     e.g. "Charnwood Intimacy"
     - Var     NOTIFY_EMAIL    where form submissions are delivered (e.g. talk@charnwoodintimacy.co.uk)
+    - Var     CANONICAL_HOST  the one hostname the site is served from. Every
+                              other hostname attached to this Worker is
+                              permanently redirected to it, so the site is never
+                              live on more than one address.
     - Secret  TURNSTILE_SECRET_KEY  the SECRET key for the Turnstile widget
                               (the site key is public and lives in src/consts.ts).
                               If this secret is not set, Turnstile verification is
@@ -191,6 +195,28 @@ async function handleForm(request, env, config, origin) {
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
+
+    /*
+      Canonical hostname redirect.
+
+      All four hostnames (apex and www, .co.uk and .com) point at this Worker,
+      but only CANONICAL_HOST serves the site. The rest are permanently
+      redirected, preserving the path and query string so deep links and any
+      existing inbound links keep working. This stops the same content being
+      indexed at four addresses and splitting the site's search signals.
+
+      Local development (localhost / 127.0.0.1) is left alone.
+    */
+    const canonical = env.CANONICAL_HOST;
+    const host = url.hostname;
+    const isLocal = host === 'localhost' || host === '127.0.0.1' || host.endsWith('.workers.dev');
+    if (canonical && !isLocal && host !== canonical) {
+      url.hostname = canonical;
+      url.protocol = 'https:';
+      url.port = '';
+      return Response.redirect(url.toString(), 301);
+    }
+
     const config = FORMS[url.pathname];
 
     if (config && request.method === 'POST') {
