@@ -83,7 +83,7 @@ const formId = `form-${Math.random().toString(36).slice(2, 9)}`;
     font-size: 0.95rem;
   }
 
-  input, textarea {
+  input:not([type='checkbox']), textarea {
     width: 100%;
     font-family: var(--font-body);
     font-size: 1rem;
@@ -94,7 +94,7 @@ const formId = `form-${Math.random().toString(36).slice(2, 9)}`;
     color: var(--text);
   }
 
-  input:focus, textarea:focus {
+  input:not([type='checkbox']):focus, textarea:focus {
     outline: 2px solid var(--orange);
     outline-offset: 1px;
   }

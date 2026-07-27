@@ -46,13 +46,14 @@ html {
   scroll-behavior: smooth;
 }
 
-html, body {
+body {
   overflow-x: hidden;
   overscroll-behavior-x: none;
 }
 
+/* clip keeps position: sticky working, unlike hidden */
 @supports (overflow-x: clip) {
-  html, body {
+  body {
     overflow-x: clip;
   }
 }
@@ -325,9 +326,14 @@ p {
   position: absolute;
   width: 1px;
   height: 1px;
+  max-width: 1px;
+  max-height: 1px;
   overflow: hidden;
   clip: rect(0 0 0 0);
+  clip-path: inset(50%);
   white-space: nowrap;
+  border: 0;
+  padding: 0;
 }
 
 
@@ -389,9 +395,10 @@ p {
 @media (max-width: 860px) {
   .framed-photo {
     display: block;
+    max-width: 100%;
   }
   .framed-photo::after {
-    inset: 12px -10px -10px 12px;
+    inset: 12px 0 -10px 12px;
   }
 }
 
@@ -411,10 +418,9 @@ p {
 
 .hand-underline svg {
   position: absolute;
-  left: -2%;
-  right: -2%;
+  left: 0;
   bottom: -0.22em;
-  width: 104%;
+  width: 100%;
   height: 0.32em;
   overflow: visible;
   pointer-events: none;
