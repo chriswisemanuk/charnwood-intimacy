@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Squiggle from '../components/Squiggle.astro';
 import WaveDivider from '../components/WaveDivider.astro';
-import { WEB3FORMS_ACCESS_KEY, PHONE, PHONE_HREF, EMAIL, EMAIL_HREF } from '../consts';
+import { PHONE, PHONE_HREF, EMAIL, EMAIL_HREF } from '../consts';
 
 const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 const times = ['Morning', 'Afternoon', 'Evening'];
@@ -44,12 +44,9 @@ const times = ['Morning', 'Afternoon', 'Evening'];
         <form
           id="booking-form"
           class="booking-form"
-          action="https://api.web3forms.com/submit"
+          action="/api/booking"
           method="POST"
         >
-          <input type="hidden" name="access_key" value={WEB3FORMS_ACCESS_KEY} />
-          <input type="hidden" name="subject" value="New session booking request from charnwoodintimacy.co.uk" />
-          <input type="hidden" name="from_name" value="Charnwood Intimacy booking form" />
           <input type="checkbox" name="botcheck" class="visually-hidden" tabindex="-1" autocomplete="off" />
 
           <fieldset>
@@ -345,12 +342,10 @@ const times = ['Morning', 'Afternoon', 'Evening'];
         });
         const result = await response.json();
         if (result.success) {
-          successEl?.removeAttribute('hidden');
-          successEl?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          form.reset();
-        } else {
-          errorEl?.removeAttribute('hidden');
+          window.location.href = '/booking-thank-you/';
+          return;
         }
+        errorEl?.removeAttribute('hidden');
       } catch {
         errorEl?.removeAttribute('hidden');
       } finally {

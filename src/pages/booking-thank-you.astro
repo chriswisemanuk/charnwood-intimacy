@@ -1,0 +1,126 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Squiggle from '../components/Squiggle.astro';
+import WaveDivider from '../components/WaveDivider.astro';
+import CTAButton from '../components/CTAButton.astro';
+---
+<BaseLayout
+  title="Thank you for your booking request | Charnwood Intimacy"
+  description="Your booking request has been submitted, here's what happens next."
+  path="/booking-thank-you/"
+>
+  <Fragment slot="head">
+    <meta name="robots" content="noindex" />
+  </Fragment>
+
+  <section class="section thank-hero">
+    <div class="container">
+      <p class="eyebrow">Your booking</p>
+      <h1>Thank you for your booking request</h1>
+      <Squiggle />
+      <p class="lead">
+        It has been successfully sent and we will be in contact with you as soon as possible.
+      </p>
+    </div>
+  </section>
+
+  <WaveDivider from="var(--cream)" to="var(--blush)" />
+
+  <section class="section section--blush">
+    <div class="container">
+      <h2>Here's what happens next&hellip;</h2>
+      <div class="steps">
+        <div class="step card">
+          <span class="step-number">1</span>
+          <h3>We'll be in touch</h3>
+          <p>
+            Jo will contact you, initially by email in most cases, to arrange a suitable time and
+            date for a free assessment to take place.
+          </p>
+          <p>
+            Occasionally emails can end up in junk mail folders, so if you've not heard from us
+            within two working days, please check your spam.
+          </p>
+        </div>
+        <div class="step card">
+          <span class="step-number">2</span>
+          <h3>Attend a free assessment</h3>
+          <p>
+            Your initial assessment will take place. This is a free initial 30 minute
+            conversation, in person or online.
+          </p>
+          <p>
+            It allows us to get a better sense of your needs, answer any questions you have, and
+            make sure we can offer you the right support.
+          </p>
+        </div>
+        <div class="step card">
+          <span class="step-number">3</span>
+          <h3>Arrange your first session</h3>
+          <p>
+            If it feels right for you both, Jo will arrange for your first session to take place,
+            at a time that works for you both, in person in Loughborough or online.
+          </p>
+        </div>
+      </div>
+      <div class="thank-actions">
+        <CTAButton href="/" variant="teal">Back to the homepage</CTAButton>
+        <CTAButton href="/what-to-expect/" variant="link">What to expect from therapy &rarr;</CTAButton>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .thank-hero {
+    background: var(--cream);
+    padding-bottom: 48px;
+  }
+  .lead {
+    max-width: 640px;
+    font-size: 1.12rem;
+    color: var(--text-soft);
+  }
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 12px;
+  }
+  .step {
+    position: relative;
+    padding-top: 56px;
+  }
+  .step-number {
+    position: absolute;
+    top: 22px;
+    left: 32px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--coral);
+    color: var(--white);
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.15rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .step p {
+    color: var(--text-soft);
+    font-size: 0.98rem;
+  }
+  .thank-actions {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-top: 36px;
+  }
+  @media (max-width: 860px) {
+    .steps {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

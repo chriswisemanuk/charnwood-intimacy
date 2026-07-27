@@ -20,9 +20,6 @@ export const ADDRESS_LINES = [
 // booking experience with a form handled by Web3Forms.
 export const BOOKING_URL = '/booking/';
 
-// Web3Forms (https://web3forms.com) provides working static-site contact
-// forms with no backend server required, which suits a static Astro site
-// deployed on Cloudflare Pages. Jo needs to create a free access key at
-// web3forms.com (using her own email address) and paste it in here before
-// the forms will deliver messages. See README.md for full instructions.
-export const WEB3FORMS_ACCESS_KEY = 'REPLACE_WITH_YOUR_WEB3FORMS_ACCESS_KEY';
+// Form processing is handled by the Cloudflare Worker (worker/index.js),
+// which sends email through the practice's Brevo account. See README.md
+// for the one-off setup steps (API key secret and sender verification).

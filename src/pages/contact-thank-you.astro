@@ -1,0 +1,79 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Squiggle from '../components/Squiggle.astro';
+import WaveDivider from '../components/WaveDivider.astro';
+import CTAButton from '../components/CTAButton.astro';
+import { PHONE, PHONE_HREF } from '../consts';
+---
+<BaseLayout
+  title="Thank you for your message | Charnwood Intimacy"
+  description="Your message has been sent, here's what happens next."
+  path="/contact-thank-you/"
+>
+  <Fragment slot="head">
+    <meta name="robots" content="noindex" />
+  </Fragment>
+
+  <section class="section thank-hero">
+    <div class="container">
+      <p class="eyebrow">Your message</p>
+      <h1>Thank you for getting in touch</h1>
+      <Squiggle />
+      <p class="lead">
+        Your message has been successfully sent and we will get back to you as soon as possible,
+        usually within two working days.
+      </p>
+      <p class="lead">
+        Occasionally emails can end up in junk mail folders, so if you've not heard from us
+        within two working days, please check your spam. If it's easier, you can also reach us
+        by text message or WhatsApp on <a href={PHONE_HREF}>{PHONE}</a>.
+      </p>
+      <div class="thank-actions">
+        <CTAButton href="/" variant="teal">Back to the homepage</CTAButton>
+        <CTAButton href="/what-we-help-with/" variant="link">See what we help with &rarr;</CTAButton>
+      </div>
+    </div>
+  </section>
+
+  <WaveDivider from="var(--cream)" to="var(--blush)" />
+
+  <section class="section--tight section--blush">
+    <div class="container">
+      <p class="note">
+        If your enquiry was about booking a session, you can also use our
+        {' '}<a href="/booking/">booking form</a> to tell us your availability, and we'll arrange
+        a free 30 minute initial assessment.
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .thank-hero {
+    background: var(--cream);
+    padding-bottom: 48px;
+  }
+  .lead {
+    max-width: 660px;
+    font-size: 1.12rem;
+    color: var(--text-soft);
+  }
+  .lead a {
+    font-weight: 600;
+  }
+  .thank-actions {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-top: 12px;
+  }
+  .note {
+    max-width: 660px;
+    color: var(--text-soft);
+    margin: 0;
+  }
+  .note a {
+    font-weight: 600;
+  }
+</style>

@@ -1,5 +1,5 @@
 ---
-import { WEB3FORMS_ACCESS_KEY, EMAIL } from '../consts';
+import { EMAIL } from '../consts';
 
 interface Props {
   formTitle?: string;
@@ -20,12 +20,9 @@ const formId = `form-${Math.random().toString(36).slice(2, 9)}`;
   <form
     id={formId}
     class="contact-form"
-    action="https://api.web3forms.com/submit"
+    action="/api/contact"
     method="POST"
   >
-    <input type="hidden" name="access_key" value={WEB3FORMS_ACCESS_KEY} />
-    <input type="hidden" name="subject" value={subject} />
-    <input type="hidden" name="from_name" value="Charnwood Intimacy website" />
     {/* Honeypot field, keeps simple bots from submitting the form */}
     <input type="checkbox" name="botcheck" class="visually-hidden" tabindex="-1" autocomplete="off" />
 
@@ -152,11 +149,10 @@ const formId = `form-${Math.random().toString(36).slice(2, 9)}`;
         const result = await response.json();
 
         if (result.success) {
-          successEl?.removeAttribute('hidden');
-          formEl.reset();
-        } else {
-          errorEl?.removeAttribute('hidden');
+          window.location.href = '/contact-thank-you/';
+          return;
         }
+        errorEl?.removeAttribute('hidden');
       } catch (err) {
         errorEl?.removeAttribute('hidden');
       } finally {

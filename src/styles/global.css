@@ -47,7 +47,14 @@ html {
 }
 
 html, body {
-  overflow-x: clip;
+  overflow-x: hidden;
+  overscroll-behavior-x: none;
+}
+
+@supports (overflow-x: clip) {
+  html, body {
+    overflow-x: clip;
+  }
 }
 
 body {
@@ -377,6 +384,15 @@ p {
 .framed-photo img {
   border-radius: var(--radius);
   box-shadow: 0 18px 44px rgba(15, 68, 74, 0.22);
+}
+
+@media (max-width: 860px) {
+  .framed-photo {
+    display: block;
+  }
+  .framed-photo::after {
+    inset: 12px -10px -10px 12px;
+  }
 }
 
 

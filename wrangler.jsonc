@@ -3,8 +3,22 @@
   // deploy updates that Worker instead of creating a new one. You can see
   // the exact name in the Cloudflare dashboard under Workers & Pages.
   "name": "charnwood-intimacy",
+  "main": "worker/index.js",
   "compatibility_date": "2026-03-02",
   "assets": {
-    "directory": "./dist"
+    "directory": "./dist",
+    "binding": "ASSETS"
+  },
+  "vars": {
+    // SENDER_EMAIL must be a sender verified in your Brevo account.
+    // talk@charnwoodintimacy.co.uk needs verifying in Brevo before launch;
+    // until then you can temporarily use talk@charnwoodcounselling.co.uk,
+    // which is already verified.
+    "SENDER_EMAIL": "talk@charnwoodintimacy.co.uk",
+    "SENDER_NAME": "Charnwood Intimacy",
+    "NOTIFY_EMAIL": "talk@charnwoodintimacy.co.uk"
   }
+  // The Brevo API key is a SECRET and must NOT go in this file or the repo.
+  // Set it once with:  npx wrangler secret put BREVO_API_KEY
+  // or in the dashboard: Worker > Settings > Variables & Secrets > Add > Secret.
 }

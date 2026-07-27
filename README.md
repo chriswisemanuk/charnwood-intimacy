@@ -13,15 +13,27 @@ out below so nothing inaccurate goes live.
 
 ## Before this goes live
 
-1. **Get a Web3Forms access key** so the contact form actually delivers
-   emails. This is free and takes about a minute:
-   - Go to https://web3forms.com and enter the email address you want
-     enquiries sent to (e.g. Jo's inbox).
-   - You'll receive an access key by email. Copy it.
-   - Open `src/consts.ts` and replace `REPLACE_WITH_YOUR_WEB3FORMS_ACCESS_KEY`
-     with that key.
-   - That's it, no other backend setup is needed. The form works from a
-     plain static site with no server.
+1. **Connect Brevo** so the booking and contact forms deliver email, the
+   same way the Charnwood Counselling WordPress site does:
+   - The forms post to the Cloudflare Worker (`worker/index.js`), which
+     sends two transactional emails through Brevo: the submission to the
+     practice, and a "request received" confirmation to the client.
+   - Add your Brevo API key as a SECRET on the Worker. Either run
+     `npx wrangler secret put BREVO_API_KEY` from this folder, or in the
+     Cloudflare dashboard go to the Worker > Settings > Variables & Secrets
+     and add BREVO_API_KEY as a Secret (not a plain variable).
+   - NEVER put the API key in this repo, in wrangler.jsonc, or anywhere in
+     the site code. Anyone with the key can send email from your Brevo
+     account and read your contacts.
+   - Verify `talk@charnwoodintimacy.co.uk` as a sender in Brevo
+     (Brevo > Senders, Domains & Dedicated IPs). Until it's verified,
+     change SENDER_EMAIL in wrangler.jsonc to
+     `talk@charnwoodcounselling.co.uk`, which is already verified, or
+     Brevo will reject the sends.
+   - SENDER_EMAIL, SENDER_NAME and NOTIFY_EMAIL (where submissions are
+     delivered) are set in wrangler.jsonc under "vars".
+   - After a successful submission, visitors land on /booking-thank-you/ or
+     /contact-thank-you/, mirroring the parent site's confirmation page.
 
 2. **Confirm with Jo before publishing:**
    - Exact session fees (`src/pages/pricing-and-booking.astro` and the

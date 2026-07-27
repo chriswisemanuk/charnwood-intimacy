@@ -38,6 +38,7 @@ const sliderId = `slider-${Math.random().toString(36).slice(2, 8)}`;
     scroll-behavior: smooth;
     padding: 8px clamp(20px, 4vw, 60px) 8px;
     scrollbar-width: none;
+    overscroll-behavior-x: contain;
   }
 
   .photo-slider::-webkit-scrollbar {

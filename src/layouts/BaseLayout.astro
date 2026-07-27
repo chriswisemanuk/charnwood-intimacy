@@ -38,6 +38,7 @@ const ogImage = new URL('/images/og-image.jpg', SITE_URL).toString();
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png" />
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <meta name="theme-color" content="#0f444a" />
+    <slot name="head" />
   </head>
   <body>
     <a href="#content" class="visually-hidden">Skip to content</a>
