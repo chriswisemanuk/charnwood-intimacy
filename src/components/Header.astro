@@ -1,6 +1,7 @@
 ---
 import { conditions } from '../data/conditions';
 import { BOOKING_URL } from '../consts';
+import Picture from './Picture.astro';
 
 const navLinks = [
   { href: '/your-therapist/', label: 'Your Therapist' },
@@ -13,7 +14,7 @@ const navLinks = [
 <header class="site-header">
   <div class="header-inner">
     <a href="/" class="logo-link" aria-label="Charnwood Intimacy home">
-      <img src="/images/logo-intimacy-header.png" alt="Charnwood Intimacy, part of the Charnwood Counselling group" width="1698" height="430" />
+      <Picture src="/images/logo-intimacy-header.png" alt="Charnwood Intimacy, part of the Charnwood Counselling group" width={760} height={192} loading="eager" fetchpriority="high" />
     </a>
 
     <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="primary-nav">

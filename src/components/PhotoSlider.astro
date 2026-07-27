@@ -3,6 +3,8 @@
   Full-width, edge-to-edge photo slider (Self Space-style), using CSS
   scroll-snap with previous/next buttons. No external libraries.
 */
+import Picture from './Picture.astro';
+
 interface Props {
   photos: { src: string; alt: string }[];
   onDark?: boolean;
@@ -14,7 +16,7 @@ const sliderId = `slider-${Math.random().toString(36).slice(2, 8)}`;
   <div class="photo-slider" id={sliderId} tabindex="0" aria-label="Photo gallery, scroll or use the arrow buttons">
     {photos.map((p) => (
       <div class="slide">
-        <img src={p.src} alt={p.alt} loading="lazy" width="1100" height="733" />
+        <Picture src={p.src} alt={p.alt} width={900} height={600} />
       </div>
     ))}
   </div>

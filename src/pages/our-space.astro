@@ -4,6 +4,7 @@ import Squiggle from '../components/Squiggle.astro';
 import CTAButton from '../components/CTAButton.astro';
 import WaveDivider from '../components/WaveDivider.astro';
 import PhotoSlider from '../components/PhotoSlider.astro';
+import Picture from '../components/Picture.astro';
 import { BOOKING_URL } from '../consts';
 
 const gallery = [
@@ -37,7 +38,7 @@ const gallery = [
         <CTAButton href={BOOKING_URL} variant="primary">Book a session</CTAButton>
       </div>
       <div class="framed-photo">
-        <img src="/images/our-space-room.jpg" alt="The therapy room at The Old Arts College, Loughborough" width="1600" height="1200" />
+        <Picture src="/images/our-space-room.jpg" alt="The therapy room at The Old Arts College, Loughborough" width={1100} height={825} loading="eager" fetchpriority="high" />
       </div>
     </div>
   </section>

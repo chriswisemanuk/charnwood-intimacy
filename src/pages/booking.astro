@@ -48,7 +48,8 @@ const turnstileEnabled = TURNSTILE_SITE_KEY !== 'REPLACE_WITH_YOUR_TURNSTILE_SIT
           action="/api/booking"
           method="POST"
         >
-          <input type="checkbox" name="botcheck" class="visually-hidden" tabindex="-1" autocomplete="off" />
+          <input type="checkbox" name="botcheck" class="visually-hidden" tabindex="-1"
+      autocomplete="off" aria-hidden="true" aria-label="Leave this field blank" />
 
           <fieldset>
             <legend>Your details</legend>

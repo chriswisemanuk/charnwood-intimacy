@@ -1,4 +1,5 @@
 ---
+import Picture from './Picture.astro';
 import { PHONE, PHONE_HREF, EMAIL, EMAIL_HREF, ADDRESS_LINES, PARENT_SITE_URL, PARENT_SITE_NAME } from '../consts';
 const year = new Date().getFullYear();
 ---
@@ -6,7 +7,7 @@ const year = new Date().getFullYear();
   <div class="container footer-inner">
     <div class="footer-brand">
       <a href={PARENT_SITE_URL} target="_blank" rel="noopener">
-        <img src="/images/logo-counselling.png" alt="Charnwood Counselling" width="852" height="202" class="footer-logo" />
+        <Picture src="/images/logo-counselling.png" alt="Charnwood Counselling" width={460} height={109} class="footer-logo" />
       </a>
       <p class="footer-group-line">Part of the Charnwood Counselling Group</p>
       <p class="footer-tagline">Psychosexual &amp; Intimacy Therapy in Loughborough, and online across the UK.</p>

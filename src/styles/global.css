@@ -1,10 +1,13 @@
-@import '@fontsource/cabin/500.css';
-@import '@fontsource/cabin/600.css';
-@import '@fontsource/cabin/700.css';
-@import '@fontsource/onest/400.css';
-@import '@fontsource/onest/500.css';
-@import '@fontsource/onest/600.css';
-@import '@fontsource/onest/700.css';
+/* Latin subsets only: the site never renders cyrillic or vietnamese, and the
+   full files declare every subset, which bloats the CSS and confuses browsers
+   into considering fonts they will never use. */
+@import '@fontsource/cabin/latin-500.css';
+@import '@fontsource/cabin/latin-600.css';
+@import '@fontsource/cabin/latin-700.css';
+@import '@fontsource/onest/latin-400.css';
+@import '@fontsource/onest/latin-500.css';
+@import '@fontsource/onest/latin-600.css';
+@import '@fontsource/onest/latin-700.css';
 
 :root {
   /* Charnwood family palette, sampled directly from the parent

@@ -25,7 +25,8 @@ const turnstileEnabled = TURNSTILE_SITE_KEY !== 'REPLACE_WITH_YOUR_TURNSTILE_SIT
     method="POST"
   >
     {/* Honeypot field, keeps simple bots from submitting the form */}
-    <input type="checkbox" name="botcheck" class="visually-hidden" tabindex="-1" autocomplete="off" />
+    <input type="checkbox" name="botcheck" class="visually-hidden" tabindex="-1"
+      autocomplete="off" aria-hidden="true" aria-label="Leave this field blank" />
 
     <div class="form-row">
       <label for={`${formId}-name`}>Your Name <span aria-hidden="true">*</span></label>

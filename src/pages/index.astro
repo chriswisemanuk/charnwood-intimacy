@@ -5,6 +5,7 @@ import ConditionsGrid from '../components/ConditionsGrid.astro';
 import OurSpaceSection from '../components/OurSpaceSection.astro';
 import PricingBookingSection from '../components/PricingBookingSection.astro';
 import ContactForm from '../components/ContactForm.astro';
+import Picture from '../components/Picture.astro';
 import WaveDivider from '../components/WaveDivider.astro';
 import { BOOKING_URL } from '../consts';
 
@@ -61,7 +62,7 @@ const howCanHelp = [
         <div class="framed-photo hero-illustration">
           <picture>
             <source srcset="/images/illustrations/static/therapy-room.svg" media="(prefers-reduced-motion: reduce)" />
-            <img src="/images/illustrations/therapy-room.svg" alt="" width="680" height="460" />
+            <img src="/images/illustrations/therapy-room.svg" alt="" width="680" height="460" fetchpriority="high" />
           </picture>
         </div>
         <img class="hero-badge" src="/images/fox-badge.png" alt="" aria-hidden="true" width="480" height="480" />
@@ -164,7 +165,7 @@ const howCanHelp = [
   <section class="section section--white">
     <div class="container therapist-grid">
       <div class="therapist-photo framed-photo">
-        <img src="/images/jo-wiseman.jpg" alt="Jo Wiseman, Founder & Psychotherapist" width="800" height="1000" loading="lazy" />
+        <Picture src="/images/jo-wiseman.jpg" alt="Jo Wiseman, Founder & Psychotherapist" width={700} height={875} />
       </div>
       <div>
         <p class="eyebrow">Meet your therapist</p>

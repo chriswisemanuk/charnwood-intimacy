@@ -1,0 +1,32 @@
+# Cloudflare Workers serves static assets with
+# "Cache-Control: public, max-age=0, must-revalidate" by default, which makes
+# every repeat visitor revalidate every file. These rules fix that.
+
+# Astro's build output is fingerprinted (a content hash in the filename), so it
+# can be cached forever: a change produces a new filename.
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Images, illustrations and fonts change rarely. A week of browser caching with
+# revalidation afterwards is a safe balance.
+/images/*
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Favicons
+/favicon.ico
+  Cache-Control: public, max-age=604800
+/favicon-*.png
+  Cache-Control: public, max-age=604800
+
+# Keep the preview URL out of search results. Harmless once the custom domain
+# is live, and it stops the workers.dev copy competing with the real site.
+https://:worker.:subdomain.workers.dev/*
+  X-Robots-Tag: noindex
+
+# Baseline security headers for every page
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: SAMEORIGIN
