@@ -33,8 +33,13 @@
   --green: #5baa45;
   --green-dark: #468236;
   --lime: #b0d137;
-  --coral: #ef4538;
+  --coral: #ef4538;          /* decorative only: checkmarks, underline swoosh */
   --coral-dark: #cf372b;
+  /* Text-safe coral, used for the eyebrow labels and form error text.
+     #cf372b only reaches 4.08 on cream-alt and 4.15 on blush, so it failed
+     on the beige sections. #b82f22 clears 4.5 on every background here:
+     6.06 white, 5.61 cream, 4.98 cream-alt, 5.07 blush. */
+  --coral-text: #b82f22;
   --blush: #fae7e2;
   --blush-deep: #f5d5cd;
   --text: #1d2327;
@@ -152,7 +157,7 @@ p {
   display: inline-block;
   font-family: var(--font-heading);
   font-weight: 700;
-  color: var(--coral-dark);
+  color: var(--coral-text);
   text-transform: uppercase;
   letter-spacing: 0.08em;
   font-size: 0.85rem;
