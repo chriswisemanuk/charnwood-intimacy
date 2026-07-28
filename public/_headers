@@ -25,8 +25,17 @@
 https://:worker.:subdomain.workers.dev/*
   X-Robots-Tag: noindex
 
-# Baseline security headers for every page
+# Baseline security headers for every page.
+#
+# Cross-Origin-Opener-Policy severs the window.opener link when a page here
+# opens a cross-origin window, so the other site cannot reach back into this
+# one. Safe for this site: the only target="_blank" links (the parent site,
+# BACP, COSRT, the ICO) are plain navigations that never need opener access,
+# and Turnstile and Zaraz both use iframes rather than popups, which COOP does
+# not affect. If a future booking or payment tool needs a popup that talks back
+# to the page, relax this to same-origin-allow-popups.
 /*
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   X-Frame-Options: SAMEORIGIN
+  Cross-Origin-Opener-Policy: same-origin
