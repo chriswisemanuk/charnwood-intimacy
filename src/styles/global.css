@@ -19,8 +19,17 @@
   --teal-dark: #0f444a;
   --teal-dark-2: #0b363b;
   --teal-bright: #00a8a8;
-  --orange: #e56423;
+  --orange: #e56423;        /* decorative only: borders, focus rings, accents */
   --orange-dark: #c2531b;
+  /* Text-safe orange. #e56423 only reaches 3.15 on cream and 3.40 behind white
+     button text, both below the WCAG AA minimum of 4.5 for normal-sized text.
+     These two clear it on every background the site uses:
+     #b04510 -> 5.67 white, 5.26 cream, 4.66 cream-alt, 4.75 blush
+     #963a0c -> 6.9+ on all four (hover/active)
+     Every light background the site uses is covered, including the beige
+     cream-alt and blush sections where #b84a12 fell just short at 4.29. */
+  --orange-text: #b04510;
+  --orange-text-hover: #963a0c;
   --green: #5baa45;
   --green-dark: #468236;
   --lime: #b0d137;
@@ -79,12 +88,12 @@ img {
 }
 
 a {
-  color: var(--orange);
+  color: var(--orange-text);
   text-decoration: none;
 }
 
 a:hover {
-  color: var(--orange-dark);
+  color: var(--orange-text-hover);
 }
 
 h1, h2, h3, h4 {
@@ -181,26 +190,26 @@ p {
 }
 
 .btn-primary {
-  background: var(--orange);
-  border-color: var(--orange);
+  background: var(--orange-text);
+  border-color: var(--orange-text);
   color: var(--white);
-  box-shadow: 0 6px 18px rgba(229, 100, 35, 0.35);
+  box-shadow: 0 6px 18px rgba(176, 69, 16, 0.32);
 }
 
 .btn-primary:hover {
-  background: var(--orange-dark);
-  border-color: var(--orange-dark);
+  background: var(--orange-text-hover);
+  border-color: var(--orange-text-hover);
   color: var(--white);
 }
 
 .btn-outline {
   background: transparent;
-  border-color: var(--orange);
-  color: var(--orange);
+  border-color: var(--orange-text);
+  color: var(--orange-text);
 }
 
 .btn-outline:hover {
-  background: var(--orange);
+  background: var(--orange-text);
   color: var(--white);
 }
 
@@ -229,14 +238,14 @@ p {
 .btn-link {
   background: transparent;
   border: none;
-  color: var(--orange);
+  color: var(--orange-text);
   padding: 0;
   border-radius: 0;
   font-weight: 700;
 }
 
 .btn-link:hover {
-  color: var(--orange-dark);
+  color: var(--orange-text-hover);
   transform: none;
 }
 
