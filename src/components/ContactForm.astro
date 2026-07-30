@@ -78,16 +78,32 @@ const turnstileEnabled = TURNSTILE_SITE_KEY !== 'REPLACE_WITH_YOUR_TURNSTILE_SIT
     grid-template-columns: 1fr 1fr;
     gap: 20px 24px;
     max-width: 760px;
+    /* Containing block for the off-screen Turnstile row below */
+    position: relative;
   }
 
   .form-row--full {
     grid-column: 1 / -1;
   }
 
-  /* The Turnstile widget only appears when a challenge is required, so this
-     row should not create a gap in the grid the rest of the time. */
+  /*
+    Keeping the Turnstile row out of the grid until a challenge is actually
+    drawn, so it does not leave a gap above the submit button.
+
+    This MUST NOT use display:none. Turnstile cannot initialise inside a
+    hidden element, so it never issues a token, never creates an iframe, and
+    the :has(iframe) condition can never become true. That deadlock silently
+    breaks every submission. Positioning it off-screen instead keeps the
+    element rendered and full size, so the widget runs normally. The moment
+    it draws a challenge the selector stops matching and the row returns to
+    its proper place in the form.
+  */
   .form-row--turnstile:not(:has(iframe)) {
-    display: none;
+    position: absolute;
+    top: 0;
+    left: -10000px;
+    width: 300px;
+    height: 65px;
   }
 
   label {
