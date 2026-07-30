@@ -43,4 +43,4 @@ export const PRICE_RANGE: string = '';
 // Create a widget at Cloudflare dashboard > Turnstile, then paste its site
 // key below. While this is left as the placeholder the widget is not shown
 // and the Worker skips verification, so the forms keep working.
-export const TURNSTILE_SITE_KEY = 'REPLACE_WITH_YOUR_TURNSTILE_SITE_KEY';
+export const TURNSTILE_SITE_KEY = '0x4AAAAAAD-8XKm6wrJEyUYC';
