@@ -1,0 +1,93 @@
+---
+/*
+  Ad attribution and conversion events.
+
+  Two jobs:
+
+  1. Capture the Google Ads click id (gclid, or gbraid/wbraid for iOS app and
+     web-to-app journeys) and any UTM parameters, then attach them as hidden
+     fields to the enquiry forms. The practice notification email then shows
+     which enquiries came from an ad, which is what makes spend measurable.
+
+  2. Fire a named Zaraz event on the thank-you pages, so the Google Ads
+     conversion can be triggered off a clean event rather than a URL match.
+
+  Consent: the click id is only persisted between pages if the visitor has
+  agreed to the analytics/marketing purpose. Storing it otherwise would be
+  storing a tracking identifier without consent, which PECR does not allow.
+  If they have not consented, the id is still read from the current URL, so a
+  visitor who lands directly on a form page is attributed without anything
+  being stored on their device.
+*/
+---
+<script is:inline>
+  (function () {
+    var KEYS = ['gclid', 'gbraid', 'wbraid', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
+    var STORE = 'ci_attribution';
+
+    function fromUrl() {
+      try {
+        var p = new URLSearchParams(window.location.search);
+        var found = {};
+        KEYS.forEach(function (k) { var v = p.get(k); if (v) found[k] = v.slice(0, 200); });
+        return found;
+      } catch (e) { return {}; }
+    }
+
+    function hasMarketingConsent() {
+      try {
+        if (!window.zaraz || !window.zaraz.consent) return false;
+        var all = window.zaraz.consent.getAll ? window.zaraz.consent.getAll() : null;
+        if (!all) return false;
+        return Object.keys(all).some(function (k) { return all[k] === true; });
+      } catch (e) { return false; }
+    }
+
+    function read() {
+      var url = fromUrl();
+      if (Object.keys(url).length) {
+        if (hasMarketingConsent()) {
+          try { sessionStorage.setItem(STORE, JSON.stringify(url)); } catch (e) {}
+        }
+        return url;
+      }
+      try {
+        var saved = sessionStorage.getItem(STORE);
+        return saved ? JSON.parse(saved) : {};
+      } catch (e) { return {}; }
+    }
+
+    function attachToForms() {
+      var data = read();
+      if (!Object.keys(data).length) return;
+      document.querySelectorAll('form[action^="/api/"]').forEach(function (form) {
+        Object.keys(data).forEach(function (k) {
+          if (form.querySelector('input[name="' + k + '"]')) return;
+          var input = document.createElement('input');
+          input.type = 'hidden';
+          input.name = k;
+          input.value = data[k];
+          form.appendChild(input);
+        });
+      });
+    }
+
+    // Re-run after consent is given, in case the visitor accepts before submitting
+    document.addEventListener('DOMContentLoaded', attachToForms);
+    if (document.readyState !== 'loading') attachToForms();
+    document.addEventListener('zarazConsentChoicesUpdated', attachToForms);
+
+    // Conversion events on the thank-you pages
+    var path = window.location.pathname;
+    var event = path.indexOf('/booking-thank-you') === 0 ? 'booking_request'
+              : path.indexOf('/contact-thank-you') === 0 ? 'contact_enquiry'
+              : null;
+    if (event) {
+      var fire = function () {
+        try { window.zaraz && window.zaraz.track && window.zaraz.track(event, read()); } catch (e) {}
+      };
+      if (window.zaraz && window.zaraz.track) fire();
+      else document.addEventListener('zarazLoaded', fire);
+    }
+  })();
+</script>

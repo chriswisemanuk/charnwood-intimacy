@@ -26,9 +26,17 @@ const { title, variant = 'alt' } = Astro.props;
   }
   .info-body :global(ul) {
     display: grid;
-    gap: 0.7em;
+    gap: 0.7em 40px;
     padding-left: 1.3em;
     font-size: 1.05rem;
     color: var(--text-soft);
+  }
+
+  /* Long lists read better as two columns on wide screens, and it stops a
+     tall single column leaving a large gap before the next section. */
+  @media (min-width: 900px) {
+    .info-body :global(ul) {
+      grid-template-columns: 1fr 1fr;
+    }
   }
 </style>

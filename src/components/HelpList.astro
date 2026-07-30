@@ -5,7 +5,7 @@ interface Props {
 }
 const { title = 'How therapy can help', items } = Astro.props;
 ---
-<section class="section section--white">
+<section class="section section--white help-section">
   <div class="container">
     <div class="help-card card--dark">
       <h3>{title}</h3>
@@ -17,7 +17,21 @@ const { title = 'How therapy can help', items } = Astro.props;
 </section>
 
 <style>
+  .help-section {
+    padding-top: 40px;
+  }
+
   .help-card {
     max-width: 780px;
+  }
+
+  @media (min-width: 900px) {
+    .help-card {
+      max-width: 100%;
+    }
+    .help-card :global(.check-list) {
+      grid-template-columns: 1fr 1fr;
+      gap: 0.9em 40px;
+    }
   }
 </style>

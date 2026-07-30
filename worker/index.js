@@ -147,6 +147,22 @@ async function handleForm(request, env, config, origin) {
     return { ok: false, error: 'Missing required fields.' };
   }
 
+  /*
+    Ad attribution. These come from hidden fields added by AdAttribution.astro
+    when someone arrives from a Google Ads click or a tagged link. Appended to
+    the practice email only, never to the client confirmation.
+  */
+  const attributionFields = [
+    ['gclid', 'Google Ads click id'],
+    ['gbraid', 'Google Ads click id (gbraid)'],
+    ['wbraid', 'Google Ads click id (wbraid)'],
+    ['utm_source', 'Campaign source'],
+    ['utm_medium', 'Campaign medium'],
+    ['utm_campaign', 'Campaign name'],
+    ['utm_term', 'Campaign term'],
+    ['utm_content', 'Campaign content'],
+  ];
+
   // Practice notification: a simple table of everything submitted
   const rows = config.fields
     .map(([key, label]) => {
@@ -158,6 +174,21 @@ async function handleForm(request, env, config, origin) {
     .filter(Boolean)
     .join('');
 
+  const attributionRows = attributionFields
+    .map(([key, label]) => {
+      const v = (data.get(key) || '').toString().trim();
+      if (!v) return '';
+      return `<tr><td style="padding:4px 14px 4px 0;vertical-align:top;color:#555;">${esc(label)}</td>` +
+             `<td style="padding:4px 0;color:#555;">${esc(v)}</td></tr>`;
+    })
+    .filter(Boolean)
+    .join('');
+
+  const attributionBlock = attributionRows
+    ? `<p style="margin:22px 0 6px;font-size:12px;color:#777;">Where this enquiry came from</p>` +
+      `<table cellpadding="0" cellspacing="0" style="font-size:13px;">${attributionRows}</table>`
+    : '';
+
   const sender = { email: env.SENDER_EMAIL, name: env.SENDER_NAME || 'Charnwood Intimacy' };
 
   await sendBrevo(env, {
@@ -168,6 +199,7 @@ async function handleForm(request, env, config, origin) {
     htmlContent:
       `<html><body style="font-family:Georgia,serif;color:#1d2327;">` +
       `<table cellpadding="0" cellspacing="0">${rows}</table>` +
+      attributionBlock +
       `</body></html>`,
   });
 
