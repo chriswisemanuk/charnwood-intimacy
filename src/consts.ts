@@ -5,8 +5,8 @@ export const PARENT_SITE_NAME = 'Charnwood Counselling';
 
 export const PHONE = '07920 686343';
 export const PHONE_HREF = 'tel:+447920686343';
-export const EMAIL = 'talk@charnwoodintimacy.co.uk';
-export const EMAIL_HREF = 'mailto:talk@charnwoodintimacy.co.uk';
+export const EMAIL = 'talk@charnwoodcounselling.co.uk';
+export const EMAIL_HREF = 'mailto:talk@charnwoodcounselling.co.uk';
 
 export const ADDRESS_LINES = [
   'Floor 2',
