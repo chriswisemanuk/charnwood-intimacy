@@ -28,11 +28,7 @@ export const OPENING_HOURS = {
   opens: '08:00',
   closes: '19:00',
 };
-// Empty until Jo confirms the introductory fee. The pages deliberately say
-// fees are confirmed on enquiry rather than naming a number, so publishing one
-// only in the markup would be the mismatch the note above warns about.
-// Set it (e.g. 'From £60') and priceRange reappears in the structured data.
-export const PRICE_RANGE: string = '';
+export const PRICE_RANGE = 'From £60';
 
 // Form processing is handled by the Cloudflare Worker (worker/index.js),
 // which sends email through the practice's Brevo account. See README.md

@@ -55,7 +55,7 @@ export const localBusiness = {
   email: EMAIL,
   address,
   areaServed,
-  ...(PRICE_RANGE ? { priceRange: PRICE_RANGE } : {}),
+  priceRange: PRICE_RANGE,
   currenciesAccepted: 'GBP',
   openingHoursSpecification: [
     {

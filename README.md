@@ -55,11 +55,7 @@ out below so nothing inaccurate goes live.
 
 3. **Confirm with Jo before publishing:**
    - Exact session fees (`src/pages/pricing-and-booking.astro` and the
-     homepage currently describe "introductory rates" without a number).
-     Once the fee is settled, set `PRICE_RANGE` in `src/consts.ts` (e.g.
-     `'From £60'`) and the `priceRange` field returns to the structured
-     data. It is deliberately empty for now, so Google is not told a figure
-     the pages themselves do not state.
+     homepage currently describe "introductory rates" without a number)
    - Her exact current COSRT/CICS registration wording
      (`src/pages/your-therapist.astro`)
    - The cancellation policy wording (`src/pages/pricing-and-booking.astro`)

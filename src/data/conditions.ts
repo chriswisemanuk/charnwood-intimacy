@@ -14,7 +14,7 @@ export const conditions: ConditionPage[] = [
     slug: 'low-desire-and-libido-therapy',
     navLabel: 'Low Desire & Mismatched Libido',
     title: 'Low Desire & Mismatched Libido',
-    metaTitle: 'Low Libido & Mismatched Desire Therapy | Charnwood Intimacy',
+    metaTitle: 'Low Libido & Mismatched Sex Drive Therapy | Charnwood Intimacy',
     metaDescription:
       "Support for low sexual desire and mismatched libido, individually or as a couple. Confidential sex therapy in Loughborough and online across the UK.",
     heroKicker: 'Low libido & desire differences',
@@ -38,7 +38,7 @@ export const conditions: ConditionPage[] = [
     slug: 'erectile-dysfunction-and-performance-anxiety-therapy',
     navLabel: 'Erectile Dysfunction & Performance Anxiety',
     title: 'Erectile Dysfunction & Performance Anxiety',
-    metaTitle: 'Erectile Dysfunction Therapy | Charnwood Intimacy',
+    metaTitle: 'Erectile Dysfunction & Performance Anxiety Therapy | Charnwood Intimacy',
     metaDescription:
       'Talking therapy for erectile dysfunction, performance anxiety, and premature or delayed ejaculation. Confidential support in Loughborough and online.',
     heroKicker: 'Erections, ejaculation & performance worries',
@@ -62,7 +62,7 @@ export const conditions: ConditionPage[] = [
     slug: 'compulsive-sexual-behaviour-therapy',
     navLabel: 'Compulsive Sexual Behaviour & Porn Use',
     title: 'Compulsive Sexual Behaviour & Porn Use',
-    metaTitle: 'Compulsive Sexual Behaviour Therapy | Charnwood Intimacy',
+    metaTitle: 'Compulsive Sexual Behaviour & Porn Use Therapy | Charnwood Intimacy',
     metaDescription:
       "Non-judgemental therapy for compulsive sexual behaviour and concerns about porn use. Understand what's happening and find a way forward.",
     heroKicker: 'Porn use & compulsive sexual behaviour',
