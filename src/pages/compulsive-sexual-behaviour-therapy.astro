@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import IsThisYou from '../components/IsThisYou.astro';
 import InfoSection from '../components/InfoSection.astro';
-import HelpList from '../components/HelpList.astro';
+import CausesAndHelp from '../components/CausesAndHelp.astro';
 import MiniTeasers from '../components/MiniTeasers.astro';
 import WaveDivider from '../components/WaveDivider.astro';
 import { service, breadcrumb } from '../data/schema';
@@ -60,24 +60,21 @@ import { service, breadcrumb } from '../data/schema';
     </p>
   </InfoSection>
 
-
   <WaveDivider from="var(--cream-alt)" to="var(--white)" flip />
 
-  <InfoSection title="What can contribute to this" variant="white">
-    <ul>
-      <li>Using sex or pornography as a way of managing stress, anxiety or difficult emotions</li>
-      <li>Patterns that developed early and have become harder to shift over time</li>
-      <li>Underlying anxiety, low mood or past experiences that haven't been addressed</li>
-      <li>Shame itself, which can often make the behaviour harder to change, not easier</li>
-    </ul>
-  </InfoSection>
-
-  <HelpList
-    items={[
-      'Understand what the behaviour is doing for you emotionally',
-      'Reduce shame, which often reduces the grip of the behaviour itself',
-      'Build alternative ways of managing difficult feelings',
-      'Repair trust and communication with a partner, where relevant',
+  <CausesAndHelp
+    causesTitle="What can contribute to this"
+    causes={[
+      "Using sex or pornography as a way of managing stress, anxiety or difficult emotions",
+      "Patterns that developed early and have become harder to shift over time",
+      "Underlying anxiety, low mood or past experiences that haven't been addressed",
+      "Shame itself, which can often make the behaviour harder to change, not easier",
+    ]}
+    help={[
+      "Understand what the behaviour is doing for you emotionally",
+      "Reduce shame, which often reduces the grip of the behaviour itself",
+      "Build alternative ways of managing difficult feelings",
+      "Repair trust and communication with a partner, where relevant",
     ]}
   />
 
