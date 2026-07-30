@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import IsThisYou from '../components/IsThisYou.astro';
 import InfoSection from '../components/InfoSection.astro';
-import HelpList from '../components/HelpList.astro';
+import CausesAndHelp from '../components/CausesAndHelp.astro';
 import SafetyNote from '../components/SafetyNote.astro';
 import MiniTeasers from '../components/MiniTeasers.astro';
 import WaveDivider from '../components/WaveDivider.astro';
@@ -60,28 +60,22 @@ import { service, breadcrumb } from '../data/schema';
     </p>
   </InfoSection>
 
-
   <WaveDivider from="var(--cream-alt)" to="var(--white)" flip />
 
-  <InfoSection title="What can cause painful sex?" variant="white">
-    <ul>
-      <li>A learned protective response, sometimes with no clear starting point</li>
-      <li>Anxiety or fear about pain, which can itself increase muscle tension</li>
-      <li>
-        Underlying physical causes, including skin conditions, infections or hormonal changes,
-        which is why a GP check is always a sensible first step
-      </li>
-      <li>Past experiences of pain, trauma or difficult medical procedures</li>
-      <li>Limited or unclear sex education around what to expect from penetration</li>
-    </ul>
-  </InfoSection>
-
-  <HelpList
-    items={[
-      'Understand the pattern behind the pain, physical and psychological together',
-      'Reduce fear and anticipatory anxiety that can make tensing worse',
-      'Work gradually and gently, always at a pace you control',
-      'Build confidence and comfort with your own body, with or without a partner involved',
+  <CausesAndHelp
+    causesTitle="What can cause painful sex?"
+    causes={[
+      "A learned protective response, sometimes with no clear starting point",
+      "Anxiety or fear about pain, which can itself increase muscle tension",
+      "Underlying physical causes, including skin conditions, infections or hormonal changes, which is why a GP check is always a sensible first step",
+      "Past experiences of pain, trauma or difficult medical procedures",
+      "Limited or unclear sex education around what to expect from penetration",
+    ]}
+    help={[
+      "Understand the pattern behind the pain, physical and psychological together",
+      "Reduce fear and anticipatory anxiety that can make tensing worse",
+      "Work gradually and gently, always at a pace you control",
+      "Build confidence and comfort with your own body, with or without a partner involved",
     ]}
   />
 
