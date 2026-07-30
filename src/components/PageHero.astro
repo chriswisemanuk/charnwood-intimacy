@@ -107,8 +107,12 @@ const hasVisual = !!(image || illustration);
 
   .page-hero-illustration img {
     aspect-ratio: 680 / 500;
-    object-fit: contain;
-    background: var(--white);
+    object-fit: cover;
+    /* No background. Each illustration carries its own blush panel with
+       matching 16px rounded corners, so a background here only shows as a
+       pale sliver at the edges when the box and the artwork do not round to
+       the same pixel. */
+    background: transparent;
   }
 
   @media (max-width: 860px) {
