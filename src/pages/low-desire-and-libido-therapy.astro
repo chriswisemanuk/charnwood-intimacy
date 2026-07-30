@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import IsThisYou from '../components/IsThisYou.astro';
 import InfoSection from '../components/InfoSection.astro';
-import CausesAndHelp from '../components/CausesAndHelp.astro';
+import HelpList from '../components/HelpList.astro';
 import MiniTeasers from '../components/MiniTeasers.astro';
 import WaveDivider from '../components/WaveDivider.astro';
 import { service, breadcrumb } from '../data/schema';
@@ -56,23 +56,26 @@ import { service, breadcrumb } from '../data/schema';
     </p>
   </InfoSection>
 
+
   <WaveDivider from="var(--cream-alt)" to="var(--white)" flip />
 
-  <CausesAndHelp
-    causesTitle="What can affect desire?"
-    causes={[
-      "Hormonal changes, including pregnancy, postnatal recovery and menopause",
-      "Stress, exhaustion and the demands of everyday life",
-      "Medication, including some antidepressants and contraception",
-      "Relationship factors: unresolved conflict, resentment or emotional distance",
-      "Anxiety, low mood or low self-esteem",
-      "Past experiences that have shaped how safe or comfortable sex feels",
-    ]}
-    help={[
+  <InfoSection title="What can affect desire?" variant="white">
+    <ul>
+      <li>Hormonal changes, including pregnancy, postnatal recovery and menopause</li>
+      <li>Stress, exhaustion and the demands of everyday life</li>
+      <li>Medication, including some antidepressants and contraception</li>
+      <li>Relationship factors: unresolved conflict, resentment or emotional distance</li>
+      <li>Anxiety, low mood or low self-esteem</li>
+      <li>Past experiences that have shaped how safe or comfortable sex feels</li>
+    </ul>
+  </InfoSection>
+
+  <HelpList
+    items={[
       "Understand what's really behind the change in your desire, rather than guessing",
-      "Reduce pressure and guilt around sex, for you or within your relationship",
-      "Find a shared language with a partner to talk about desire without blame",
-      "Rebuild a sense of wanting sex on your own terms, not out of obligation",
+      'Reduce pressure and guilt around sex, for you or within your relationship',
+      'Find a shared language with a partner to talk about desire without blame',
+      'Rebuild a sense of wanting sex on your own terms, not out of obligation',
     ]}
   />
 

@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import IsThisYou from '../components/IsThisYou.astro';
 import InfoSection from '../components/InfoSection.astro';
-import CausesAndHelp from '../components/CausesAndHelp.astro';
+import HelpList from '../components/HelpList.astro';
 import SafetyNote from '../components/SafetyNote.astro';
 import MiniTeasers from '../components/MiniTeasers.astro';
 import WaveDivider from '../components/WaveDivider.astro';
@@ -61,22 +61,25 @@ import { service, breadcrumb } from '../data/schema';
     </p>
   </InfoSection>
 
+
   <WaveDivider from="var(--cream-alt)" to="var(--white)" flip />
 
-  <CausesAndHelp
-    causesTitle="Effects this work can help with"
-    causes={[
-      "Avoidance of sex or physical closeness",
-      "Flashbacks, dissociation or feeling 'not present' during intimacy",
-      "Difficulty feeling safe with a partner, even a trusted one",
-      "Complicated feelings about your own sexuality since the experience",
-      "Shame or self-blame that logically you know isn't fair, but still feels real",
-    ]}
-    help={[
-      "A safe, paced space with no pressure to disclose more than feels right",
-      "Understanding the lasting effects of trauma on the body and on intimacy",
-      "Rebuilding a sense of safety and choice, in your body and in relationships",
-      "Support alongside other help you may already be receiving",
+  <InfoSection title="Effects this work can help with" variant="white">
+    <ul>
+      <li>Avoidance of sex or physical closeness</li>
+      <li>Flashbacks, dissociation or feeling 'not present' during intimacy</li>
+      <li>Difficulty feeling safe with a partner, even a trusted one</li>
+      <li>Complicated feelings about your own sexuality since the experience</li>
+      <li>Shame or self-blame that logically you know isn't fair, but still feels real</li>
+    </ul>
+  </InfoSection>
+
+  <HelpList
+    items={[
+      'A safe, paced space with no pressure to disclose more than feels right',
+      'Understanding the lasting effects of trauma on the body and on intimacy',
+      'Rebuilding a sense of safety and choice, in your body and in relationships',
+      'Support alongside other help you may already be receiving',
     ]}
   />
 

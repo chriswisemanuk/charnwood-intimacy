@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import IsThisYou from '../components/IsThisYou.astro';
 import InfoSection from '../components/InfoSection.astro';
-import CausesAndHelp from '../components/CausesAndHelp.astro';
+import HelpList from '../components/HelpList.astro';
 import SafetyNote from '../components/SafetyNote.astro';
 import MiniTeasers from '../components/MiniTeasers.astro';
 import WaveDivider from '../components/WaveDivider.astro';
@@ -61,22 +61,28 @@ import { service, breadcrumb } from '../data/schema';
     </p>
   </InfoSection>
 
+
   <WaveDivider from="var(--cream-alt)" to="var(--white)" flip />
 
-  <CausesAndHelp
-    causesTitle="What can contribute to these difficulties?"
-    causes={[
-      "Anxiety, whether about sex specifically or more generally",
-      "Relationship stress or a fear of disappointing a partner",
-      "Physical factors, including health conditions, medication and alcohol, which is why a GP check is a sensible starting point",
-      "A single difficult experience that has become a source of ongoing worry",
-      "Unrealistic expectations, often shaped by pornography, about what sex 'should' look like",
-    ]}
-    help={[
+  <InfoSection title="What can contribute to these difficulties?" variant="white">
+    <ul>
+      <li>Anxiety, whether about sex specifically or more generally</li>
+      <li>Relationship stress or a fear of disappointing a partner</li>
+      <li>
+        Physical factors, including health conditions, medication and alcohol, which is why a GP
+        check is a sensible starting point
+      </li>
+      <li>A single difficult experience that has become a source of ongoing worry</li>
+      <li>Unrealistic expectations, often shaped by pornography, about what sex 'should' look like</li>
+    </ul>
+  </InfoSection>
+
+  <HelpList
+    items={[
       "Break the cycle of anxiety and physical response feeding each other",
-      "Rebuild confidence gradually, without pressure to perform",
-      "Learn practical techniques alongside the emotional work",
-      "Talk openly with a partner about what’s happening, without shame",
+      'Rebuild confidence gradually, without pressure to perform',
+      'Learn practical techniques alongside the emotional work',
+      'Talk openly with a partner about what’s happening, without shame',
     ]}
   />
 
