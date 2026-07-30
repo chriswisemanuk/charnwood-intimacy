@@ -138,13 +138,20 @@ async function handleForm(request, env, config, origin) {
 
   const turnstile = await verifyTurnstile(request, env, data.get('cf-turnstile-response'));
   if (!turnstile.ok) {
-    return { ok: false, error: 'Verification failed. Please try again.' };
+    return { ok: false, stage: 'turnstile', detail: turnstile.reason };
   }
 
   const clientEmail = (data.get('email') || '').toString().trim();
   const clientName = (data.get('name') || '').toString().trim();
   if (!clientEmail || !clientName) {
-    return { ok: false, error: 'Missing required fields.' };
+    return { ok: false, stage: 'fields' };
+  }
+
+  if (!env.BREVO_API_KEY) {
+    return { ok: false, stage: 'config', detail: 'BREVO_API_KEY not set' };
+  }
+  if (!env.SENDER_EMAIL || !env.NOTIFY_EMAIL) {
+    return { ok: false, stage: 'config', detail: 'SENDER_EMAIL or NOTIFY_EMAIL not set' };
   }
 
   /*
@@ -191,17 +198,22 @@ async function handleForm(request, env, config, origin) {
 
   const sender = { email: env.SENDER_EMAIL, name: env.SENDER_NAME || 'Charnwood Intimacy' };
 
-  await sendBrevo(env, {
-    sender,
-    to: [{ email: env.NOTIFY_EMAIL }],
-    replyTo: { email: clientEmail, name: clientName },
-    subject: config.subjectToPractice,
-    htmlContent:
-      `<html><body style="font-family:Georgia,serif;color:#1d2327;">` +
-      `<table cellpadding="0" cellspacing="0">${rows}</table>` +
-      attributionBlock +
-      `</body></html>`,
-  });
+  try {
+    await sendBrevo(env, {
+      sender,
+      to: [{ email: env.NOTIFY_EMAIL }],
+      replyTo: { email: clientEmail, name: clientName },
+      subject: config.subjectToPractice,
+      htmlContent:
+        `<html><body style="font-family:Georgia,serif;color:#1d2327;">` +
+        `<table cellpadding="0" cellspacing="0">${rows}</table>` +
+        attributionBlock +
+        `</body></html>`,
+    });
+  } catch (e) {
+    console.log('Practice notification failed:', e.message);
+    return { ok: false, stage: 'brevo', detail: e.message };
+  }
 
   // Confirmation to the client. If this fails, the practice still has the
   // enquiry, so treat it as non-fatal.
@@ -257,12 +269,25 @@ export default {
         result = await handleForm(request, env, config, url.origin);
       } catch (e) {
         console.log('Form error:', e.message);
-        result = { ok: false, error: 'Sending failed.' };
+        result = { ok: false, stage: 'unexpected', detail: e.message };
       }
 
       const wantsJson = (request.headers.get('accept') || '').includes('application/json');
       if (wantsJson) {
-        return new Response(JSON.stringify({ success: result.ok }), {
+        /*
+          `stage` names which step failed (turnstile / fields / config / brevo).
+          It is here so a failing form can be diagnosed from the browser in one
+          submission instead of guessing. `detail` is only returned when
+          DEBUG_FORMS is set to "1", because Brevo's error text can echo back
+          configuration, and that should not be public. Turn DEBUG_FORMS off
+          again once the forms are confirmed working.
+        */
+        const body = { success: result.ok };
+        if (!result.ok) {
+          body.stage = result.stage || 'unknown';
+          if (env.DEBUG_FORMS === '1' && result.detail) body.detail = result.detail;
+        }
+        return new Response(JSON.stringify(body), {
           status: result.ok ? 200 : 500,
           headers: { 'content-type': 'application/json' },
         });
