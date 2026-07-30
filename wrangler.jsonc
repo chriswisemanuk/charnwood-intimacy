@@ -19,9 +19,9 @@
     // talk@charnwoodintimacy.co.uk needs verifying in Brevo before launch;
     // until then you can temporarily use talk@charnwoodcounselling.co.uk,
     // which is already verified.
-    "SENDER_EMAIL": "talk@charnwoodintimacy.co.uk",
+    "SENDER_EMAIL": "talk@charnwoodcounselling.co.uk",
     "SENDER_NAME": "Charnwood Intimacy",
-    "NOTIFY_EMAIL": "talk@charnwoodintimacy.co.uk"
+    "NOTIFY_EMAIL": "talk@charnwoodcounselling.co.uk"
   }
   // The Brevo API key is a SECRET and must NOT go in this file or the repo.
   // Set it once with:  npx wrangler secret put BREVO_API_KEY
