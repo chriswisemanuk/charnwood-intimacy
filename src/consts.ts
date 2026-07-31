@@ -1,6 +1,6 @@
 export const SITE_NAME = 'Charnwood Intimacy';
 export const SITE_URL = 'https://www.charnwoodintimacy.co.uk';
-export const PARENT_SITE_URL = 'https://www.charnwoodcounselling.co.uk';
+export const PARENT_SITE_URL = 'https://charnwoodcounselling.co.uk';
 export const PARENT_SITE_NAME = 'Charnwood Counselling';
 
 export const PHONE = '07920 686343';
