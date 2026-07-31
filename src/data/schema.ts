@@ -24,6 +24,28 @@ import {
 
 export const ORG_ID = `${SITE_URL}/#organisation`;
 export const THERAPIST_ID = `${SITE_URL}/#jo-wiseman`;
+export const WEBSITE_ID = `${SITE_URL}/#website`;
+
+/*
+  WebSite schema. This is the signal Google uses to decide the site name shown
+  above the URL in search results, and it has to be on the HOME PAGE to count.
+  Without it Google falls back to guessing, which is why the domain was showing
+  instead of "Charnwood Intimacy".
+
+  `name` is the preferred form and `alternateName` gives Google a fallback for
+  narrow layouts. Google treats both as hints, not instructions, so this makes
+  the right name available rather than guaranteeing it.
+*/
+export const website = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': WEBSITE_ID,
+  url: `${SITE_URL}/`,
+  name: SITE_NAME,
+  alternateName: 'Charnwood Intimacy Psychosexual Therapy',
+  publisher: { '@id': ORG_ID },
+  inLanguage: 'en-GB',
+};
 
 const address = {
   '@type': 'PostalAddress',
